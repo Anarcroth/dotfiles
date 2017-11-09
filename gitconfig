@@ -3,20 +3,31 @@
   status = auto
   branch = auto
   interactive = auto
-  ui = true
+	ui = auto
+	ui = true
 	pager = true
 [color "status"]
   added = cyan bold
   changed = red bold
-  untracked = green bold
+	untracked = green bold
+[color "branch"]
+	current = blue bold
+	local = magenta bold
+	remote = green bold
+[color "log"]
+	author = cyan
 [user]
 	email = mdinestorov@gmail.com
-	name = Martin (Anarcroth)
+	name = Martin Nestorov
 [alias]
 	lg = log --graph --format='%h %d %an %cr %s'
 	up = pull --rebase
 	br = branch --verbose
 	sfp = push --force-with-lease
 	st = status
+	civ = commit --verbose
+	co = checkout
+[github]
+	user = Anarcroth
 [help]
 	autocorrect = 30
