@@ -27,6 +27,8 @@
 	st = status
 	civ = commit --verbose
 	co = checkout
+	ad = add .
+	cim = commit -m
 [github]
 	user = Anarcroth
 [help]
