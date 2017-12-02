@@ -29,7 +29,7 @@
 	co = checkout
 	ad = add .
 	cim = commit -m
-	pom = psuh origin master
+	pom = push origin master
 [github]
 	user = Anarcroth
 [help]
