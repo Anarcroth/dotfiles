@@ -98,3 +98,9 @@ function exit_t() {
 }
 zle -N exit_t{,}
 bindkey ^x exit_t
+
+function sens() {
+	sensors
+}
+zle -N sens{,}
+bindkey ^s sens
