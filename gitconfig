@@ -27,7 +27,7 @@
 	st = status
 	civ = commit --verbose
 	co = checkout
-	ad = add . -p
+	ad = add .
 	cim = commit -m
 	pom = push origin master
 	qfix = commit -p --amend --no-edit
