@@ -93,12 +93,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
-function exit_t() {
-	exit
-}
-zle -N exit_t{,}
-bindkey ^x exit_t
-
 function sens() {
 	sensors
 }
