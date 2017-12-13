@@ -20,7 +20,7 @@
 	email = mdinestorov@gmail.com
 	name = Martin Nestorov
 [alias]
-	lg = log --all --stat --graph --format='%h %d %an %cr %s'
+	lg = log --all --stat --pretty=oneline --graph --format='%h %d %an %cr %s'
 	up = pull --rebase
 	br = branch --verbose
 	sfp = push --force-with-lease
