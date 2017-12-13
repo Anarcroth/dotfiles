@@ -20,16 +20,17 @@
 	email = mdinestorov@gmail.com
 	name = Martin Nestorov
 [alias]
-	lg = log --graph --format='%h %d %an %cr %s'
+	lg = log --all --stat --graph --format='%h %d %an %cr %s'
 	up = pull --rebase
 	br = branch --verbose
 	sfp = push --force-with-lease
 	st = status
 	civ = commit --verbose
 	co = checkout
-	ad = add .
+	ad = add . -p
 	cim = commit -m
 	pom = push origin master
+	qfix = commit -p --amend --no-edit
 [github]
 	user = Anarcroth
 [help]
