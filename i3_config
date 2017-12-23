@@ -92,16 +92,22 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set  $feh exec --no-startup-id feh --bg-scale
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace10 "10: "
+
+#set $feh exec --no-startup-id feh --bg-scale
 
 # switch to workspace
-bindsym $mod+1 workspace 1
+bindsym $mod+1 workspace $workspace1
 # ; $feh ~/Pictures/asteroidsurf.png
-bindsym $mod+2 workspace 2
+bindsym $mod+2 workspace $workspace2
 # ; $feh ~/Pictures/bigscarryplanet.png
-bindsym $mod+3 workspace 3
+bindsym $mod+3 workspace $workspace3
 # ; $feh ~/Pictures/bluesky.png
-bindsym $mod+4 workspace 4
+bindsym $mod+4 workspace $workspace4
 # ; $feh ~/Pictures/fez.png
 bindsym $mod+5 workspace 5
 # ; $feh ~/Pictures/pixelwave.png
@@ -113,20 +119,25 @@ bindsym $mod+8 workspace 8
 # ; $feh ~/Pictures/space.png
 bindsym $mod+9 workspace 9
 # ; $feh ~/Pictures/bluespacegalaxy.png
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace $workspace10
 # ; $feh ~/Pictures/magicstar.pang
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+assign [class="Firefox"] $workspace1
+assign [class="gnome-terminal"] $workspace2
+assign [class="Emacs"] $workspace3
+assign [class="Audacious"] $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -191,3 +202,5 @@ bindsym XF86AudioPrev exec playerctl previous
 
 exec firefox
 exec emacs
+exec gnome-termnial
+exec_always feh --bg-scale /home/mdn/Pictures/keyboard-2.png
