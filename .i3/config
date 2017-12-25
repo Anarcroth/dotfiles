@@ -103,29 +103,17 @@ set $workspace5 "5 "
 set $workspace9 "9 "
 set $workspace10 "10 "
 
-#set $feh exec --no-startup-id feh --bg-scale
-
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
-# ; $feh ~/Pictures/asteroidsurf.png
 bindsym $mod+2 workspace $workspace2
-# ; $feh ~/Pictures/bigscarryplanet.png
 bindsym $mod+3 workspace $workspace3
-# ; $feh ~/Pictures/bluesky.png
 bindsym $mod+4 workspace $workspace4
-# ; $feh ~/Pictures/fez.png
 bindsym $mod+5 workspace $workspace5
-# ; $feh ~/Pictures/pixelwave.png
 bindsym $mod+6 workspace 6
-# ; $feh ~/Pictures/riverstone.png
 bindsym $mod+7 workspace 7
-# ; $feh ~/Pictures/spacewalk.png
 bindsym $mod+8 workspace 8
-# ; $feh ~/Pictures/space.png
 bindsym $mod+9 workspace $workspace9
-# ; $feh ~/Pict2res/bluespacegalaxy.png
 bindsym $mod+0 workspace $workspace10
-# ; $feh ~/Pictures/magicstar.pang
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
