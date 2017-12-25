@@ -1,0 +1,18 @@
+# This script has been taken from https://www.reddit.com/r/unixporn/comments/3358vu/i3lock_unixpornworthy_lock_screen/
+# from user `Babel2` and modified/used for my personal needs. I take no credit into the creation of this piece of code.
+
+#!/bin/bash
+
+IMAGE=/tmp/lockscreen.png
+TEXT=/tmp/locktext.png
+ICON=$HOME/.config/i3/lock.png
+
+scrot $IMAGE
+convert $IMAGE -scale 10% -scale 1000% -fill black -colorize 25% $IMAGE
+[ -f $TEXT ] || {
+    convert -size 300060 xc:black -font Jaapokki -pointsize 26 -fill black -gravity center -annotate +0+0 'Password goes here' $TEXT;
+    convert $TEXT -alpha set -channel A -evaluate set 50% $TEXT;
+}
+convert $IMAGE $TEXT -gravity center -geometry +0+200 -composite $IMAGE
+convert $IMAGE $ICON -gravity center -composite -matte $IMAGE
+i3lock -u -i $IMAGE
