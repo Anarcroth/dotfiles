@@ -15,7 +15,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 # font pango:Jaapokkisubtract 9
 # font pango:Jaapokkienchance 9
-font pango:Jaapokki 11
+font pango: Jaapokki 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -38,7 +38,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -bw 8 -width 30 -padding 3 -color-window "#031621" "#025C8D" -color-normal "#013450" "#025C8D" "#05293D" -color-urgent "#ff0000" -color-active "#025C8D" -font "Jaapokki 13" -lines 5 -separator-style none -hide-scrollbar
+bindsym $mod+d exec rofi -show run -config /home/mdn/.config/rofi/.Xresources
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -95,11 +95,11 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "1: "
-set $workspace2 "2: "
-set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace10 "10: "
+set $workspace1 "1 "
+set $workspace2 "2 "
+set $workspace3 "3 "
+set $workspace9 "9 "
+set $workspace10 "10 "
 
 #set $feh exec --no-startup-id feh --bg-scale
 
@@ -110,7 +110,7 @@ bindsym $mod+2 workspace $workspace2
 # ; $feh ~/Pictures/bigscarryplanet.png
 bindsym $mod+3 workspace $workspace3
 # ; $feh ~/Pictures/bluesky.png
-bindsym $mod+4 workspace $workspace4
+bindsym $mod+4 workspace 4
 # ; $feh ~/Pictures/fez.png
 bindsym $mod+5 workspace 5
 # ; $feh ~/Pictures/pixelwave.png
@@ -120,7 +120,7 @@ bindsym $mod+7 workspace 7
 # ; $feh ~/Pictures/spacewalk.png
 bindsym $mod+8 workspace 8
 # ; $feh ~/Pictures/space.png
-bindsym $mod+9 workspace 9
+bindsym $mod+9 workspace $workspace9
 # ; $feh ~/Pict2res/bluespacegalaxy.png
 bindsym $mod+0 workspace $workspace10
 # ; $feh ~/Pictures/magicstar.pang
@@ -129,18 +129,18 @@ bindsym $mod+0 workspace $workspace10
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 assign [class="Firefox"] $workspace1
 assign [class="Google-chrome"] $workspace2
 assign [class="Emacs"] $workspace3
-assign [class="Gnome-terminal"] $workspace4
+assign [class="Gnome-terminal"] $workspace9
 assign [class="Audacious"] $workspace10
 
 # reload the configuration file
@@ -176,18 +176,19 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color             #2f343f
-set $inactive-bg-color    #2f343f
-set $text-color           #f3f4f5
-set $inactive-text-color  #676E7D
-set $urgent-bg-color      #E53935
+set $bg-color             #022232
+set $inactive-bg-color    #022232
+set $dim-text             #044362
+set $text-color           #DAE7FF
+set $urgent-bg-color      #9B6500
+set $urgent-fg-text       #FFF4DF
 
 # window color
 #                       border             background         text                 indicator
 client.focused          $bg-color          $bg-color          $text-color          #000000 
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #000000
-client.focused-inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #000000
-client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          #000000
+client.unfocused        $inactive-bg-color $inactive-bg-color $dim-text            #000000
+client.focused-inactive $inactive-bg-color $inactive-bg-color $dim-color           #000000
+client.urgent           $urgent-bg-color   $urgent-bg-color   $urgent-fg-text      #000000
 
 hide_edge_borders both
 
@@ -195,18 +196,18 @@ hide_edge_borders both
 # finds out, if available)
 bar {
         status_command i3blocks
-        position top
+        position bottom
         colors {
                background $bg-color
-               separator #757575
+               separator #00757575
                #                  border             background         text
-               focused_workspace  $bg-color          $bg-color          $text-color 
-               inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-               urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+               focused_workspace  $text-color        $bg-color          $text-color 
+               inactive_workspace $inactive-bg-color $inactive-bg-color $dim-text
+               urgent_workspace   $urgent-bg-color   $urgent-bg-color   $urgent-fg-text
         }
 }
 
-exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant ,, -option "grp:alt_shift_toggle"
+exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant -option "grp:alt_shift_toggle"
 
 bindsym $mod+Control+l exec i3lock
 
@@ -228,7 +229,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec compton -f
+exec_always compton -f
 exec firefox
 exec emacs
 exec gnome-terminal
