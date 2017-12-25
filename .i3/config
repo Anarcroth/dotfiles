@@ -201,7 +201,7 @@ bar {
                background $bg-color
                separator #00757575
                #                  border             background         text
-               focused_workspace  $text-color        $bg-color          $text-color 
+               focused_workspace  $bg-color        $bg-color          $text-color 
                inactive_workspace $inactive-bg-color $inactive-bg-color $dim-text
                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $urgent-fg-text
         }
