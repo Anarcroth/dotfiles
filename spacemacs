@@ -104,7 +104,7 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'emacs
+   dotspacemacs-editing-style 'hybrid
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -132,13 +132,6 @@ values."
    dotspacemacs-themes '(gotham
                          spacemacs-light
                          afternoon
-                         bubbleberry
-                         clues
-                         dakrone
-                         deeper-blue
-                         farmhouse-dark
-                         flatland
-                         fogus
                          grandshell
                          tao-yin
                          manoj-dark
@@ -334,14 +327,6 @@ you should place your code here."
     (interactive "sDuckDuckGo for: ")
     (let ((url-format "https://duckduckgo.com/html/?q=%s&kd=-1"))
       (eww (format url-format (url-hexify-string search-string)))))
-;;  (use-package shell-pop
-;;    :bind (("C-t" . shell-pop))
-;;    :config
-;;    (setq shell-pop-shell-type (quote ("ansi-term" "*ansi-term*" (lambda nil (ansi-term shell-pop-term-shell)))))
-;;    (setq shell-pop-term-shell "/bin/zsh")
-;;    ;; need to do this manually or not picked up by `shell-pop'
-;;    (shell-pop--set-shell-type 'shell-pop-shell-type shell-pop-shell-type))
-
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -352,6 +337,12 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(bongo-enabled-backends (quote (vlc mplayer)))
+ '(c-default-style
+   (quote
+    ((other . "k&r")
+     (java-mode . "java")
+     (awk-mode . "awk")
+     (other . "gnu"))))
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
