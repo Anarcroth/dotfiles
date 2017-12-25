@@ -96,8 +96,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 set $workspace1 "1 "
-set $workspace2 "2 "
-set $workspace3 "3 "
+set $workspace2 "2 "
+set $workspace3 "3 "
 set $workspace9 "9 "
 set $workspace10 "10 "
 
@@ -138,8 +138,8 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 assign [class="Firefox"] $workspace1
-assign [class="Google-chrome"] $workspace2
-assign [class="Emacs"] $workspace3
+assign [class="Emacs"] $workspace2
+assign [class="Google-chrome"] $workspace3
 assign [class="Gnome-terminal"] $workspace9
 assign [class="Audacious"] $workspace10
 
@@ -201,7 +201,7 @@ bar {
                background $bg-color
                separator #00757575
                #                  border             background         text
-               focused_workspace  $bg-color        $bg-color          $text-color 
+               focused_workspace  $bg-color          $bg-color          $text-color 
                inactive_workspace $inactive-bg-color $inactive-bg-color $dim-text
                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $urgent-fg-text
         }
@@ -209,7 +209,7 @@ bar {
 
 exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant -option "grp:alt_shift_toggle"
 
-bindsym $mod+Control+l exec i3lock
+bindsym $mod+Control+l exec bash lock
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -229,7 +229,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec_always compton -f
+exec_always compton -D 2 -O 0.02 -I 0.0.2
 exec firefox
 exec emacs
 exec gnome-terminal
