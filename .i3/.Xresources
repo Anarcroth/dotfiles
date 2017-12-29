@@ -4,17 +4,17 @@
 ! hlbg - Background color selected row
 ! hlfg - Foreground color selected row
 ! State:                 'bg',     'fg',            'bgalt',         'hlbg',    'hlfg'
-rofi.color-normal: argb: 00022232,  #8F9CA3,  argb: 00022232,  argb: FF8F9CA3,  #022232
+rofi.color-normal: argb: 00021D2E,  #11C4B7,  argb: 00022232,  argb: FF8F9CA3,  #022232
 rofi.color-urgent: argb: 00412302,  #B9AA97,  argb: 00412302,  argb: FFB9AA97,  #412302
 rofi.color-active: argb: 00022232,  #9B5300,  argb: 00041534,  argb: FF412302,  #9B5300
 ! State:             'background',       'border',      'separator'
-rofi.color-window: argb: EB031D29, argb: E905122B,  argb: 00031D29
-rofi.width: 28
-rofi.lines: 5
-rofi.columns: 2
-rofi.font: Jaapokki 15
-rofi.Be: 8
-rofi.padding: 2
+rofi.color-window: argb: EB051323, argb: EDCAFFFB,  argb: 00031D29
+rofi.width: 55
+rofi.lines: 7
+rofi.columns: 3
+rofi.font: Jaapokki 17
+rofi.bw: 8
+rofi.padding: 50
 rofi.eh: 1
 rofi.separator-style: none
 rofi.hide-scrollbar: true
@@ -23,3 +23,4 @@ rofi.sort: true
 rofi.sidebar-mode: true
 rofi.fake-background: screenshots
 rofi.cycle: true
+rofi.fullscreen: false
