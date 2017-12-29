@@ -12,7 +12,7 @@ convert $IMAGE -scale 10% -scale 1000% -fill black -colorize 25% $IMAGE
 [ -f $TEXT ] || {
     convert -size 3000x60 xc:#022232 -font Jaapokkisubtract-Regular -pointsize 26 -fill xc:#8F9CA3 -gravity center -annotate +0+0 'Insert password here' $TEXT;
 
-    convert $TEXT -alpha set -channel A -evaluate set 50% $TEXT;
+    convert $TEXT -alpha set -channel A -evaluate set 70% $TEXT;
 }
 convert $IMAGE $TEXT -gravity center -geometry +0+200 -composite $IMAGE
 convert $IMAGE $ICON -gravity center -composite -matte $IMAGE
