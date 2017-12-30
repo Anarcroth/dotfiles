@@ -271,7 +271,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec_always compton -f#-D 1 -O 0.2 -I 0.2 -i 0.1
+exec_always compton -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g = "Rofi"' --focus-exclude 'class_g = "Rofi"' 
 exec firefox
 exec emacs
 exec gnome-pomodoro
