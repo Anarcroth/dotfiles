@@ -182,11 +182,11 @@ set $urgent-fg-text       #FF1B1B
 set $blank                #000000
 
 # window color
-# class                 border     background  text    indicator    child_border
-client.focused          $blank     $blank      $blank  $text-color  $text-color
-client.focused-inactive $blank     $blank      $blank  $text-color  $text-color
-client.unfocused        $blank     $blank      $blank  $text-color  $text-color
-client.urgent           $blank     $blank      $blank  $text-color  $text-color
+# class                 border            background        text             indicator    child_border
+client.focused          $text-color       $bg-color         $text-color      $text-color  $text-color
+#client.focused-inactive $blank            $blank            $dim-text        $text-color  $text-color
+client.unfocused        $bg-color         $bg-color         $dim-text        $text-color  $text-color
+client.urgent           $urgent-bg-color  $urgent-bg-color  $urgent-fg-text  $text-color  $text-color
 
 hide_edge_borders both
 
@@ -271,7 +271,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec_always compton -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g = "Rofi"' --focus-exclude 'class_g = "Rofi"' 
+exec compton -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g = "Rofi"' --focus-exclude 'class_g = "Rofi"' --paint-on-overlay = false
 exec firefox
 exec emacs
 exec gnome-pomodoro
