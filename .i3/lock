@@ -3,6 +3,8 @@
 
 #!/bin/bash
 
+killall compton
+
 IMAGE=/tmp/lockscreen.png
 TEXT=/tmp/locktext.png
 ICON=$HOME/.config/i3/lock.png
@@ -16,4 +18,6 @@ convert $IMAGE -scale 10% -scale 1000% -fill black -colorize 25% $IMAGE
 }
 convert $IMAGE $TEXT -gravity center -geometry +0+200 -composite $IMAGE
 convert $IMAGE $ICON -gravity center -composite -matte $IMAGE
-i3lock -u -i $IMAGE
+i3lock -n -u -i $IMAGE
+
+compton -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g = "Rofi"' --focus-exclude 'class_g = "Rofi"'
