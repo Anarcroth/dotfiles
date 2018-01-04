@@ -52,18 +52,23 @@ values."
      spell-checking
      syntax-checking
      version-control
-     themes-megapack
      my-spaceline
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer/home/mdn/reveal.js-3.6.0. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(ox-reveal)
+   dotspacemacs-additional-packages '(ox-reveal
+                                      nlinum)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(firebelly-theme
+                                    niflheim-theme
+                                    pastels-on-dark-theme
+                                    tronesque-theme
+                                    zonokai-theme
+                                    eyebrowse)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -256,7 +261,7 @@ values."
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
-   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smooth-scrolling nil
    ;; Control line numbers activation.
    ;; If set to `t' or `relative' line numbers are turned on in all `prog-mode' and
    ;; `text-mode' derivatives. If set to `relative', line numbers are relative.
@@ -321,8 +326,6 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  (global-set-key (kbd "M-p") 'ace-window)
-
   (require 'helm-bookmark)
   (put 'helm-make-build-dir 'safe-local-variable 'stringp)
 
@@ -331,11 +334,9 @@ you should place your code here."
     (let ((url-format "https://duckduckgo.com/html/?q=%s&kd=-1"))
       (eww (format url-format (url-hexify-string search-string)))))
 
-  (global-visual-line-mode 1)
+  (nlinum-mode 1)
 
   (add-hook 'after-init-hook #'neotree-toggle)
-
-  (push '(other . "k&r") c-default-style)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -345,6 +346,8 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(all-the-icons-default-adjust -0.2)
+ '(all-the-icons-scale-factor 1.2)
  '(bongo-enabled-backends (quote (vlc mplayer)))
  '(c-default-style
    (quote
@@ -353,27 +356,38 @@ you should place your code here."
      (awk-mode . "awk")
      (other . "gnu"))))
  '(evil-want-Y-yank-to-eol nil)
+ '(hl-paren-colors (quote ("#FF511B" "#8FFFC6" "#327994" "#504E98")))
  '(package-selected-packages
    (quote
-    (memoize font-lock+ spaceline-all-the-icons all-the-icons web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data ox-reveal alert ghub let-alist slideview eterm-256color buffer-move yasnippet-snippets shell-pop tao-yinm-theme zenburn-theme zen-and-art-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme farmhouse-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme abyss-theme w3 unfill mwim xterm-color smeargle orgit multi-term magit-gitflow helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help disaster diff-hl company-tern dash-functional company-statistics company-c-headers company cmake-mode clang-format auto-yasnippet auto-dictionary ac-ispell auto-complete ggtags mmm-mode markdown-toc markdown-mode gh-md pdf-tools bongo libmpdee slime slack tern web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+    (nlinum memoize font-lock+ spaceline-all-the-icons all-the-icons web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data ox-reveal alert ghub let-alist slideview eterm-256color buffer-move yasnippet-snippets shell-pop tao-yinm-theme tao-theme spacegray-theme reverse-theme gotham-theme autothemer afternoon-theme abyss-theme w3 unfill mwim xterm-color smeargle orgit multi-term magit-gitflow helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help disaster diff-hl company-tern dash-functional company-statistics company-c-headers company cmake-mode clang-format auto-yasnippet auto-dictionary ac-ispell auto-complete ggtags mmm-mode markdown-toc markdown-mode gh-md pdf-tools bongo libmpdee slime slack tern web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-link ace-jump-helm-line helm avy helm-core popup async)))
  '(spaceline-all-the-icons-clock-always-visible t)
  '(spaceline-all-the-icons-eyebrowse-display-name nil)
+ '(spaceline-all-the-icons-file-name-highlight nil)
+ '(spaceline-all-the-icons-flycheck-alternate t)
  '(spaceline-all-the-icons-hide-long-buffer-path t)
  '(spaceline-all-the-icons-highlight-file-name t)
- '(spaceline-all-the-icons-icon-set-eyebrowse-slot (quote solid))
+ '(spaceline-all-the-icons-icon-set-flycheck-slim (quote outline))
  '(spaceline-all-the-icons-icon-set-git-ahead (quote commit))
  '(spaceline-all-the-icons-icon-set-mc (quote pointer))
- '(spaceline-all-the-icons-icon-set-window-numbering (quote square))
+ '(spaceline-all-the-icons-icon-set-window-numbering (quote circle))
+ '(spaceline-all-the-icons-primary-separator ":")
+ '(spaceline-all-the-icons-separator-type (quote arrow))
  '(spaceline-all-the-icons-separators-invert-direction nil)
+ '(spaceline-all-the-icons-slim-render nil)
  '(spaceline-all-the-icons-window-number-always-visible t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((((type graphic)) :foreground "#99d1ce" :background "#0c1014") (((type tty)) :foreground "white" :background "black")))
+ '(default ((t (:inherit nil :stipple nil :background "#0c1014" :foreground "#99d1ce" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 90 :width normal :foundry "ADBO" :family "Source Code Pro"))))
+ '(cursor ((t (:background "#1BD4EF"))))
+ '(error ((t (:foreground "#FF1B1B"))))
+ '(escape-glyph ((t (:foreground "#FF511B" :weight bold))))
+ '(lazy-highlight ((t (:background "#214169" :foreground "#5DCCFF"))))
+ '(link ((t (:foreground "#FF511B" :underline t))))
  '(spaceline-all-the-icons-info-face ((t (:foreground "dark turquoise"))))
- '(spaceline-all-the-icons-sunrise-face ((t (:inherit powerline-active2 :foreground "OrangeRed1" :slant oblique))))
+ '(spaceline-all-the-icons-sunrise-face ((t (:inherit powerline-active2 :foreground "OrangeRed1"))))
  '(spaceline-all-the-icons-sunset-face ((t (:inherit powerline-active2 :foreground "#000026"))))
  '(spaceline-evil-emacs ((t (:background "#1BD4EF" :foreground "#000026" :inherit (quote mode-line)))))
  '(spaceline-evil-motion ((t (:background "#504E98" :foreground "#FF511B" :inherit (quote mode-line)))))
@@ -382,4 +396,6 @@ you should place your code here."
  '(spaceline-highlight-face ((t (:background "#1BD4EF" :foreground "#000026" :inherit (quote mode-line)))))
  '(spaceline-modified ((t (:background "#1BD4EF" :foreground "#000026" :inherit (quote mode-line)))))
  '(spaceline-read-only ((t (:background "#504E98" :foreground "#FF511B" :inherit (quote mode-line)))))
- '(spaceline-unmodified ((t (:background "#1BD4EF" :foreground "#000026" :inherit (quote mode-line))))))
+ '(spaceline-unmodified ((t (:background "#1BD4EF" :foreground "#000026" :inherit (quote mode-line)))))
+ '(success ((t (:foreground "#8FFFC6"))))
+ '(warning ((t (:foreground "#FF511B")))))
