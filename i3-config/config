@@ -191,10 +191,12 @@ client.urgent           $urgent-bg-color  $urgent-bg-color  $urgent-fg-text  $te
 hide_edge_borders both
 
 # i3-gaps config
-gaps inner 20
-gaps outer 15
+gaps inner 65
+gaps outer 170
 smart_borders no_gaps
+
 for_window [class="^.*"] border pixel 2
+for_window [class="Firefox" class="Emacs" class="Google-chrome"] fullscreen enable
 
 # i3-gaps default script for changing the size of inner and outer gaps
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -258,8 +260,9 @@ bindsym XF86AudioPrev exec playerctl previous
 
 exec_always --no-startup-id /home/mdn/.config/polybar/launch.sh
 exec_always compton -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g = "Rofi"' --focus-exclude 'class_g = "Rofi"'
+exec_always feh --bg-scale /home/mdn/Pictures/asteroidsurf2.png
+
 exec firefox
 exec emacs
 exec gnome-pomodoro
 exec gnome-terminal
-exec_always feh --bg-scale /home/mdn/Pictures/asteroidsurf2.png
