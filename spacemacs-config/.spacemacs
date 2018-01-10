@@ -261,7 +261,7 @@ values."
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
-   dotspacemacs-smooth-scrolling nil
+   dotspacemacs-smooth-scrolling t
    ;; Control line numbers activation.
    ;; If set to `t' or `relative' line numbers are turned on in all `prog-mode' and
    ;; `text-mode' derivatives. If set to `relative', line numbers are relative.
@@ -365,7 +365,7 @@ you should place your code here."
  '(bongo-enabled-backends (quote (vlc mplayer)))
  '(c-default-style
    (quote
-    ((other . "k&r")
+    ((other . "stroustrup")
      (java-mode . "java")
      (awk-mode . "awk")
      (other . "gnu"))))
