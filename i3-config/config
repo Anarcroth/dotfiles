@@ -196,7 +196,7 @@ gaps outer 170
 smart_borders no_gaps
 
 for_window [class="^.*"] border pixel 2
-for_window [class="Firefox|Emacs|Google-chrome"] fullscreen enable
+for_window [class="Firefox|Emacs|Google-chrome|Evince"] fullscreen enable
 
 # i3-gaps default script for changing the size of inner and outer gaps
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -266,3 +266,5 @@ exec firefox
 exec emacs
 exec gnome-pomodoro
 exec gnome-terminal
+
+#i3-save-tree --workspace 10 > ~/.i3/workspace-10.json
