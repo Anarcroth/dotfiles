@@ -98,3 +98,5 @@ function sens() {
 }
 zle -N sens{,}
 bindkey ^s sens
+
+neofetch
