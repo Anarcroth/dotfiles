@@ -116,9 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export JAVA_HOME=/usr/share/jdk1.8.0_131
+export JAVA_HOME=/usr/lib/jvm/jdk-9.0.1/bin/java
 export PATH=$JAVA_HOME/bin:$PATH
 
 export ANT_HOME=/home/mdn/ANT_HOME
-export PATH=$JAVA_HOME/bin:$PATH
 export PATH=$HOME/cmus/bin:$PATH
