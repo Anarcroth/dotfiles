@@ -1,33 +1,36 @@
 print_info() {
+
+    info line_break
     info title
     info underline
 
-    info "OS" distro &
+    info "OS" distro
     # info "Host" model
     # info "Kernel" kernel
-    info "Uptime" uptime &
-    info "Packages" packages &
-    info "Shell" shell &
-    info "Resolution" resolution &
+    info "Uptime" uptime
+    # info "Packages" packages
+    info "Shell" shell
+    # info "Resolution" resolution
     # info "DE" de
-    info "WM" wm &
-    info "WM Theme" wm_theme &
-    info "Theme" theme &
+    info "WM" wm
+    info "WM Theme" wm_theme
+    info "Theme" theme
     # info "Icons" icons
-    info "Terminal" term &
+    info "Terminal" term
     # info "Terminal Font" term_font
-    info "CPU" cpu &
-    info "GPU" gpu &
-    info "Memory" memory &
+    info "CPU" cpu
+    info "GPU" gpu
+    info "Memory" memory
 
     # info "GPU Driver" gpu_driver  # Linux only
     # info "CPU Usage" cpu_usage
     # info "Disk" disk
-    info "Battery" battery &
+    info "Battery" battery
     # info "Font" font
 
+    # info underline
     info line_break
-    info "Song" song &
+    info "Song" song
 
     # info "Local IP" local_ip
     # info "Public IP" public_ip
@@ -37,10 +40,10 @@ print_info() {
 
     info line_break
     info cols
-    info line_break
+    # info line_break
 
-   # Wait for the functions to complete
-    wait
+    # Wait for the functions to complete
+    # wait
 }
 
 
@@ -63,7 +66,7 @@ distro_shorthand="off"
 # Default: 'on'
 # Values:  'on', 'off'
 # Flag:    --os_arch
-os_arch="on"
+os_arch="off"
 
 # Uptime
 # Shorten the output of the uptime function
@@ -171,7 +174,7 @@ gtk_shorthand="off"
 # Example:
 # on:  'Numix [GTK2], Adwaita [GTK3]'
 # off: 'Adwaita [GTK3]'
-gtk2="on"
+gtk2="off"
 
 # Enable/Disable gtk3 Theme / Icons / Font
 #
@@ -182,7 +185,7 @@ gtk2="on"
 # Example:
 # on:  'Numix [GTK2], Adwaita [GTK3]'
 # off: 'Numix [GTK2]'
-gtk3="on"
+gtk3="off"
 
 
 # IP Address
@@ -290,7 +293,7 @@ underline_enabled="on"
 # Default:  '-'
 # Values:   'string'
 # Flag:     --underline_char
-underline_char="-"
+underline_char="_"
 
 
 # Color Blocks
@@ -346,15 +349,15 @@ block_height=1
 # Example:
 # neofetch --bar_char 'elapsed' 'total'
 # neofetch --bar_char '-' '='
-bar_char_elapsed="-"
-bar_char_total="="
+bar_char_elapsed="="
+bar_char_total="~"
 
 # Toggle Bar border
 #
 # Default:  'on'
 # Values:   'on', 'off'
 # Flag:     --bar_border
-bar_border="on"
+bar_border="off"
 
 # Progress bar length in spaces
 # Number of chars long to make the progress bars.
@@ -394,7 +397,7 @@ bar_color_total="distro"
 # barinfo: '[---=======] info'
 # off:     'info'
 cpu_display="off"
-memory_display="off"
+memory_display="bar"
 battery_display="bar"
 disk_display="off"
 
