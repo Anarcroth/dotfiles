@@ -15,7 +15,7 @@ rofi.color-window: argb:E9000026, argb:E91BD4EF,  argb:E91BD4EF
 rofi.width: 55
 rofi.lines: 8
 rofi.columns: 1
-rofi.font: Jaapokki 17
+rofi.font: ProggyCleanTTSZ 23
 rofi.bw: 4
 rofi.padding: 35
 rofi.eh: 1
