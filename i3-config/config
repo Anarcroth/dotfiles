@@ -15,7 +15,8 @@ set $mod Mod4
 # is used in the bar {} block below.
 # font pango:Jaapokkisubtract 9
 # font pango:Jaapokkienchance 9
-font pango: Jaapokki 13
+#font pango: Jaapokki 13
+font pango: Proggy 13,FontAwesome 13
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -238,6 +239,7 @@ mode "$mode_gaps_outer" {
 
 exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant -option "grp:alt_shift_toggle"
 
+# Custom i3lock script
 bindsym $mod+Control+l exec bash lock
 
 # Pulse Audio controls
