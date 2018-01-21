@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/mdn/.oh-my-zsh
+  export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -100,3 +100,10 @@ zle -N sens{,}
 bindkey ^s sens
 
 neofetch
+
+RPROMPT='[%B%D%b %D{%L:%M:%S}]'
+TMOUT=1
+
+TRAPALRM() {
+    zle reset-prompt
+}
