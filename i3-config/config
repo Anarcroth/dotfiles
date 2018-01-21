@@ -253,7 +253,7 @@ bar {
 exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant -option "grp:alt_shift_toggle"
 
 # Custom i3lock script
-bindsym $mod+Control+l exec bash lock
+bindsym $mod+Control+l exec lock
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -277,7 +277,7 @@ bindsym XF86KbdBrightnessUp exec keyboardlight up
 bindsym XF86KbdBrightnessDown exec keyboardlight down 
 
 exec_always compton -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g = "Rofi"' --focus-exclude 'class_g = "Rofi"'
-exec_always feh --bg-scale /home/mdn/Pictures/asteroidsurf2.png
+exec_always feh --bg-scale ~/Pictures/asteroidsurf2.png
 
 exec firefox
 exec emacs
