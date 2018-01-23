@@ -148,7 +148,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("ProggyCleanTTSZ"
+   dotspacemacs-default-font '("ProggyCleanTTSZ Nerd Font"
                                :size 16
                                :weight normal
                                :width normal
@@ -346,8 +346,10 @@ you should place your code here."
   (put 'helm-make-target-history 'history-length 25)
   (put 'helm-M-x-input-history 'history-length 25)
 
+  ;; Modes that help visualizing and traversing code
   (global-visual-line-mode t)
   (nlinum-mode 1)
+  (golden-ratio-mode 1)
 
   (add-hook 'after-init-hook #'neotree-toggle)
 
