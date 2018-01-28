@@ -250,6 +250,7 @@ bar {
         }
 }
 
+# Keyboard layout
 exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant -option "grp:alt_shift_toggle"
 
 # Custom i3lock script
@@ -267,25 +268,27 @@ bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 # Touchpad controls
 bindsym XF86TouchpadToggle exec toggletouchpad # toggle touchpad
 
+# Caps Lock and Num Lock controls
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Keyboard backlight controls
 bindsym XF86KbdBrightnessUp exec keyboardlight up
 bindsym XF86KbdBrightnessDown exec keyboardlight down 
 
+# Background and transparency settings
 exec_always compton -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g = "Rofi"' --focus-exclude 'class_g = "Rofi"'
 exec_always feh --bg-scale ~/Pictures/asteroidsurf2.png
 
+# Startup programs
 exec firefox
 exec emacs
 exec gnome-pomodoro
 exec gnome-terminal
-
-#i3-save-tree --workspace 10 > ~/.i3/workspace-10.json
-
-# Bindings for Caps Lock and Num Lock to i3blocks
-bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+exec nm-applet
