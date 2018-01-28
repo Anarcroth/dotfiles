@@ -130,9 +130,10 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 assign [class="Firefox"] $workspace1
 assign [class="Emacs"] $workspace2
 assign [class="Google-chrome"] $workspace3
+assign [class="Gnome-terminal"] $workspace4
+assign [class="Slack"] $workspace5
 assign [class="Gnome-pomodoro"] $workspace7
 assign [class="Nautilus"] $workspace8
-assign [class="Gnome-terminal"] $workspace9
 assign [class="Audacious"] $workspace10
 
 # reload the configuration file
@@ -194,7 +195,7 @@ gaps outer 170
 smart_borders no_gaps
 
 for_window [class="^.*"] border pixel 2
-for_window [class="Firefox|Emacs|Google-chrome|Evince"] fullscreen enable
+for_window [class="Firefox|Emacs|Google-chrome|Evince|Slack"] fullscreen enable
 
 # i3-gaps default script for changing the size of inner and outer gaps
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -291,4 +292,4 @@ exec firefox
 exec emacs
 exec gnome-pomodoro
 exec gnome-terminal
-exec nm-applet
+exec --no-startup-id nm-applet # connects to the internet
