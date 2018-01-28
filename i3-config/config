@@ -171,11 +171,14 @@ mode "$resize" {
 
 bindsym $mod+r mode "$resize"
 
-set $bg-color             #000026
-set $inactive-bg-color    #000026
-set $dim-text             #3F5C83
+set $bg-color             #000000
+#set $bg-color             000026
+set $inactive-bg-color    #000000
+set $dim-text             #3B4C56
+#set $dim-text             3F5C83
 set $purple               #504FCF
-set $text-color           #1BD4EF
+set $text-color           #DAE3EA
+#set $text-color           1BD4EF
 set $urgent-bg-color      #000026
 set $urgent-fg-text       #FF1B1B
 set $blank                #000000
@@ -183,8 +186,8 @@ set $blank                #000000
 # window color
 # class                 border            background        text             indicator    child_border
 client.focused          $text-color       $bg-color         $text-color      $text-color  $text-color
-#client.focused-inactive $blank            $blank            $dim-text        $text-color  $text-color
-client.unfocused        $bg-color         $bg-color         $dim-text        $text-color  $text-color
+client.focused-inactive $bg-color         $bg-color         $dim-text        $text-color  $dim-text
+client.unfocused        $bg-color         $bg-color         $dim-text        $text-color  $dim-text
 client.urgent           $urgent-bg-color  $urgent-bg-color  $urgent-fg-text  $text-color  $text-color
 
 hide_edge_borders both
@@ -194,7 +197,7 @@ gaps inner 65
 gaps outer 170
 smart_borders no_gaps
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 6
 for_window [class="Firefox|Emacs|Google-chrome|Evince|Slack"] fullscreen enable
 
 # i3-gaps default script for changing the size of inner and outer gaps
@@ -285,7 +288,7 @@ bindsym XF86KbdBrightnessDown exec keyboardlight down
 
 # Background and transparency settings
 exec_always compton -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g = "Rofi"' --focus-exclude 'class_g = "Rofi"'
-exec_always feh --bg-scale ~/Pictures/asteroidsurf2.png
+exec_always feh --bg-scale ~/Desktop/snowstar.png
 
 # Startup programs
 exec firefox
