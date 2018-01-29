@@ -22,3 +22,4 @@
 #3B4C56 light gray
 #253036 dark gray
 #DAE3EA snow white
+#225FBA deep blue
