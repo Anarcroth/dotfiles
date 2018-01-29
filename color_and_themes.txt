@@ -1,0 +1,24 @@
+# Neonspace colors
+
+#FF511B orange
+#FF1B1B red
+#5DCCFF light blue
+#504E98 purple 1
+#3F3F83 purple 2
+#212369 purple 3
+#327994 dark cyan 1
+#4E6C98 dark cyan 2
+#3F5C83 dark cyan 3
+#214169 dark cyan 4
+#006261 base green 1
+#004241 base green 2
+#8FFFC6 mint green
+#1BD4EF neon cyan
+#000026 base blue
+
+
+# Snowstar colors
+#000000 pure black
+#3B4C56 light gray
+#253036 dark gray
+#DAE3EA snow white
