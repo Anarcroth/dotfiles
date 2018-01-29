@@ -171,22 +171,23 @@ mode "$resize" {
 
 bindsym $mod+r mode "$resize"
 
+# Current color set
 set $bg-color             #000000
-#set $bg-color             000026
 set $inactive-bg-color    #000000
 set $dim-text             #3B4C56
-#set $dim-text             3F5C83
-set $purple               #504FCF
 set $text-color           #DAE3EA
+set $urgent-bg-color      #000000
+set $urgent-fg-text       #1BD4EF
+
+# backup colors
 #set $text-color           1BD4EF
-set $urgent-bg-color      #000026
-set $urgent-fg-text       #FF1B1B
-set $blank                #000000
+#set $dim-text             3F5C83
+#set $bg-color             000026
 
 # window color
 # class                 border            background        text             indicator    child_border
 client.focused          $text-color       $bg-color         $text-color      $text-color  $text-color
-client.focused-inactive $bg-color         $bg-color         $dim-text        $text-color  $dim-text
+#client.focused-inactive $bg-color         $bg-color         $dim-text        $text-color  $dim-text
 client.unfocused        $bg-color         $bg-color         $dim-text        $text-color  $dim-text
 client.urgent           $urgent-bg-color  $urgent-bg-color  $urgent-fg-text  $text-color  $text-color
 
@@ -295,4 +296,5 @@ exec firefox
 exec emacs
 exec gnome-pomodoro
 exec gnome-terminal
+exec slack
 exec --no-startup-id nm-applet # connects to the internet
