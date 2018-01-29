@@ -6,13 +6,11 @@
 rofi.color-enabled: true
 ! State:                 'bg',     'fg',            'bgalt',         'hlbg',    'hlfg'
 rofi.color-normal: argb:00000000,  #DAE3EA,  argb:00000000,  argb:00000000,  #3B4C56
-!rofi.color-normal: argb:00000026,  #504FCF,  argb:00000026,  argb:00000026,  #FF511B
 !rofi.color-urgent: argb: 00000026,  #B9AA97,  argb: 00412302,  argb: FFB9AA97,  #412302
 !rofi.color-active: argb: 00000026,  #9B5300,  argb: 00041534,  argb: FF412302,  #9B5300
 
-! State:             'background',       'border',      'separator'
+! State:            'background',      'border',    'separator'
 rofi.color-window: argb:D9000000, argb:FF3B4C56,  argb:FF253036
-!rofi.color-window: argb:E9000026, argb:E91BD4EF,  argb:E91BD4EF
 
 rofi.width: 55
 rofi.lines: 8
@@ -29,25 +27,3 @@ rofi.sidebar-mode: false
 rofi.fake-background: screenshots
 rofi.cycle: true
 rofi.fullscreen: false
-
-! Colors used
-!#FF511B orange
-!#FF1B1B red
-!#5DCCFF light blue
-!#504E98 purple 1
-!#3F3F83 purple 2
-!#212369 purple 3
-!#327994 dark cyan 1
-!#4E6C98 dark cyan 2
-!#3F5C83 dark cyan 3
-!#214169 dark cyan 4
-!#006261 base green 1
-!#004241 base green 2
-!#8FFFC6 mint green
-!#1BD4EF neon cyan
-!#000026 base blue
-
-!#000000 pure black
-!#3B4C56 light gray
-!#253036 dark gray
-!#DAE3EA snow white
