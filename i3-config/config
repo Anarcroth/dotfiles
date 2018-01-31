@@ -135,7 +135,6 @@ assign [class="Emacs"] $workspace2
 assign [class="Google-chrome"] $workspace3
 assign [class="Gnome-terminal"] $workspace4
 assign [class="Slack"] $workspace5
-assign [class="Gnome-pomodoro"] $workspace7
 assign [class="Nautilus"] $workspace8
 assign [class="Audacious"] $workspace10
 
@@ -297,7 +296,6 @@ exec_always feh --bg-scale ~/Desktop/snowstar.png
 # Startup programs
 exec firefox
 exec emacs
-exec gnome-pomodoro
 exec gnome-terminal
 exec slack
 exec --no-startup-id nm-applet # connects to the internet
