@@ -199,12 +199,16 @@ client.urgent           $urgent-pure-black  $urgent-pure-black  $neon-orange    
 hide_edge_borders both
 
 # i3-gaps config
-gaps inner 65
-gaps outer 170
+gaps inner 15
+gaps outer 5
 smart_borders no_gaps
+smart_gaps on
 
 for_window [class="^.*"] border pixel 1
-# for_window [class="Firefox|Emacs|Google-chrome|Evince|Slack"] fullscreen enable
+for_window [class="Firefox|Emacs|Google-chrome|Evince|Slack"] fullscreen enable
+
+# workspace <workspace> gaps inner N
+# workspace <workspace> gaps outer N
 
 # i3-gaps default script for changing the size of inner and outer gaps
 set $mode_gaps Gaps: (o) outer, (i) inner
