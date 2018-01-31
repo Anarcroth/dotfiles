@@ -1,4 +1,4 @@
-# Neonspace colors
+* Neonspace colors
 
 #FF511B orange
 #FF1B1B red
@@ -17,7 +17,8 @@
 #000026 base blue
 
 
-# Snowstar colors
+* Snowstar colors
+
 #000000 pure black
 #3B4C56 light gray
 #253036 dark gray
