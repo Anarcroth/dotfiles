@@ -16,7 +16,7 @@ rofi.width: 55
 rofi.lines: 8
 rofi.columns: 1
 rofi.font: ProggyCleanTTSZ Nerd Font 23
-rofi.bw: 10
+rofi.bw: 1
 rofi.padding: 35
 rofi.eh: 1
 rofi.separator-style: solid
