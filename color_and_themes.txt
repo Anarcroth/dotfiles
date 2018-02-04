@@ -24,3 +24,14 @@
 #253036 dark gray
 #DAE3EA snow white
 #225FBA deep blue
+
+# Red and Blue
+
+#111240 deep sea blue
+#28030A dark blood red
+#730826 wine red
+#97354E pale red
+#27215D grape blue
+#494578 pale blue
+#582957 deep purple
+#BFA2BE pale pink
