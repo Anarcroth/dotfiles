@@ -35,3 +35,9 @@
 #494578 pale blue
 #582957 deep purple
 #BFA2BE pale pink
+
+# Wave of green and blue
+
+#458B97 mate cyan
+#2358C2 perfect blue
+#DAE3EA snow white
