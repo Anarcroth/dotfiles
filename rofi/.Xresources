@@ -15,7 +15,7 @@ rofi.color-window: argb:D9000000, argb:FF458B97,  argb:FF458B97
 rofi.width: 55
 rofi.lines: 8
 rofi.columns: 1
-rofi.font: ProggyCleanTTSZ Nerd Font 23
+rofi.font: GohuFont 19
 rofi.bw: 1
 rofi.padding: 35
 rofi.eh: 1
