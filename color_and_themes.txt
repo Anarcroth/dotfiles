@@ -41,3 +41,10 @@
 #458B97 mate cyan
 #2358C2 perfect blue
 #DAE3EA snow white
+#5DCCFF sky blue
+#1F6B9C swampy blue
+#81C1C0 mint smth
+#003AB0 neon pure blue
+#FF511B orange
+#FF1B1B red
+#1D4370 dim pale blue
