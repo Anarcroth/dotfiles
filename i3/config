@@ -93,10 +93,10 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# Backup icons:    
+# Backup icons:     
 
 set $workspace1 "1 "
-set $workspace2 "2 "
+set $workspace2 "2 "
 set $workspace3 "3 "
 set $workspace4 "4 "
 set $workspace5 "5 "
@@ -176,25 +176,18 @@ bindsym $mod+r mode "$resize"
 # Current color set
 set $pure-black             #000000
 set $inactive-pure-black    #000000
-set $light-gray             #3B4C56
-set $snow-white             #DAE3EA
+set $pale-dim-blue          #1D4370
+set $sky-blue               #5DCCFF
 set $urgent-pure-black      #000000
-set $neon-orange            #1BD4EF
-set $deep-blue              #225FBA
-
-# backup colors
-#set $neon-cyan             1BD4EF
-#set $dark-cyan             3F5C83
-#set $dark-sea-blue         000026
+set $neon-orange            #FF511B
 
 # window color
 # class                 border              background          text             indicator    child_border
-client.focused          $snow-white         $pure-black         $snow-white      $snow-white  $snow-white
-client.unfocused        $pure-black         $pure-black         $light-gray      $snow-white  $light-gray
-client.urgent           $urgent-pure-black  $urgent-pure-black  $neon-orange     $snow-white  $snow-white
+client.focused          $sky-blue           $pure-black         $sky-blue        $sky-blue    $sky-blue
+client.unfocused        $pure-black         $pure-black         $pale-dim-blue   $sky-blue    $pale-dim-blue
+client.urgent           $urgent-pure-black  $urgent-pure-black  $neon-orange     $sky-blue    $sky-blue
 
-#client.focused-inactive $pure-black         $pure-black         $light-gray        $snow-white  $light-gray
-
+#client.focused-inactive $pure-black         $pure-black         $pale-dim-blue        $sky-blue  $pale-dim-blue
 
 hide_edge_borders both
 
@@ -266,8 +259,8 @@ bar {
                background $pure-black
                separator  $pure-black
                #                  border               background           text
-               focused_workspace  $pure-black          $pure-black          $snow-white
-               inactive_workspace $inactive-pure-black $inactive-pure-black $light-gray
+               focused_workspace  $pure-black          $pure-black          $sky-blue
+               inactive_workspace $inactive-pure-black $inactive-pure-black $pale-dim-blue
                urgent_workspace   $urgent-pure-black   $urgent-pure-black   $neon-orange
         }
 }
@@ -315,4 +308,4 @@ exec gnome-terminal
 exec slack
 exec --no-startup-id nm-applet   # connects to the internet
 exec toggletouchpad              # disable touchpad on startup
-exec pkill -SIGRTMIN+11 i3blocks # execute Num Lock on startup
+exec --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks # execute Num Lock on startup
