@@ -5,17 +5,17 @@
 ! hlfg - Foreground color selected row
 rofi.color-enabled: true
 ! State:                    'bg',     'fg',        'bgalt',         'hlbg',   'hlfg'
-rofi.color-normal: argb:00000000,  #DAE3EA,  argb:00000000,  argb:00000000,  #2358C2
+rofi.color-normal: argb:00000F30,  #EEFFFF,  argb:00000F30,  argb:00000F30,  #1088F9
 !rofi.color-urgent: argb: 00000026,  #B9AA97,  argb: 00412302,  argb: FFB9AA97,  #412302
 !rofi.color-active: argb: 00000026,  #9B5300,  argb: 00041534,  argb: FF412302,  #9B5300
 ! 131562
 ! State:            'background',      'border',    'separator'
-rofi.color-window: argb:D9000000, argb:FF458B97,  argb:FF458B97
+rofi.color-window: argb:D900071F, argb:FF34C3EE,  argb:FF34C3EE
 
 rofi.width: 55
 rofi.lines: 8
 rofi.columns: 1
-rofi.font: GohuFont 19
+rofi.font: GohuFont 17
 rofi.bw: 1
 rofi.padding: 35
 rofi.eh: 1

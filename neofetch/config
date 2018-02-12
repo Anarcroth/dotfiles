@@ -357,7 +357,7 @@ bar_char_total="~"
 # Default:  'on'
 # Values:   'on', 'off'
 # Flag:     --bar_border
-bar_border="off"
+bar_border="on"
 
 # Progress bar length in spaces
 # Number of chars long to make the progress bars.
