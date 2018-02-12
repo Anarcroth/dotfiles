@@ -48,3 +48,25 @@
 #FF511B orange
 #FF1B1B red
 #1D4370 dim pale blue
+
+# Soul Reaver
+
+#61F9FC reaver cyan
+#1088F9 deep blue
+#000F30 rib-cage blue
+#EEFFFF eye white
+#444446 gray
+#2E2D2B rag brown
+#23524A cemetery green gas
+#000F45 deep blue 2
+#042F62 shifted blu
+#6298D4 sky blue
+#B7F7FB light cyan
+#34C3EE turquoise
+#3887B9 steel blue
+#1C2729 dark slate gray
+#427B8C dark steel blue
+#88BBCC light cyan blue thing
+#677B93 more gray
+#2288EE pure blue
+#00071F more dark ocean blue
