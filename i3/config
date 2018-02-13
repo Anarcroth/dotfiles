@@ -176,7 +176,7 @@ bindsym $mod+r mode "$resize"
 # Current color set
 set $pure-black             #00071F
 set $inactive-pure-black    #00071F
-set $pale-dim-blue          #1D4370
+set $dark-steel-gray        #427B8C
 set $sky-blue               #34C3EE
 set $urgent-pure-black      #00071F
 set $neon-orange            #FF511B
@@ -184,10 +184,10 @@ set $neon-orange            #FF511B
 # window color
 # class                 border              background          text             indicator    child_border
 client.focused          $sky-blue           $pure-black         $sky-blue        $sky-blue    $sky-blue
-client.unfocused        $pure-black         $pure-black         $pale-dim-blue   $sky-blue    $pale-dim-blue
+client.unfocused        $pure-black         $pure-black         $dark-steel-gray $sky-blue    $dark-steel-gray
 client.urgent           $urgent-pure-black  $urgent-pure-black  $neon-orange     $sky-blue    $sky-blue
 
-#client.focused-inactive $pure-black         $pure-black         $pale-dim-blue        $sky-blue  $pale-dim-blue
+#client.focused-inactive $pure-black         $pure-black         $dark-steel-gray        $sky-blue  $dark-steel-gray
 
 hide_edge_borders both
 
@@ -260,7 +260,7 @@ bar {
                separator  $pure-black
                #                  border               background           text
                focused_workspace  $pure-black          $pure-black          $sky-blue
-               inactive_workspace $inactive-pure-black $inactive-pure-black $pale-dim-blue
+               inactive_workspace $inactive-pure-black $inactive-pure-black $dark-steel-gray
                urgent_workspace   $urgent-pure-black   $urgent-pure-black   $neon-orange
         }
 }
@@ -308,4 +308,4 @@ exec gnome-terminal
 exec slack
 exec --no-startup-id nm-applet   # connects to the internet
 exec toggletouchpad              # disable touchpad on startup
-exec --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks # execute Num Lock on startup
+exec pkill -SIGRTMIN+11 i3blocks # execute Num Lock on startup
