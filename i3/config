@@ -304,7 +304,6 @@ exec_always feh --bg-scale ~/Pictures/soulreaver.jpg
 # Startup programs
 exec firefox
 exec emacs
-exec gnome-terminal
 exec slack
 exec --no-startup-id nm-applet   # connects to the internet
 exec toggletouchpad              # disable touchpad on startup
