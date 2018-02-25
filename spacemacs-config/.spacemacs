@@ -356,7 +356,26 @@ you should place your code here."
 
   (add-hook 'after-init-hook #'neotree-toggle)
 
+  ;; set up org agenda shortcut
   (global-set-key (kbd "C-c a") 'org-agenda)
+
+  ;; set trust roots
+  ;; source https://glyph.twistedmatrix.com/2015/11/editor-malware.html
+  (let ((trustfile
+         (replace-regexp-in-string
+          "\\\\" "/"
+          (replace-regexp-in-string
+           "\n" ""
+           (shell-command-to-string "python -m certifi")))))
+    (setq tls-program
+          (list
+           (format "gnutls-cli%s --x509cafile %s -p %%p %%h"
+                   (if (eq window-system 'w32) ".exe" "") trustfile)))
+    (setq gnutls-verify-error t)
+    (setq gnutls-trustfiles (list trustfile)))
+
+  ;; toggle transparency
+  (spacemacs/toggle-transparency)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
