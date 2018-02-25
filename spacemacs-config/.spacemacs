@@ -395,7 +395,7 @@ you should place your code here."
      (awk-mode . "awk")
      (other . "gnu"))))
  '(evil-want-Y-yank-to-eol nil)
- '(hl-paren-colors (quote ("#FF511B" "#8FFFC6" "#327994" "#504E98")) t)
+ '(hl-paren-colors (quote ("#FF511B" "#8FFFC6" "#327994" "#504E98")))
  '(org-agenda-files (quote ("~/todo.org")))
  '(org-todo-keywords
    (quote
@@ -417,16 +417,18 @@ you should place your code here."
  '(spaceline-all-the-icons-separator-type (quote arrow))
  '(spaceline-all-the-icons-separators-invert-direction nil)
  '(spaceline-all-the-icons-slim-render nil)
- '(spaceline-all-the-icons-window-number-always-visible t))
+ '(spaceline-all-the-icons-window-number-always-visible t)
+ '(tls-checktrust t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#0c1014" :foreground "#99d1ce" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 90 :width normal :foundry "ADBO" :family "Source Code Pro"))))
- '(cursor ((t (:background "#1BD4EF"))))
+ '(default ((t (:inherit nil :stipple nil :background "#00071F" :foreground "#61F9FC" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 114 :width normal :foundry "Alts" :family "ProggyCleanTTSZ Nerd Font"))))
+ '(cursor ((t (:background "#B7F7FB"))))
  '(error ((t (:foreground "#FF1B1B"))))
  '(escape-glyph ((t (:foreground "#FF511B" :weight bold))))
+ '(highlight ((t (:background "#000F45"))))
  '(lazy-highlight ((t (:background "#214169" :foreground "#5DCCFF"))))
  '(link ((t (:foreground "#FF511B" :underline t))))
  '(spaceline-all-the-icons-info-face ((t (:foreground "dark turquoise"))))
@@ -441,4 +443,6 @@ you should place your code here."
  '(spaceline-read-only ((t (:background "#504E98" :foreground "#FF511B" :inherit (quote mode-line)))))
  '(spaceline-unmodified ((t (:background "#1BD4EF" :foreground "#000026" :inherit (quote mode-line)))))
  '(success ((t (:foreground "#8FFFC6"))))
- '(warning ((t (:foreground "#FF511B")))))
+ '(vertical-border ((t (:foreground "#444446"))))
+ '(warning ((t (:foreground "#FF511B"))))
+ '(window-divider ((t (:foreground "gray60")))))
