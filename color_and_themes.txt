@@ -16,7 +16,6 @@
 #1BD4EF neon cyan
 #000026 base blue
 
-
 * Snowstar colors
 
 #000000 pure black
@@ -25,7 +24,7 @@
 #DAE3EA snow white
 #225FBA deep blue
 
-# Red and Blue
+* Red and Blue
 
 #111240 deep sea blue
 #28030A dark blood red
@@ -36,7 +35,7 @@
 #582957 deep purple
 #BFA2BE pale pink
 
-# Wave of green and blue
+* Wave of green and blue
 
 #458B97 mate cyan
 #2358C2 perfect blue
@@ -49,7 +48,7 @@
 #FF1B1B red
 #1D4370 dim pale blue
 
-# Soul Reaver
+* Soul Reaver
 
 #61F9FC reaver cyan
 #1088F9 deep blue
@@ -59,7 +58,7 @@
 #2E2D2B rag brown
 #23524A cemetery green gas
 #000F45 deep blue 2
-#042F62 shifted blu
+#042F62 shifted blue
 #6298D4 sky blue
 #B7F7FB light cyan
 #34C3EE turquoise
