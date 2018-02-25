@@ -327,14 +327,17 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ;; fix a problem where helm didn't evaluate properly at startup
   (require 'helm-bookmark)
   (put 'helm-make-build-dir 'safe-local-variable 'stringp)
 
+  ;; fix a problem where duck duck go search crashes on the first search
   (defun duckduckgo (search-string)
     (interactive "sDuckDuckGo for: ")
     (let ((url-format "https://duckduckgo.com/html/?q=%s&kd=-1"))
       (eww (format url-format (url-hexify-string search-string)))))
 
+  ;; clear cached data
   (defun unpropertize-kill-ring ()
     (setq kill-ring (mapcar 'substring-no-properties kill-ring)))
 
