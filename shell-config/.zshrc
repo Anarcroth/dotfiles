@@ -94,16 +94,11 @@ alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
 function sens() {
-	sensors
+  sensors
 }
 zle -N sens{,}
 bindkey ^s sens
 
 neofetch
 
-RPROMPT='[%B%D%b %D{%L:%M:%S}]'
-TMOUT=1
-
-TRAPALRM() {
-    zle reset-prompt
-}
+PS1="%B%D%b %D{%L:%M:%S} $PS1"
