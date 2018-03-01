@@ -5,3 +5,6 @@ pandoc --latex-engine=xelatex -V mainfont="Times New Roman" -V fontsize=12pt -V 
 
 # Search for suffix type files, but only print the paths to directories that contain them.
 find . -name '*.<suffix>' | sed 's/\/[^\/]*$//' | sort | uniq
+
+# snow at the terminal
+clear;while :;do echo $LINES $COLUMNS $(($RANDOM%$COLUMNS));sleep 0.1;done|gawk '{a[$3]=0;for(x in a) {o=a[x];a[x]=a[x]+1;printf "\033[%s;%sH ",o,x;printf "\033[%s;%sH*\033[0;0H",a[x],x;}}'
