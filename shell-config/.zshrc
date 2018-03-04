@@ -93,12 +93,15 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Ctrl+s show sensors output
 function sens() {
   sensors
 }
 zle -N sens{,}
 bindkey ^s sens
 
+# Call neofetch
 neofetch
 
+# Output time above prompt
 PS1="%B%D%b %D{%L:%M:%S} $PS1"
