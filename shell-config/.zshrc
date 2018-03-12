@@ -93,6 +93,22 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
+source $HOME/antigen.zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh) 
+antigen bundle git
+    
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Fish-like auto suggestions
+antigen bundle zsh-users/zsh-autosuggestions
+
+# Extra zsh completions
+antigen bundle zsh-users/zsh-completions
+
+antigen apply
+
 # Ctrl+s show sensors output
 function sens() {
   sensors
@@ -100,8 +116,11 @@ function sens() {
 zle -N sens{,}
 bindkey ^s sens
 
-# Call neofetch
-neofetch
+# Call neofetch with ascii
+neofetch --ascii ~/.config/ascii_spaceship
+
+# Call neofetch with wallpaper
+#neofetch
 
 # Output time above prompt
 PS1="%B%D%b %D{%L:%M:%S} $PS1"
