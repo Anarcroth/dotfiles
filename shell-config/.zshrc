@@ -105,3 +105,9 @@ neofetch
 
 # Output time above prompt
 PS1="%B%D%b %D{%L:%M:%S} $PS1"
+
+# pywal call
+export PATH="${PATH}:${HOME}/.local/bin/"
+
+# Import colorscheme from 'wal' asynchronously
+(cat ~/.cache/wal/sequences &)
