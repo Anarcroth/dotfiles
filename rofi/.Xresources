@@ -12,9 +12,12 @@ rofi.color-normal: argb:00000F30,  #EEFFFF,  argb:00000F30,  argb:00000F30,  #10
 ! State:            'background',      'border',    'separator'
 rofi.color-window: argb:D900071F, argb:FF34C3EE,  argb:FF34C3EE
 
+! Dark theme.
+rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+
 rofi.width: 55
 rofi.lines: 8
-rofi.columns: 1
+rofi.columns: 2
 rofi.font: GohuFont 17
 rofi.bw: 1
 rofi.padding: 35

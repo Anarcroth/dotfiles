@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: GohuFont, file-icons 10
+font pango: GohuFont, file-icons 14
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -174,30 +174,30 @@ mode "$resize" {
 bindsym $mod+r mode "$resize"
 
 # Current color set
-set $pure-black             #00071F
-set $inactive-pure-black    #00071F
-set $dark-steel-gray        #427B8C
-set $sky-blue               #34C3EE
-set $urgent-pure-black      #00071F
-set $neon-orange            #FF511B
+set_from_resource $bg          i3wm.color0
+set_from_resource $ibg         i3wm.color0
+set_from_resource $ifg         i3wm.color2
+set_from_resource $fg          i3wm.color5
+set_from_resource $ubg         i3wm.color0
+set_from_resource $ufg         i3wm.color1
 
 # window color
 # class                 border              background          text             indicator    child_border
-client.focused          $sky-blue           $pure-black         $sky-blue        $sky-blue    $sky-blue
-client.unfocused        $pure-black         $pure-black         $dark-steel-gray $sky-blue    $dark-steel-gray
-client.urgent           $urgent-pure-black  $urgent-pure-black  $neon-orange     $sky-blue    $sky-blue
+client.focused          $fg                 $bg                 $fg              $fg          $fg
+client.unfocused        $bg                 $bg                 $ifg             $fg          $ifg
+client.urgent           $ubg                $ubg                $ufg             $fg          $fg
 
-#client.focused-inactive $pure-black         $pure-black         $dark-steel-gray        $sky-blue  $dark-steel-gray
+#client.focused-inactive $bg  $bg  $ifg  $fg  $ifg
 
 hide_edge_borders both
 
 # i3-gaps config
-gaps inner 15
+gaps inner 20
 gaps outer 5
 smart_borders no_gaps
 smart_gaps on
 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 3
 #for_window [class="Firefox|Emacs|Google-chrome|Evince|Slack"] fullscreen enable
 
 for_window [window_role="pop-up"] floating enable
@@ -256,12 +256,12 @@ bar {
         status_command i3blocks
         position bottom
         colors {
-               background $pure-black
-               separator  $pure-black
+               background $bg
+               separator  $bg
                #                  border               background           text
-               focused_workspace  $pure-black          $pure-black          $sky-blue
-               inactive_workspace $inactive-pure-black $inactive-pure-black $dark-steel-gray
-               urgent_workspace   $urgent-pure-black   $urgent-pure-black   $neon-orange
+               focused_workspace  $bg                  $bg                  $fg
+               inactive_workspace $ibg                 $ibg                 $ifg
+               urgent_workspace   $ubg                 $ubg                 $ufg
         }
 }
 
@@ -302,9 +302,12 @@ bindsym XF86KbdBrightnessDown exec keyboardlight down
 
 # Background and transparency settings
 exec_always compton -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g = "Rofi"' --focus-exclude 'class_g = "Rofi"'
-exec_always feh --bg-scale ~/Pictures/soulreaver.jpg
+exec_always feh --bg-scale ~/Pictures/spacewalk.jpg
 
 # Startup programs
+# -R restores the last colorscheme that was in use.
+exec wal -R
+
 exec firefox
 exec emacs
 exec slack
