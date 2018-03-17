@@ -174,12 +174,12 @@ mode "$resize" {
 bindsym $mod+r mode "$resize"
 
 # Current color set
-set_from_resource $bg          i3wm.color0
-set_from_resource $ibg         i3wm.color0
-set_from_resource $ifg         i3wm.color2
-set_from_resource $fg          i3wm.color5
-set_from_resource $ubg         i3wm.color0
-set_from_resource $ufg         i3wm.color1
+set_from_resource $bg  i3wm.color0
+set_from_resource $ibg i3wm.color0
+set_from_resource $ifg i3wm.color2
+set_from_resource $fg  i3wm.color5
+set_from_resource $ubg i3wm.color0
+set_from_resource $ufg i3wm.color1
 
 # window color
 # class                 border              background          text             indicator    child_border
@@ -305,12 +305,9 @@ exec_always compton -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shad
 exec_always feh --bg-scale ~/Pictures/spacewalk.jpg
 
 # Startup programs
-# -R restores the last colorscheme that was in use.
-exec wal -R
-
 exec firefox
-exec emacs
 exec slack
 exec --no-startup-id nm-applet   # connects to the internet
 exec toggletouchpad              # disable touchpad on startup
 exec pkill -SIGRTMIN+11 i3blocks # execute Num Lock on startup
+exec wal -R
