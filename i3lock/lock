@@ -3,6 +3,23 @@
 
 #!/bin/bash
 
+# Get keyboard layout code
+case "$(xset -q|grep LED| awk '{ print $10 }')" in
+  "00000002") KBD="e" ;;
+  "00001002") KBD="b" ;;
+  *) KBD="unknown" ;;
+esac
+
+if [ $KBD == "e" ]
+then
+    strip_color=#D5D4D5
+    font_color=#1B649C
+elif [ $KBD == "b" ]
+then
+    strip_color=#1B649C
+    font_color=#D5D4D5
+fi
+
 killall compton
 
 IMAGE=/tmp/lockscreen.png
@@ -12,7 +29,7 @@ ICON=$HOME/.config/i3/lock.png
 scrot $IMAGE
 convert $IMAGE -scale 10% -scale 1000% -fill black -colorize 25% $IMAGE
 [ -f $TEXT ] || {
-    convert -size 3000x60 xc:#022232 -font Jaapokkisubtract-Regular -pointsize 26 -fill xc:#8F9CA3 -gravity center -annotate +0+0 'Insert password here' $TEXT;
+    convert -size 3000x60 xc:$strip_color -font Jaapokkisubtract-Regular -pointsize 26 -fill xc:$font_color -gravity center -annotate +0+0 'Insert password here' $TEXT;
 
     convert $TEXT -alpha set -channel A -evaluate set 70% $TEXT;
 }
@@ -21,3 +38,5 @@ convert $IMAGE $ICON -gravity center -composite -matte $IMAGE
 i3lock -n -u -i $IMAGE
 
 compton -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g = "Rofi"' --focus-exclude 'class_g = "Rofi"'
+
+rm /tmp/locktext.png
