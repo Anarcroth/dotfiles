@@ -12,7 +12,7 @@ SCR_WIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -
 JOKE_LEN=$SCR_WIDTH
 while [[ "$SCR_WIDTH" -le "$JOKE_LEN" ]]
 do
-    JOKE=$(curl -s 'https://api.chucknorris.io/jokes/random' | python3 -c "import sys, json; print(json.load(sys.stdin)['value'])")
+    JOKE=$(curl -s 'https://api.chucknorris.io/jokes/random' | jq -r '.value')
     JOKE_LEN=$((${#JOKE} * 12))
 done
 
