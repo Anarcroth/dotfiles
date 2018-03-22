@@ -10,11 +10,17 @@ esac
 
 SCR_WIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
 JOKE_LEN=$SCR_WIDTH
-while [[ "$SCR_WIDTH" -le "$JOKE_LEN" ]]
-do
-    JOKE=$(curl -s 'https://api.chucknorris.io/jokes/random' | jq -r '.value')
+
+{
+    while [[ "$SCR_WIDTH" -le "$JOKE_LEN" ]]
+    do
+        JOKE=$(curl -s 'https://api.chucknorris.io/jokes/random' | jq -r '.value')
+        JOKE_LEN=$((${#JOKE} * 12))
+    done
+} || {
+    JOKE="Chuck Norris is watching you..."
     JOKE_LEN=$((${#JOKE} * 12))
-done
+}
 
 killall compton
 
