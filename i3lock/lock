@@ -1,35 +1,25 @@
-# This script has been taken from https://www.reddit.com/r/unixporn/comments/3358vu/i3lock_unixpornworthy_lock_screen/
-# from user `Babel2` and modified/used for my personal needs. I take no credit into the creation of this piece of code.
+# Image rendering, converting, and pixelization are taken from https://www.reddit.com/r/unixporn/comments/3358vu/i3lock_unixpornworthy_lock_screen/. Credits to user `Babel2`.
 
 #!/bin/bash
 
 # Get keyboard layout code
 case "$(xset -q|grep LED| awk '{ print $10 }')" in
-  "00000002") KBD="e" ;;
-  "00001002") KBD="b" ;;
+  "00000002") fontcolor=#1B649C ;; # english
+  "00001002") fontcolor=#CE9159 ;; # other
   *) KBD="unknown" ;;
 esac
 
-if [ $KBD == "e" ]
-then
-    strip_color=#D5D4D5
-    font_color=#1B649C
-elif [ $KBD == "b" ]
-then
-    strip_color=#1B649C
-    font_color=#D5D4D5
-fi
-
 killall compton
 
+JOKE=`curl -s 'https://api.chucknorris.io/jokes/random' | python3 -c "import sys, json; print(json.load(sys.stdin)['value'])"`
 IMAGE=/tmp/lockscreen.png
 TEXT=/tmp/locktext.png
-ICON=$HOME/.config/i3/lock.png
+ICON=$HOME/.config/i3/spaceship.png
 
 scrot $IMAGE
 convert $IMAGE -scale 10% -scale 1000% -fill black -colorize 25% $IMAGE
 [ -f $TEXT ] || {
-    convert -size 3000x60 xc:$strip_color -font Jaapokkisubtract-Regular -pointsize 26 -fill xc:$font_color -gravity center -annotate +0+0 'Insert password here' $TEXT;
+    convert -size 3000x60 xc:#D5D4D5 -font Jaapokkisubtract-Regular -pointsize 26 -fill xc:$fontcolor -gravity center -annotate +0+0 "$JOKE" $TEXT;
 
     convert $TEXT -alpha set -channel A -evaluate set 70% $TEXT;
 }
@@ -39,4 +29,5 @@ i3lock -n -u -i $IMAGE
 
 compton -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g = "Rofi"' --focus-exclude 'class_g = "Rofi"'
 
+# Remove old text, so that new one can appear
 rm /tmp/locktext.png
