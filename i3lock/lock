@@ -4,8 +4,8 @@
 
 # Get keyboard layout code
 case "$(xset -q|grep LED| awk '{ print $10 }')" in
-    "00000002") KBD="eng";; # English
-    "00001002") KBD="bg";; # Other
+    "00000002") KB_LANG="eng";; # English
+    "00001002") KB_LANG="bg";; # Other
 esac
 
 SCR_WIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
@@ -26,7 +26,7 @@ LANG=/tmp/lang.png
 scrot $IMAGE
 convert $IMAGE -scale 10% -scale 1000% -fill black -colorize 25% $IMAGE
 convert -size "$JOKE_LEN"x60 xc:#FAFAFA -font Ubuntu -pointsize 24 -fill xc:#3F464D -gravity center -annotate +0+0 "$JOKE" $TEXT;
-convert -size 30x30 xc:#3F464D -font Ubuntu -pointsize 12 -fill xc:#FAFAFA -gravity center -annotate +0+0 "$KBD" $LANG;
+convert -size 30x30 xc:#3F464D -font Ubuntu -pointsize 12 -fill xc:#FAFAFA -gravity center -annotate +0+0 "$KB_LANG" $LANG;
 convert $IMAGE $TEXT -gravity center -geometry +0+200 -composite $IMAGE
 convert $IMAGE $LANG -gravity NorthEast -geometry +0+1 -composite $IMAGE
 convert $IMAGE $ICON -gravity center -composite -matte $IMAGE
