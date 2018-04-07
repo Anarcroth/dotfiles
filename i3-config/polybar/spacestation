@@ -1,0 +1,429 @@
+[colors]
+; black
+background = #030514
+dim-background = #DF030514
+light-background = #55030514
+; silver
+foreground = #D5D4D5
+dim-foreground = #AAD5D4D5
+; orange
+urgent = #CE9159
+; blue
+focus = #2A73B9
+focus-2 = #1B649C
+; red
+piping-hot = #FF5555
+; grey/gray
+dimmed = #444444
+
+[bar/top]
+monitor = ${env:MONITOR:HDMI-1-2}
+width = 100%
+height = 25
+
+background = ${colors.dim-background}
+foreground = ${colors.foreground}
+
+line-color = ${colors.dim-foreground}
+line-size = 2
+
+spacing = 1
+padding-right = 2
+module-margin = 1
+
+font-0 = ProggyCleanTTSZ:pixelsize=12;+2
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;+2
+font-2 = ProggyCleanTTSZ:pixelsize=12;+2
+font-3 = file\-icons:pixelsize=13;+4
+font-4 = FontAwesome:pixelsize=13;+4
+
+modules-left = cmus
+modules-right = eth volume xkeyboard temperature date
+modules-center = xwindow
+
+border-size = 2
+fixed-center = true
+
+[bar/bottom]
+monitor = ${env:MONITOR:HDMI-1-2}
+bottom = true
+width = 100%
+height = 25
+
+background = ${bar/top.background}
+foreground = ${bar/top.foreground}
+
+line-color = ${bar/top.background}
+line-size = 2
+
+spacing = 3
+padding-right = 2
+module-margin-left = 0
+module-margin-right = 3
+
+font-0 = ProggyCleanTTSZ:pixelsize=12;+2
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;+2
+font-2 = ProggyCleanTTSZ:pixelsize=12;+2
+font-3 = file\-icons:pixelsize=12;+2
+font-4 = FontAwesome:pixelssize=13;+2
+
+modules-left = i3
+modules-right = cpu memory
+
+wm-restack = i3
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+border-size = 2
+fixed-center =  true
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <ramp> <bar>
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-font = 3
+bar-indicator-foreground = #ff
+bar-fill = ─
+bar-fill-font = 3
+bar-fill-foreground = #c9665e
+bar-empty = ─
+bar-empty-font = 3
+bar-empty-foreground = #44
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = █
+bar-capacity-fill-foreground = #ddffffff
+bar-capacity-fill-font = 3
+bar-capacity-empty = █
+bar-capacity-empty-font = 3
+bar-capacity-empty-foreground = #44ffffff
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/i3]
+type = internal/i3
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 10;
+ws-icon-default = 
+
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+label-mode = %mode%
+
+label-focused = %icon%
+label-focused-background = ${colors.dim-background}
+label-focused-underline = ${colors.focus}
+label-focused-padding = 2
+
+label-unfocused = %icon%
+label-unfocused-background = ${colors.dim-background}
+label-unfocused-padding = 2
+
+;label-visible = %icon%
+;label-visible-background = #00FF0F
+;label-visible-underline = #F0F0F0
+;label-visible-padding = 2
+
+;label-active = %icon%
+;label-active-foreground = #fff
+;label-active-background = #773f3f3f
+;label-active-underline = #c9665e
+;label-active-font = 2
+;label-active-padding = 2
+
+;label-occupied = %icon%
+;label-occupied-foreground = #dd
+;label-occupied-underline = #666
+;label-occupied-font = 2
+;label-occupied-padding = 2
+
+label-urgent = %icon%
+label-urgent-background = ${colors.dim-background}
+label-urgent-foreground = ${colors.urgent}
+label-urgent-underline = ${colors.urgent}
+label-urgent-padding = 2
+
+;label-empty = %icon%
+;label-empty-foreground = #55
+;label-empty-font = 2
+;label-empty-padding = 2
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format = <label> <ramp-coreload>
+label = CPU %percentage%%
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 2
+ramp-coreload-0-foreground = ${colors.foreground}
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 2
+ramp-coreload-1-foreground = ${colors.foreground}
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 2
+ramp-coreload-2-foreground = ${colors.focus}
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 2
+ramp-coreload-3-foreground = ${colors.focus}
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 2
+ramp-coreload-4-foreground = #{colors.urgent}
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 2
+ramp-coreload-5-foreground = ${colors.urgent}
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 2
+ramp-coreload-6-foreground = ${colors.piping-hot}
+ramp-coreload-7 = █
+ramp-coreload-7-font = 2
+ramp-coreload-7-foreground = ${colors.piping-hot}
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = " %Y-%m-%d"
+date-alt = " %Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix-foreground = ${colors.foreground}
+format-underline = ${colors.focus}
+
+label = %date% %time%
+
+[module/memory]
+type = internal/memory
+format = <label> <bar-used>
+label = RAM
+
+bar-used-width = 30
+bar-used-foreground-0 = ${colors.foreground}
+bar-used-foreground-1 = ${colors.focus}
+bar-used-foreground-2 = ${colors.focus}
+bar-used-foreground-3 = ${colors.urgent}
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = ${colors.focus}
+bar-used-fill = ─
+bar-used-fill-font = 6
+bar-used-empty = ─
+bar-used-empty-font = 6
+bar-used-empty-foreground = ${colors.dimmed}
+
+[module/cmus]
+type = custom/script
+format-prefix = " "
+exec = bash ~/.config/polybar/polymus.sh
+exec-if = pgrep -x cmus
+interval = 1
+
+click-left = cmus-remote --pause
+click-right = cmuse-remote --stop
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume> <bar-volume>
+label-volume = 
+label-volume-foreground = ${root.foreground}
+
+format-muted = <label-muted> <bar-volume>
+format-muted-foreground = ${colors.dim-foreground}
+label-muted = 
+
+bar-volume-width = 20
+bar-volume-foreground-0 = ${colors.foreground}
+bar-volume-foreground-1 = ${colors.foreground}
+bar-volume-foreground-2 = ${colors.foreground}
+bar-volume-foreground-3 = ${colors.focus}
+bar-volume-foreground-4 = ${colors.focus}
+bar-volume-foreground-5 = ${colors.urgent}
+bar-volume-foreground-6 = ${colors.urgent}
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 6
+bar-volume-indicator-foreground = ${colors.focus}
+bar-volume-fill = ─
+bar-volume-fill-font = 6
+bar-volume-empty = ─
+bar-volume-empty-font = 6
+bar-volume-empty-foreground = ${colors.dimmed}
+
+[module/wlan]
+type = internal/network
+interface = net1
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = #9f78e1
+label-connected = %essid%
+
+;format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.dim-foreground}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.dim-foreground}
+
+[modules/xmenu]
+menu-0 = item 1;command
+menu-0-0 = sub-item 1.1;command
+menu-0-1 = sub-item 1.2;command
+menu-0-2 = sub-item 1.3;command
+menu-1 = item 2;command
+menu-1-0 = sub-item 2.1;command
+menu-1-1 = sub-item 2.2;command
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+;format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+format-prefix-underline = ${colors.urgent}
+
+label-layout = %layout%
+label-layout-underline = ${colors.urgent}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.urgent}
+label-indicator-underline = ${colors.urgent}
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.dim-foreground}
+
+[module/eth]
+type = internal/network
+interface = net0
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.dim-foreground}
+label-connected = %local_ip%
+
+;format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.dim-foreground}
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = ${colors.foreground}
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${colors.urgent}
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.urgent}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground}
+
+[module/powermenu]
+type = custom/menu
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.dim-foreground}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
