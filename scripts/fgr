@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+then
+    echo "No directory supplied"
+else
+    num_dirs=0
+    dirs=""
+    for d in $1/*; do
+        if [[ -d "$d" && ! -L "$d" ]]; then
+            cd "$d"
+            if git rev-parse --git-dir > /dev/null 2>&1; then
+                num_dirs=$((num_dirs+=1))
+                dirs=$dirs$d$'\n'
+            fi;
+            cd ..
+        fi;
+    done
+    if [[ $num_dirs == 0 ]] ; then
+        echo "No git repositories in $1"
+    else
+        echo "Found these git repos: "
+        echo "$dirs"
+        echo "Found $num_dirs git repositories!"
+    fi;
+fi;
+
