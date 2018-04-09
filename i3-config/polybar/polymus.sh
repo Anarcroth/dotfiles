@@ -8,12 +8,14 @@ artist=$(echo -n $(cmus-remote -C status | grep artist -m 1 | cut -c 12-))
 song=$(echo -n $(cmus-remote -C status | grep title -m -1 | cut -c 11-))
 
 position=$(cmus-remote -C status | grep position | cut -c 10-)
-minutes1=$(prepend_0 $(( $position / 60 )))
-seconds1=$(prepend_0 $(( $position % 60 )))
+if [ "$position" != "" ]; then
+    minutes1=$(prepend_0 $(( $position / 60 )))
+    seconds1=$(prepend_0 $(( $position % 60 )))
 
-duration=$(cmus-remote -C status | grep duration | cut -c 10-)
-minutes2=$(prepend_0 $(( $duration / 60 )))
-seconds2=$(prepend_0 $(( $duration % 60 )))
+    duration=$(cmus-remote -C status | grep duration | cut -c 10-)
+    minutes2=$(prepend_0 $(( $duration / 60 )))
+    seconds2=$(prepend_0 $(( $duration % 60 )))
+fi
 
 status=$(echo -n $(cmus-remote -C status | grep status -m 1 | cut -c 8-))
 
