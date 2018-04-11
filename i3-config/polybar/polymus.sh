@@ -20,7 +20,7 @@ fi
 status=$(echo -n $(cmus-remote -C status | grep status -m 1 | cut -c 8-))
 
 if [ "$status" == "playing" ]; then
-    echo -n "$artist - $song > $minutes1:$seconds1 - $minutes2:$seconds2"
+    echo -n " $artist - $song > $minutes1:$seconds1 - $minutes2:$seconds2"
 else
-    echo -n "$artist - $song | $minutes1:$seconds1 - $minutes2:$seconds2"
+    echo -n " $artist - $song | $minutes1:$seconds1 - $minutes2:$seconds2"
 fi
