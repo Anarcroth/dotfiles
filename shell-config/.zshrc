@@ -93,11 +93,12 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Run antigen
 source $HOME/antigen.zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh) 
+# Bundles from the default repo (robbyrussell's oh-my-zsh)
 antigen bundle git
-    
+
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
@@ -116,12 +117,6 @@ function sens() {
 zle -N sens{,}
 bindkey ^s sens
 
-# Call neofetch with ascii
-neofetch --ascii ~/.config/ascii_spaceship
-
-# Call neofetch with wallpaper
-#neofetch
-
 # Output time above prompt
 PS1="%B%D%b %D{%L:%M:%S} $PS1"
 
@@ -130,3 +125,9 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 
 # Import colorscheme from 'wal' asynchronously
 (cat ~/.cache/wal/sequences &)
+
+# Call neofetch with ascii
+#neofetch --ascii ~/.config/ascii_spaceship
+
+# Call neofetch with wallpaper
+neofetch
