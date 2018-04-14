@@ -39,7 +39,7 @@ convert $IMAGE $ICON -gravity center -composite -matte $IMAGE
 
 sudo bash -c "echo 0 > /sys/bus/usb/devices/usb3/authorized_default"
 
-python3 ~/dotfiles/usblistener.py &
+python3 ~/dotfiles/i3-config/i3lock/usblistener.py &
 
 i3lock -n -u -i $IMAGE
 
