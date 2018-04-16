@@ -26,3 +26,7 @@ ssh -f -N -R $PORT_NUM:localhost:22 SERVER@IP
 ssh -p$PORT_NUM CLIENT@localhost
 # Kill the SSH background process
 pkill -f 'ssh -f -N -R $PORT_NUM:localhost:22 SERVER@IP'
+
+# Take a screen shot of selected region, simulating `shift + print scr`, using ImageMagick
+import NAME.png
+import -window root NAME.png
