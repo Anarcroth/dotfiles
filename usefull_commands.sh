@@ -30,3 +30,8 @@ pkill -f 'ssh -f -N -R $PORT_NUM:localhost:22 SERVER@IP'
 # Take a screen shot of selected region, simulating `shift + print scr`, using ImageMagick
 import NAME.png
 import -window root NAME.png
+
+# Copy from local machine to remote machine
+scp localfile user@host:/path/to/whereyouwant/thefile
+# Copy from remote machine to local machine
+scp user@host:/path/to/remotefile localfile
