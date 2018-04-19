@@ -249,12 +249,6 @@ exec_always --no-startup-id /home/mdn/.config/polybar/launch.sh
 # Keyboard layout
 exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant -option "grp:alt_shift_toggle"
 
-# Emacs-everywhere
-bindsym $mod+Control+e exec $HOME/emacs-anywhere/bin/run
-
-# Custom i3lock script
-bindsym $mod+Control+l exec bash lock
-
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -280,6 +274,15 @@ bindsym XF86AudioPrev exec playerctl previous
 # Keyboard backlight controls
 bindsym XF86KbdBrightnessUp exec keyboardlight up
 bindsym XF86KbdBrightnessDown exec keyboardlight down
+
+# Emacs-everywhere
+bindsym $mod+Control+e exec $HOME/emacs-anywhere/bin/run
+
+# i3lock
+bindsym $mod+Control+l exec bash lock
+
+# Cmus
+bindsym $mod+Control+c exec bash -e cmus
 
 # Background and transparency settings
 exec_always compton -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g = "Rofi"' --focus-exclude 'class_g = "Rofi"'
