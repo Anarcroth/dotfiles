@@ -323,12 +323,16 @@ label = %title:0:30:...%
 [module/xkeyboard]
 type = internal/xkeyboard
 
+format = <label-layout> <label-indicator>
+format-spacing = 0
+
 format-prefix = "  "
 format-prefix-foreground = ${colors.foreground}
 format-prefix-background = ${colors.focus-3}
 
 label-layout = " %layout%"
 
+label-indicator = %name%
 label-indicator-padding = 1
 label-indicator-margin = 1
 label-indicator-background = ${colors.focus}
@@ -360,7 +364,12 @@ interval = 5
 format-connected-prefix = "  "
 format-connected-prefix-foreground = ${colors.foreground}
 format-connected-prefix-background = ${colors.focus-3}
-label-connected = " %local_ip%"
+label-connected = " %ifname%"
+
+;format-disconnected = <label-disconnected>
+;label-disconnected = "  "
+;label-disconnected-background = ${colors.piping-hot}
+;label-disconnected-foreground = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
@@ -369,11 +378,14 @@ interval = 5
 
 format-connected = <label-connected>
 format-connected-background = ${colors.background}
-format-connected-prefix = "  "
+format-connected-prefix = "  "
 format-connected-prefix-background = ${colors.focus}
-label-connected = " %essid%"
+label-connected = " %signal%%"
 
-ramp-signal-foreground = ${colors.foreground}
+format-disconnected = <label-disconnected>
+label-disconnected = "  "
+label-disconnected-background = ${colors.piping-hot}
+label-disconnected-foreground = ${colors.foreground}
 
 [module/temperature]
 type = internal/temperature
