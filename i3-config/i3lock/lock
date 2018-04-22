@@ -22,8 +22,6 @@ JOKE_LEN=$SCR_WIDTH
     JOKE_LEN=$((${#JOKE} * 12))
 }
 
-killall compton
-
 IMAGE=/tmp/lockscreen.png
 TEXT=/tmp/locktext.png
 ICON=$HOME/.config/i3/spaceship.png
@@ -40,6 +38,8 @@ convert $IMAGE $ICON -gravity center -composite -matte $IMAGE
 sudo bash -c "echo 0 > /sys/bus/usb/devices/usb3/authorized_default"
 
 python3 ~/dotfiles/i3-config/i3lock/usblistener.py &
+
+killall compton
 
 i3lock -n -u -i $IMAGE
 
