@@ -1,7 +1,7 @@
 [colors]
 ; black
 background = #030514
-dim-background = #DF030514
+dim-background = #99030514
 light-background = #33030514
 ; silver
 foreground = #D5D4D5
@@ -19,6 +19,8 @@ piping-hot = #FF5555
 dimmed = #444444
 dimmed-1 = #96A2A9
 dimmed-2 = #959495
+; transparent
+nothing = #0000
 
 [bar/top]
 width = 100%
@@ -27,12 +29,12 @@ height = 30
 background = ${colors.dim-background}
 foreground = ${colors.foreground}
 
-line-color = ${colors.dim-foreground}
+line-color = ${colors.foreground}
 line-size = 2
 
 spacing = 1
 padding-right = 1
-padding-left = 1
+padding-left = 0
 module-margin = 1
 
 font-0 = ProggyCleanTTSZ:pixelsize=12;+2
@@ -41,12 +43,11 @@ font-2 = ProggyCleanTTSZ:pixelsize=12;+2
 font-3 = file\-icons:pixelsize=13;+4
 font-4 = FontAwesome:pixelsize=13;+4
 
-modules-left = cmus volume cpu
-modules-right = eth wlan xkeyboard temperature date
+modules-left = volume
 modules-center = i3
+modules-right = date
 
-border-size = 2
-;border-color = ${colors.dim-ackground}
+border-size = 3
 fixed-center = true
 
 wm-restack = i3
@@ -56,7 +57,7 @@ scroll-down = i3wm-wsprev
 [bar/bottom]
 bottom = true
 width = 100%
-height = 25
+height = 30
 
 background = ${bar/top.background}
 foreground = ${bar/top.foreground}
@@ -64,23 +65,21 @@ foreground = ${bar/top.foreground}
 line-color = ${bar/top.background}
 line-size = 2
 
-spacing = 3
-padding-right = 2
+spacing = 1
+padding-right = 1
 module-margin-left = 0
-module-margin-right = 3
+module-margin-right = 1
 
 font-0 = ProggyCleanTTSZ:pixelsize=12;+2
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;+2
 font-2 = ProggyCleanTTSZ:pixelsize=12;+2
-font-3 = file\-icons:pixelsize=12;+2
-font-4 = FontAwesome:pixelssize=13;+2
+font-3 = file\-icons:pixelsize=13;+4
+font-4 = FontAwesome:pixelsize=13;+4
 
-modules-left = i3
-modules-right = cpu memory eth wlan
+modules-center = cmus
+modules-right = eth wlan temperature xkeyboard
 
-wm-restack = i3
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+border-size = 3
 
 fixed-center =  true
 
@@ -153,12 +152,13 @@ wrapping-scroll = false
 label-mode = %mode%
 
 label-focused = %icon%
-label-focused-background = ${colors.light-background}
+label-focused-foreground = ${colors.foreground}
 label-focused-underline = ${colors.focus-4}
 label-focused-padding = 2
 
 label-unfocused = %icon%
-label-unfocused-background = ${colors.dim-background}
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-underline = ${colors.foreground}
 label-unfocused-padding = 2
 
 ;label-visible = %icon%
@@ -180,7 +180,7 @@ label-unfocused-padding = 2
 ;label-occupied-padding = 2
 
 label-urgent = %icon%
-label-urgent-background = ${colors.light-background}
+label-urgent-background = ${colors.nothing}
 label-urgent-foreground = ${colors.urgent}
 label-urgent-underline = ${colors.urgent}
 label-urgent-padding = 2
@@ -234,10 +234,13 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = "  "
-format-prefix-background = ${colors.focus}
 format-prefix-foreground = ${colors.foreground}
+format-prefix-underline = ${colors.focus-3}
 
 label = %date% %time%
+
+label-foreground = ${colors.foreground}
+label-underline = ${colors.focus-3}
 
 [module/memory]
 type = internal/memory
@@ -262,7 +265,7 @@ bar-used-empty-foreground = ${colors.dimmed}
 type = custom/script
 
 format-prefix = "  "
-format-prefix-background = ${colors.focus}
+format-prefix-underline = ${colors.focus}
 format-prefix-foreground = ${colors.foreground}
 
 exec = bash ~/.config/polybar/polymus.sh
@@ -280,24 +283,24 @@ format-volume = <label-volume> <bar-volume>
 
 label-volume = "  "
 label-volume-foreground = ${root.foreground}
-label-volume-background = ${colors.focus-3}
+label-volume-underline = ${colors.focus-3}
 
 format-muted = <label-muted> <bar-volume>
 format-muted-foreground = ${colors.dim-foreground}
 
-label-muted = "  "
+label-muted = "   "
 label-muted-foreground = ${colors.dim-foreground}
-label-muted-background = ${colors.focus-2}
+label-muted-underline = ${colors.focus-2}
 
-bar-volume-width = 20
+bar-volume-width = 30
 bar-volume-foreground-0 = ${colors.foreground}
-bar-volume-foreground-1 = ${colors.foreground}
-bar-volume-foreground-2 = ${colors.foreground}
-bar-volume-foreground-3 = ${colors.focus}
-bar-volume-foreground-4 = ${colors.focus}
+bar-volume-foreground-1 = ${colors.focus}
+bar-volume-foreground-2 = ${colors.focus}
+bar-volume-foreground-3 = ${colors.focus-4}
+bar-volume-foreground-4 = ${colors.focus-4}
 bar-volume-foreground-5 = ${colors.urgent}
 bar-volume-foreground-6 = ${colors.urgent}
-bar-volume-gradient = false
+bar-volume-gradient = true
 bar-volume-indicator = |
 bar-volume-indicator-font = 6
 bar-volume-indicator-foreground = ${colors.foreground}
@@ -328,9 +331,11 @@ format-spacing = 0
 
 format-prefix = "  "
 format-prefix-foreground = ${colors.foreground}
-format-prefix-background = ${colors.focus-3}
+format-prefix-underline = ${colors.focus}
 
-label-layout = " %layout%"
+label-layout = " %layout% "
+label-layout-foreground = ${colors.foreground}
+label-layout-underline = ${colors.focus}
 
 label-indicator = %name%
 label-indicator-padding = 1
@@ -377,12 +382,16 @@ interface = wlp4s0
 interval = 5
 
 format-connected = <label-connected>
-format-connected-background = ${colors.background}
+format-connected-foreground = ${colors.foreground}
 format-connected-prefix = "  "
-format-connected-prefix-background = ${colors.focus}
-label-connected = " %signal%%"
+format-connected-prefix-underline = ${colors.focus-3}
+
+label-connected = " %signal%% "
+label-connected-foreground = ${colors.foreground}
+label-connected-underline = ${colors.focus-3}
 
 format-disconnected = <label-disconnected>
+
 label-disconnected = "  "
 label-disconnected-background = ${colors.piping-hot}
 label-disconnected-foreground = ${colors.foreground}
@@ -392,19 +401,25 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-format = <ramp> <label>
-format-warn = <ramp> <label-warn>
-format-warn-background = ${colors.piping-hot}
+format =  <label>
+format-underline = ${colors.urgent}
+
+format-warn =  <label-warn>
+format-warn-underline = ${colors.piping-hot}
 
 label = %temperature%
+label-foreground = ${colors.foreground}
+label-underline = ${colors.urgent}
+
 label-warn = %temperature%
-label-warn-foreground = ${colors.urgent}
+label-warn-foreground = ${colors.foreground}
+label-warn-underline = ${colors.piping-hot}
 
 ramp-0 = "  "
 ramp-1 = "  "
 ramp-2 = "  "
 ramp-foreground = ${colors.foreground}
-ramp-background = ${colors.urgent}
+ramp-underline = ${colors.urgent}
 
 [module/powermenu]
 type = custom/menu
