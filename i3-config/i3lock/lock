@@ -46,4 +46,7 @@ i3lock -n -u -i $IMAGE
 compton -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g = "Rofi"' --focus-exclude 'class_g = "Rofi"'
 
 sudo bash -c "echo 1 > /sys/bus/usb/devices/usb3/authorized_default"
+
+# Clean background processes
+pgrep -f 'python3 /home/mdn/dotfiles/' | xargs kill
 killall mplayer
