@@ -23,6 +23,9 @@ ffmpeg -y -i input_file.avi -s 432x320 -b:v 384k -vcodec libx264 -flags +loop+mv
 # Take a screen shot of selected region, simulating `shift + print scr`, using ImageMagick
 import NAME.png
 import -window root NAME.png
+
+# Use -k to search for something in all man pages, like 'sound'
+man -k sound
 ```
 
 ---
