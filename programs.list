@@ -8,7 +8,6 @@ compton
 font-manager
 git
 i3
-i3blocks
 i3gaps
 i3lock
 jq
@@ -18,6 +17,7 @@ lxappearance
 neofetch
 pandoc
 playerctl
+polybar
 pywal / wal
 ranger
 remarkable
@@ -26,6 +26,7 @@ rsync
 scrot
 setxkbmap
 slack
+tty-clock
 xprop
 yEd
 zsh / oh-my-zsh
