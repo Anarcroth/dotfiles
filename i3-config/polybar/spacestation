@@ -66,9 +66,8 @@ line-color = ${bar/top.background}
 line-size = 2
 
 spacing = 1
-padding-right = 1
 module-margin-left = 0
-module-margin-right = 1
+module-margin-right = 3
 
 font-0 = ProggyCleanTTSZ:pixelsize=12;+2
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;+2
@@ -76,8 +75,9 @@ font-2 = ProggyCleanTTSZ:pixelsize=12;+2
 font-3 = file\-icons:pixelsize=13;+4
 font-4 = FontAwesome:pixelsize=13;+4
 
-modules-center = cmus
+modules-left = cmus
 modules-right = eth wlan temperature xkeyboard
+;tray-position = center
 
 border-size = 3
 
@@ -233,7 +233,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = "  "
+format-prefix = ""
 format-prefix-foreground = ${colors.foreground}
 format-prefix-underline = ${colors.focus-3}
 
@@ -329,11 +329,11 @@ type = internal/xkeyboard
 format = <label-layout> <label-indicator>
 format-spacing = 0
 
-format-prefix = "  "
+format-prefix = ""
 format-prefix-foreground = ${colors.foreground}
 format-prefix-underline = ${colors.focus}
 
-label-layout = " %layout% "
+label-layout = " %layout%"
 label-layout-foreground = ${colors.foreground}
 label-layout-underline = ${colors.focus}
 
@@ -366,15 +366,18 @@ type = internal/network
 interface = enp5s0f1
 interval = 5
 
-format-connected-prefix = "  "
+format-connected-prefix = ""
 format-connected-prefix-foreground = ${colors.foreground}
-format-connected-prefix-background = ${colors.focus-3}
-label-connected = " %ifname%"
+format-connected-prefix-underline = ${colors.focus-4}
 
-;format-disconnected = <label-disconnected>
-;label-disconnected = "  "
-;label-disconnected-background = ${colors.piping-hot}
-;label-disconnected-foreground = ${colors.foreground}
+label-connected = " %ifname%"
+label-connected-foreground = ${colors.foreground}
+label-connected-underline = ${colors.focus-4}
+
+format-disconnected = <label-disconnected>
+label-disconnected = ""
+label-disconnected-underline = ${colors.piping-hot}
+label-disconnected-foreground = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
@@ -383,17 +386,17 @@ interval = 5
 
 format-connected = <label-connected>
 format-connected-foreground = ${colors.foreground}
-format-connected-prefix = "  "
+format-connected-prefix = ""
 format-connected-prefix-underline = ${colors.focus-3}
 
-label-connected = " %signal%% "
+label-connected = " %signal%%"
 label-connected-foreground = ${colors.foreground}
 label-connected-underline = ${colors.focus-3}
 
 format-disconnected = <label-disconnected>
 
-label-disconnected = "  "
-label-disconnected-background = ${colors.piping-hot}
+label-disconnected = ""
+label-disconnected-underline = ${colors.piping-hot}
 label-disconnected-foreground = ${colors.foreground}
 
 [module/temperature]
