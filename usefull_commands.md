@@ -35,6 +35,9 @@ man -k sound
 ``` bash
 # Commit changes X days ago.
 git commit --date="X day(s) ago" -m "MESSAGE"
+
+# Set git to push towards URL no_push (disable git push)
+git remote set-url --push origin no_push
 ```
 
 ---
