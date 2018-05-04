@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# Find any unstaged changes to git repositories
+
+if [[ "$EUID" -ne 0 ]]; then
+  echo "NOTE: If you want to search for hidden directories as well, run as root." >&2
+  echo
+fi
+
+if [[ $# -eq 0 ]]; then
+  echo "No directory supplied" >&2
+else
+  num_dirs=0
+  dirs=""
+  # checks for normal and hidden directories
+  for d in $1/* .[^.]*; do
+      if [[ -d "$d" && ! -L "$d" ]]; then
+          cd "$d" > /dev/null 2>&1
+          if git rev-parse --git-dir > /dev/null 2>&1; then
+              GIT_STATUS_OUTPUT="$(git status)"
+              if `echo ${GIT_STATUS_OUTPUT} | grep -v "nothing to commit" 1>/dev/null 2>&1`; then
+                  num_dirs=$((num_dirs+=1))
+                  dirs=$dirs$d$'\n'
+              fi
+          fi
+          cd ..
+      fi
+  done
+  if [[ $num_dirs == 0 ]]; then
+      echo "No changes to stage or commit in $1" >&2
+  else
+      echo "Found these changed git repos:" >&2
+      echo "------------------------------" >&2
+      echo "$dirs" >&2
+      echo "------------------------------" >&2
+      echo "Found $num_dirs changed git repositories!" >&2
+  fi
+fi
