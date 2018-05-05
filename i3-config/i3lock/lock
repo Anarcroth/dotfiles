@@ -4,8 +4,8 @@
 
 # Get keyboard layout code
 case "$(xset -q|grep LED| awk '{ print $10 }')" in
-    "00000002") KB_LANG="eng";; # English
-    "00001002") KB_LANG="bg";; # Other
+    "00000000") KB_LANG="eng";; # English
+    "00001000") KB_LANG="bg";; # Other
 esac
 
 SCR_WIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
