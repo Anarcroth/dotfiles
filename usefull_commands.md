@@ -26,6 +26,9 @@ import -window root NAME.png
 
 # Use -k to search for something in all man pages, like 'sound'
 man -k sound
+
+# Restart `pulseaudio` and `ALSA`
+pulseaudio -k && sudo alsa force-reload
 ```
 
 ---
