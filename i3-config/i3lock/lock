@@ -5,12 +5,15 @@
 # Get keyboard layout code
 case "$(xset -q|grep LED| awk '{ print $10 }')" in
     "00000000") KB_LANG="eng";; # English
+    "00000002") KB_LANG="eng";; # English
     "00001000") KB_LANG="bg";; # Other
+    "00001002") KB_LANG="bg";; # Other
 esac
 
 SCR_WIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
 JOKE_LEN=$SCR_WIDTH
 
+# Get a joke that is less than the screen width
 {
     while [[ "$SCR_WIDTH" -le "$JOKE_LEN" ]]
     do
@@ -27,6 +30,7 @@ TEXT=/tmp/locktext.png
 ICON=$HOME/.config/i3/spaceship.png
 LANG=/tmp/lang.png
 
+# Build lock screen
 scrot $IMAGE
 convert $IMAGE -scale 10% -scale 1000% -fill black -colorize 25% $IMAGE
 convert -size "$JOKE_LEN"x60 xc:#FAFAFA -font Ubuntu -pointsize 24 -fill xc:#3F464D -gravity center -annotate +0+0 "$JOKE" $TEXT
@@ -35,18 +39,23 @@ convert $IMAGE $TEXT -gravity center -geometry +0+200 -composite $IMAGE
 convert $IMAGE $LANG -gravity NorthEast -geometry +0+1 -composite $IMAGE
 convert $IMAGE $ICON -gravity center -composite -matte $IMAGE
 
+# Disable usb ports
 sudo bash -c "echo 0 > /sys/bus/usb/devices/usb3/authorized_default"
 
+# Listen for background usb connections
 python3 ~/dotfiles/i3-config/i3lock/usblistener.py &
 
 killall compton
 
 i3lock -n -u -i $IMAGE
 
-compton -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g = "Rofi"' --focus-exclude 'class_g = "Rofi"'
+# Restart compton
+compton --shadow --clear-shadow --shadow-opacity=0.75 --shadow-radius=12 --shadow-red 0.105 --shadow-green 0.392 --shadow-blue 0.611 -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Polybar"' --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Rofi"' --shadow-exclude '!focused'
 
+# Enable usbs
 sudo bash -c "echo 1 > /sys/bus/usb/devices/usb3/authorized_default"
 
 # Clean background processes
 pgrep -f 'python3 /home/mdn/dotfiles/' | xargs kill
+# Kil mplayer from python process
 killall mplayer
