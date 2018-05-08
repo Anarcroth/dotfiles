@@ -297,7 +297,6 @@ exec_always compton --shadow --clear-shadow --shadow-opacity=0.75 --shadow-radiu
 exec_always feh --bg-scale ~/Pictures/spacewalk.jpg
 
 # Startup programs
-exec gnome-terminal
 exec firefox
 exec slack
 exec --no-startup-id nm-applet   # connects to the internet
