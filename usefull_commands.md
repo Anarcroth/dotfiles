@@ -32,6 +32,9 @@ pulseaudio -k && sudo alsa force-reload
 
 # Compton setup for general use
 compton --shadow --clear-shadow --shadow-opacity=0.75 --shadow-radius108 --shadow-red 0.105 --shadow-green 0.392 --shadow-blue 0.611 --daemon --fading --fade-in-step=0.08 --fade-out-step=0.08 --inactive-opacity=0.7 --shadow-exclude 'class_g = "Polybar"' --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Rofi"' --shadow-exclude '!focused'
+
+# Checl the ASCII table for character encoding
+ascii -x || man ascii
 ```
 
 ---
