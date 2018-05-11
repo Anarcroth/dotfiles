@@ -423,7 +423,7 @@ image_backend="w3m"
 # NOTE: 'auto' will pick the best image source for whatever image backend is used.
 #       In ascii mode, distro ascii art will be used and in an image mode, your
 #       wallpaper will be used.
-image_source="$HOME/Pictures/spacewalk.jpg"
+#image_source="$HOME/Pictures/spacewalk.jpg"
 
 
 # Ascii Options
@@ -524,8 +524,8 @@ gap=3
 # Values:  'px'
 # Flags:   --xoffset
 #          --yoffset
-yoffset=10
-xoffset=10
+yoffset=15
+xoffset=15
 
 # Image background color
 # Only works with the w3m backend.
