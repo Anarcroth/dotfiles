@@ -69,3 +69,15 @@
 #677B93 more gray
 #2288EE pure blue
 #00071F more dark ocean blue
+
+* Neonspace 2
+
+#030514 Dark blue
+#CE9159 Orange mellow
+#1B649C Blue 1
+#2A73B9 Blue 2
+#0C91B4 Blue 3
+#2FA0C1 Blue 4
+#96A2A9 Gray 1
+#d5d4d5 Snow white
+#959495 Gray 2
