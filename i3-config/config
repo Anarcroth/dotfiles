@@ -137,6 +137,8 @@ assign [class="Firefox"] $workspace1
 assign [class="Google-chrome"] $workspace3
 assign [class="Gnome-terminal"] $workspace4
 assign [class="Slack"] $workspace5
+assign [class="jetbrains-idea"] $workspace6
+assign [class="KeePass2"] $workspace7
 assign [class="Nautilus"] $workspace8
 assign [class="Audacious"] $workspace10
 
@@ -286,6 +288,9 @@ bindsym $mod+Control+l exec bash lock
 
 # Cmus
 bindsym $mod+Control+p exec $HOME/.config/i3/cmus_launch.sh
+
+# IntelliJ
+bindsym $mod+Control+i exec $HOME/idea-IU-172.3317.76/bin/idea.sh
 
 # Enable Num Lock on startup
 exec_always --no-startup-id numlockx on
