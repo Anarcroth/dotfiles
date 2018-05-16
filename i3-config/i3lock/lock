@@ -4,25 +4,23 @@
 
 # Get keyboard layout code
 case "$(xset -q|grep LED| awk '{ print $10 }')" in
-    "00000000") KB_LANG="eng";; # English
-    "00000002") KB_LANG="eng";; # English
-    "00001000") KB_LANG="bg";; # Other
-    "00001002") KB_LANG="bg";; # Other
+  "00000000") KB_LANG="eng";; # English
+  "00000002") KB_LANG="eng";; # English
+  "00001000") KB_LANG="bg";; # Other
+  "00001002") KB_LANG="bg";; # Other
 esac
 
 SCR_WIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
-JOKE_LEN=$SCR_WIDTH
 
 # Get a joke that is less than the screen width
 {
-    while [[ "$SCR_WIDTH" -le "$JOKE_LEN" ]]
-    do
-        JOKE=$(curl -s 'https://api.chucknorris.io/jokes/random' | jq -r '.value')
-        JOKE_LEN=$((${#JOKE} * 12))
-    done
-} || {
+  JOKE=$(curl -s 'https://api.chucknorris.io/jokes/random' | jq -r '.value')
+  JOKE_LEN=$((${#JOKE} * 12))
+
+  if [[ "$SCR_WIDTH" -le "$JOKE_LEN" ]]; then
     JOKE="Chuck Norris is watching you..."
     JOKE_LEN=$((${#JOKE} * 12))
+  fi
 }
 
 IMAGE=/tmp/lockscreen.png
