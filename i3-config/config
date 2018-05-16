@@ -138,7 +138,7 @@ assign [class="Google-chrome"] $workspace3
 assign [class="Gnome-terminal"] $workspace4
 assign [class="Slack"] $workspace5
 assign [class="jetbrains-idea"] $workspace6
-assign [class="KeePass2"] $workspace7
+assign [class="keepassxc"] $workspace7
 assign [class="Nautilus"] $workspace8
 assign [class="Audacious"] $workspace10
 
@@ -296,7 +296,7 @@ bindsym $mod+Control+i exec $HOME/idea-IU-172.3317.76/bin/idea.sh
 exec_always --no-startup-id numlockx on
 
 # Background and transparency settings
-exec_always compton --shadow --clear-shadow --shadow-opacity=0.75 --shadow-radius=12 --shadow-red 0.105 --shadow-green 0.392 --shadow-blue 0.611 -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Polybar"' --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Rofi"' --shadow-exclude '!focused'
+exec_always compton --shadow --clear-shadow --shadow-opacity=0.75 --shadow-radius=12 --shadow-red 0.105 --shadow-green 0.392 --shadow-blue 0.611 -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Polybar"' --shadow-exclude 'class_g = "keepassxc"' --focus-exclude 'class_g = "keepassxc"' --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Rofi"' --shadow-exclude '!focused'
 
 # Setup background
 exec_always feh --bg-scale ~/Pictures/spacewalk.jpg
