@@ -12,12 +12,12 @@ esac
 
 SCR_WIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
 
-# Get a joke that is less than the screen width
+# Set joke to be less than the screen width or to the default one
 {
   JOKE=$(curl -s 'https://api.chucknorris.io/jokes/random' | jq -r '.value')
   JOKE_LEN=$((${#JOKE} * 12))
 
-  if [[ "$SCR_WIDTH" -le "$JOKE_LEN" ]]; then
+  if [[ "$SCR_WIDTH" -le "$JOKE_LEN" ]] || [[ "$JOKE" -eq "" ]]; then
     JOKE="Chuck Norris is watching you..."
     JOKE_LEN=$((${#JOKE} * 12))
   fi
