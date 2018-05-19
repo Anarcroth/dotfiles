@@ -35,6 +35,16 @@ compton --shadow --clear-shadow --shadow-opacity=0.75 --shadow-radius108 --shado
 
 # Checl the ASCII table for character encoding
 ascii -x || man ascii
+
+# Check SHA1 of a downloaded file
+sha1sum $FILE
+
+# List all block devices with paths, size, and permissions
+lsblk --all --bytes --fs --perms
+
+# Create a bootable USB image
+sudo umount /dev/sd<?><?>
+sudo dd bs=4M if=/path/to/image.iso of=/dev/sd<?> conv=fdatasync
 ```
 
 ---
