@@ -3,23 +3,23 @@
 #!/bin/bash
 
 # Get keyboard layout code
-case "$(xset -q|grep LED| awk '{ print $10 }')" in
-  "00000000") KB_LANG="eng";; # English
-  "00000002") KB_LANG="eng";; # English
-  "00001000") KB_LANG="bg";; # Other
-  "00001002") KB_LANG="bg";; # Other
+case "$(xset -q | grep LED | awk '{ print $10 }')" in
+  "00000000") kb_lang="eng";; # English
+  "00000002") kb_lang="eng";; # English
+  "00001000") kb_lang="bg";; # Other
+  "00001002") kb_lang="bg";; # Other
 esac
 
 SCR_WIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
 
 # Set joke to be less than the screen width or to the default one
 {
-  JOKE=$(curl -s 'https://api.chucknorris.io/jokes/random' | jq -r '.value')
-  JOKE_LEN=$((${#JOKE} * 12))
+  joke=$(curl -s 'https://api.chucknorris.io/jokes/random' | jq -r '.value')
+  joke_len=$((${#joke} * 12))
 
-  if [[ "$SCR_WIDTH" -le "$JOKE_LEN" ]] || [[ "$JOKE" -eq "" ]]; then
-    JOKE="Chuck Norris is watching you..."
-    JOKE_LEN=$((${#JOKE} * 12))
+  if [[ "$SCR_WIDTH" -le "$joke_len" ]] || [[ "$joke" -eq "" ]]; then
+    joke="Chuck Norris is watching you..."
+    joke_len=$((${#joke} * 12))
   fi
 }
 
@@ -31,8 +31,8 @@ LANG=/tmp/lang.png
 # Build lock screen
 scrot $IMAGE
 convert $IMAGE -scale 10% -scale 1000% -fill black -colorize 25% $IMAGE
-convert -size "$JOKE_LEN"x60 xc:#FAFAFA -font Ubuntu -pointsize 24 -fill xc:#3F464D -gravity center -annotate +0+0 "$JOKE" $TEXT
-convert -size 30x30 xc:#3F464D -font Ubuntu -pointsize 12 -fill xc:#FAFAFA -gravity center -annotate +0+0 "$KB_LANG" $LANG
+convert -size "$joke_len"x60 xc:#FAFAFA -font Ubuntu -pointsize 24 -fill xc:#3F464D -gravity center -annotate +0+0 "$joke" $TEXT
+convert -size 35x30 xc:#3F464D -font Ubuntu -pointsize 12 -fill xc:#FAFAFA -gravity center -annotate +0+0 "$kb_lang" $LANG
 convert $IMAGE $TEXT -gravity center -geometry +0+200 -composite $IMAGE
 convert $IMAGE $LANG -gravity NorthEast -geometry +0+1 -composite $IMAGE
 convert $IMAGE $ICON -gravity center -composite -matte $IMAGE
