@@ -22,7 +22,7 @@
 [alias]
 	lg = log --all --stat --pretty=oneline --graph --format='%h %d %an %cr %s'
 	up = pull --rebase
-	br = branch --verbose
+	br = branch --verbose -a
 	sfp = push --force-with-lease
 	st = status
 	civ = commit --verbose
