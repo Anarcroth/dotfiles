@@ -45,6 +45,13 @@ lsblk --all --bytes --fs --perms
 # Create a bootable USB image
 sudo umount /dev/sd<?><?>
 sudo dd bs=4M if=/path/to/image.iso of=/dev/sd<?> conv=fdatasync
+
+# Reverse bash command line history
+`Ctrl` + `R`
+# List previos commands with indexes
+history
+# Execute command at index N
+!N
 ```
 
 ---
@@ -57,6 +64,22 @@ git commit --date="X day(s) ago" -m "MESSAGE"
 
 # Set git to push towards URL no_push (disable git push)
 git remote set-url --push origin no_push
+
+# git-status flags
+M = modified
+A = added
+D = deleted
+R = renamed
+C = copied
+U = updated but unmerged
+
+# Stashing
+git stash save # current changes
+git stash apply # apply stashed changes and keep the stash
+git stash drop # get rid of stash
+git stash pop # apply stashes and drop the stash
+git stash list # show all stashes, where the lowest are the newest
+git stash apply stash@{N} # apply the Nth stash
 ```
 
 ---
