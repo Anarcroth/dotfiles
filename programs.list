@@ -5,7 +5,10 @@ cmatrix
 cmus
 color-scripts
 compton
+cowsay
+emacs
 font-manager
+fortune
 git
 i3
 i3gaps
@@ -17,10 +20,12 @@ light
 lxappearance
 neofetch
 numlockx
+nyancat
 pactl
 pandoc
 playerctl
 polybar
+powerlevel9k
 pywal / wal
 ranger
 remarkable
