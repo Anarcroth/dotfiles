@@ -1,24 +1,29 @@
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  interactive = auto
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
 	ui = auto
 	ui = true
 	pager = true
+
 [color "status"]
-  added = cyan bold
-  changed = red bold
+	added = cyan bold
+	changed = red bold
 	untracked = green bold
+
 [color "branch"]
 	current = blue bold
 	local = magenta bold
 	remote = green bold
+
 [color "log"]
 	author = cyan
+
 [user]
 	email = mdinestorov@gmail.com
 	name = Martin Nestorov
+
 [alias]
 	lg = log --all --stat --pretty=oneline --graph --format='%h %d %an %cr %s'
 	up = pull --rebase
@@ -31,7 +36,12 @@
 	cim = commit -m
 	pom = push origin master
 	qfix = commit -p --amend --no-edit
+
 [github]
 	user = Anarcroth
+
 [help]
 	autocorrect = 20
+
+[core]
+	editor = emacs
