@@ -7,7 +7,20 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="spaceship"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# powerlevel9k configuration
+
+POWERLEVEL9K_PROMPT_ON_NEWLINE="true"
+POWERLEVEL9K_RPROMPT_ON_NEWLINE="true"
+POWERLEVEL9K_PROMPT_ADD_NEWLINE="true"
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time os_icon)
+
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(icons_test)
+
+############################
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -126,14 +139,14 @@ function lep() {
   fi
 }
 
-# Output time above prompt
-PS1="%B%D%b %D{%L:%M:%S} $PS1"
-
 # pywal call
 export PATH="${PATH}:${HOME}/.local/bin/"
 
 # Import colorscheme from 'wal' asynchronously
 (cat ~/.cache/wal/sequences &)
+
+# source fonts
+source ~/.fonts/*.sh
 
 # Call neofetch with ascii
 #neofetch --ascii ~/.config/ascii_spaceship
