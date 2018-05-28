@@ -52,6 +52,9 @@ sudo dd bs=4M if=/path/to/image.iso of=/dev/sd<?> conv=fdatasync
 history
 # Execute command at index N
 !N
+
+# Search recently modified files of type "X"
+find . -type f  -name '*.X' -printf '%TY-%Tm-%Td %TT %p\n' | sort
 ```
 
 ---
@@ -74,12 +77,33 @@ C = copied
 U = updated but unmerged
 
 # Stashing
-git stash save # current changes
+git stash push # stash current changes at position 0
+git stash push -m "Message" # stash current changes with a message
+
 git stash apply # apply stashed changes and keep the stash
-git stash drop # get rid of stash
-git stash pop # apply stashes and drop the stash
-git stash list # show all stashes, where the lowest are the newest
 git stash apply stash@{N} # apply the Nth stash
+
+git stash drop
+git stash drop stash@{N}# get rid of stash
+
+git stash pop # apply stashes and drop the stash
+git stash pop stash{N}
+
+git stash list # show all stashes, where the lowest are the newest
+
+git stash show # show stashed changes
+git stash show -p # show as source code
+git stash show -p stash{N}
+
+# To rename a stash do
+git stash drop stash@{1}
+# will output: Dropped stash@{1} (b848ee0629411f2cb5bf2d3114bfe7758f8606d4)
+git stash store -m "Message" b848ee0629411f2cb5bf2d3114bfe7758f8606d4
+# or use the custom alias
+git stash-rename <stash> [<message>]
+
+# Ommit current changes in branch
+git checkout .
 
 # Squash last N commits
 git rebase -i HEAD~N
