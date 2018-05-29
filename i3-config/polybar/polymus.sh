@@ -27,10 +27,6 @@ time2=$(( ${seconds2#0} + $(( ${minutes2#0} * 60 ))))
 deltax=$(( $(( time1 - time2 )) / 20 ))
 
 if [[ "$status" == "playing" ]]; then
-#  if [[ time1 < deltax * i ]]; then
-#    bar+="-"
-#  fi
-#  echo -n "$bar"
   echo -n " $artist - $song > $minutes1:$seconds1 - $minutes2:$seconds2"
 else
   if [[ "$artist" == "" ]]; then
