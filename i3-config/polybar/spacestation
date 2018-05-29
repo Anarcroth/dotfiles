@@ -154,27 +154,19 @@ label-urgent-padding = 1
 type = internal/date
 interval = 5
 
-date = " %Y-%m-%d"
+date = "%Y-%m-%d"
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = ""
-format-prefix-foreground = ${colors.foreground}
-format-prefix-underline = ${colors.focus-3}
-
 label = %date% %time%
-
-label-foreground = ${colors.foreground}
-label-underline = ${colors.focus-3}
 
 [module/cmus]
 type = custom/script
 
-format-prefix = "  "
-format-prefix-underline = ${colors.focus}
-format-prefix-foreground = ${colors.foreground}
+format-prefix = " cmus "
+format-prefix-foreground = ${colors.focus-3}
 
 exec = bash ~/.config/polybar/polymus.sh
 exec-if = pgrep -x cmus
@@ -189,16 +181,14 @@ type = internal/volume
 
 format-volume = <label-volume> <bar-volume>
 
-label-volume = "  "
+label-volume = " volume"
 label-volume-foreground = ${root.foreground}
-label-volume-underline = ${colors.focus-3}
 
 format-muted = <label-muted> <bar-volume>
 format-muted-foreground = ${colors.dim-foreground}
 
-label-muted = "   "
+label-muted = "  mute "
 label-muted-foreground = ${colors.dim-foreground}
-label-muted-underline = ${colors.focus-2}
 
 bar-volume-width = 40
 bar-volume-foreground-0 = ${colors.foreground}
@@ -228,38 +218,27 @@ type = internal/xkeyboard
 format = <label-layout> <label-indicator>
 format-spacing = 0
 
-format-prefix = ""
-format-prefix-foreground = ${colors.foreground}
-format-prefix-underline = ${colors.focus}
-
-label-layout = " %layout%"
 label-layout-foreground = ${colors.foreground}
-label-layout-underline = ${colors.focus}
 
 label-indicator = %name%
-label-indicator-padding = 1
-label-indicator-margin = 1
-label-indicator-background = ${colors.focus}
-label-indicator-underline = ${colors.focus}
-label-indicator-foreground = ${colors.foreground}
+label-indicator-padding = 0
+label-indicator-margin = 0
+label-indicator-foreground = ${colors.focus}
 
 [module/eth]
 type = internal/network
 interface = enp5s0f1
 interval = 5
 
-format-connected-prefix = ""
-format-connected-prefix-foreground = ${colors.foreground}
-format-connected-prefix-underline = ${colors.focus-4}
+format-connected-prefix = "lan up"
+format-connected-prefix-foreground = ${colors.focus-4}
 
-label-connected = " link"
-label-connected-foreground = ${colors.foreground}
-label-connected-underline = ${colors.focus-4}
+label-connected = " "
+label-connected-foreground = ${colors.focus-4}
 
 format-disconnected = <label-disconnected>
-label-disconnected = ""
-label-disconnected-underline = ${colors.piping-hot}
-label-disconnected-foreground = ${colors.foreground}
+label-disconnected = "lan down"
+label-disconnected-foreground = ${colors.piping-hot}
 
 [module/wlan]
 type = internal/network
@@ -267,44 +246,31 @@ interface = wlp4s0
 interval = 5
 
 format-connected = <label-connected>
-format-connected-foreground = ${colors.foreground}
-format-connected-prefix = ""
-format-connected-prefix-underline = ${colors.focus-3}
+format-connected-prefix = "wifi"
+format-connected-prefix-foreground = ${colors.focus-3}
 
 label-connected = " %signal%%"
-label-connected-foreground = ${colors.foreground}
-label-connected-underline = ${colors.focus-3}
+label-connected-foreground = ${colors.focus-3}
 
 format-disconnected = <label-disconnected>
 
-label-disconnected = ""
-label-disconnected-underline = ${colors.piping-hot}
-label-disconnected-foreground = ${colors.foreground}
+label-disconnected = "wifi down"
+label-disconnected-foreground = ${colors.piping-hot}
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-format =  <label>
-format-underline = ${colors.urgent}
+format = <label>
 
-format-warn =  <label-warn>
-format-warn-underline = ${colors.piping-hot}
+format-warn = <label-warn>
 
-label = %temperature%
-label-foreground = ${colors.foreground}
-label-underline = ${colors.urgent}
+label = "temp %temperature%"
+label-foreground = ${colors.urgent}
 
-label-warn = %temperature%
-label-warn-foreground = ${colors.foreground}
-label-warn-underline = ${colors.piping-hot}
-
-ramp-0 = "  "
-ramp-1 = "  "
-ramp-2 = "  "
-ramp-foreground = ${colors.foreground}
-ramp-underline = ${colors.urgent}
+label-warn = "temp %temperature%"
+label-warn-foreground = ${colors.piping-hot}
 
 [settings]
 screenchange-reload = true
