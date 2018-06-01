@@ -116,6 +116,10 @@ git commit
 git reset --soft HEAD~3
 git commit --edit -m"$(git log --format=%B --reverse HEAD..HEAD@{1})"
 
+# Diffs
+git diff branch1 branch2 -- FILE
+git diff branch1..branch2 -- FILE # if either branch is at HEAD
+
 # Reset the current branch to the commit just before the last N:
 git reset --hard HEAD~N
 # HEAD@{1} is where the branch was just before the previous command.
