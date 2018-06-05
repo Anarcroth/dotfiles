@@ -1,0 +1,91 @@
+#!/bin/bash
+#
+# Alarm/message pop-up
+
+programname=$0
+
+function usage {
+  echo "usage: $programname [-m|--message] [-t|--time] [-l|--level]"
+  echo "   -m      Message to be reminded of"
+  echo "   -t      Time until message pop-up. XXhXXmXXs | XXh | XXm | XXs"
+  echo "   -l      (optional) Level of urgency (low(2), normal(1), critical(0))"
+  exit 1
+}
+
+if [[ $# -le 2 ]]; then
+  usage
+fi
+
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+  key="$1"
+
+  case $key in
+    -m|--message)
+      MESSAGE="$2"
+      shift
+      shift
+      ;;
+    -t|--time)
+      TIME="$2"
+      shift
+      shift
+      ;;
+    -l|--level)
+      LEVEL="$2"
+      shift
+      shift
+      ;;
+    *)
+      POSITIONAL+=("$1")
+      shift
+      ;;
+  esac
+done
+set -- "${POSITIONAL[@]}"
+
+if [[ -z $TIME ]] || [[ -z $MESSAGE ]]; then
+  usage
+fi
+
+is_zero() {
+  if [[ $1 -eq 0 ]]; then
+    echo 0
+  fi
+  echo $1
+}
+
+function get_time {
+  SECONDS=`echo $TIME | grep -ohEe '[0-9]{1,2}s' | tr -d 's'`
+  SECONDS=$(is_zero $SECONDS)
+
+  MINUTES=`echo $TIME | grep -ohEe '[0-9]{1,2}m' | tr -d 'm'`
+  MINUTES=$(is_zero $MINUTES)
+
+  HOURS=`echo $TIME | grep -ohEe '[0-9]{1,2}h' | tr -d 'h'`
+  HOURS=$(is_zero $HOURS)
+
+  TOTAL_TIME=$(( $SECONDS + $(( $MINUTES * 60 )) + $(( $HOURS * 3600 ))))
+}
+
+function get_urgency {
+  case $LEVEL in
+    low|2)
+      LEVEL="low"
+      ;;
+    medium|1)
+      LEVEL="normal"
+      ;;
+    high|0)
+      LEVEL="critical"
+      ;;
+    *)
+      LEVEL="normal"
+  esac
+}
+
+get_time
+get_urgency
+
+sleep $TOTAL_TIME && notify-send 'AlarmMe!' "$MESSAGE" --icon=dialog-information --urgency="$LEVEL" &
