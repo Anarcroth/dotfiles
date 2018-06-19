@@ -37,9 +37,9 @@
 	pom = push origin master
 	qfix = commit -p --amend --no-edit
 	stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git stash store -m \"$2\" $rev; }; _"
-	gsl = git stash list
-	gcod = git checkout .
-	gcam = git add . && git commit -m 
+	gsl = stash list
+	cod = checkout .
+	cam = commit -a -m 
 [github]
 	user = Anarcroth
 
