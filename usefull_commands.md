@@ -129,6 +129,14 @@ git merge --squash HEAD@{1}
 # Commit those squashed changes. The commit message will be helpfully
 # prepopulated with the commit messages of all the squashed commits:
 git commit
+
+# Rename git branch
+git branch -m NEW_NAME
+# or
+git branc -m OLD_NAME NEW_NAME
+# then
+git push origin :OLD_NAME NEW_NAME
+git push origin -u NEW_NAME
 ```
 
 ---
