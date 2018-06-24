@@ -12,10 +12,22 @@
 set $mod Mod4
 
 # Restore wal setup. Has to be on the top of file!
-exec ~/.local/bin/wal -R
+exec wal -i "~/Pictures/persia.jpg"
 
 # Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
 font pango: GohuFont, file-icons 11
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -26,7 +38,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start rofi
+# start rofi (a program launcher)
 bindsym $mod+d exec rofi -show run -config /home/mdn/.config/rofi/.Xresources
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -35,10 +47,10 @@ bindsym $mod+d exec rofi -show run -config /home/mdn/.config/rofi/.Xresources
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -47,10 +59,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -59,7 +71,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+b split h
+bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -128,7 +140,7 @@ assign [class="Slack"] $workspace5
 assign [class="jetbrains-idea"] $workspace6
 assign [class="keepassxc"] $workspace7
 assign [class="Nautilus"] $workspace8
-assign [class="Gnome-terminal" instance="gnome-terminal-server" title="cmus v2.7.0"] $workspace10
+assign [class="Audacious"] $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -166,18 +178,18 @@ mode "$resize" {
 bindsym $mod+r mode "$resize"
 
 # Current color set
-set_from_resource $bg  i3wm.color0
-set_from_resource $ibg i3wm.color0
-set_from_resource $ifg i3wm.color2
-set_from_resource $fg  i3wm.color5
-set_from_resource $ubg i3wm.color0
-set_from_resource $ufg i3wm.color1
+set_from_resource $bg  i3wm.color0 #ff0000
+set_from_resource $ibg i3wm.color0 #ff0000
+set_from_resource $ifg i3wm.color2 #00ff00
+set_from_resource $fg  i3wm.color5 #0f0f0f
+set_from_resource $ubg i3wm.color0 #ff0000
+set_from_resource $ufg i3wm.color1 #f000ff
 
 # window color
-# class                 border              background          text             indicator    child_border
-client.focused          $fg                 $bg                 $fg              $fg          $fg
-client.unfocused        $bg                 $bg                 $ifg             $fg          $ifg
-client.urgent           $ubg                $ubg                $ufg             $fg          $fg
+# class          border              background          text             indicator    child_border
+client.focused   $fg                 $bg                 $fg              $fg          $fg
+client.unfocused $fg                 $bg                 $ifg             $fg          $ifg
+client.urgent    $ubg                $ubg                $ufg             $fg          $fg
 
 #client.focused-inactive $bg  $bg  $ifg  $fg  $ifg
 
@@ -237,7 +249,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-exec_always --no-startup-id /home/mdn/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Keyboard layout
 exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant -option "grp:alt_shift_toggle"
@@ -278,7 +290,7 @@ bindsym $mod+Control+l exec bash lock
 bindsym $mod+Control+p exec $HOME/.config/i3/cmus_launch.sh
 
 # IntelliJ
-bindsym $mod+Control+i exec $HOME/idea-IU-181.4892.42/bin/idea.sh
+bindsym $mod+Control+i exec $HOME/idea-IU-172.3317.76/bin/idea.sh
 
 # Enable Num Lock on startup
 exec_always --no-startup-id numlockx on
@@ -287,12 +299,11 @@ exec_always --no-startup-id numlockx on
 exec_always compton --shadow --clear-shadow --shadow-opacity=0.75 --shadow-radius=12 --shadow-red 0.105 --shadow-green 0.392 --shadow-blue 0.611 -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --shadow-exclude 'class_g = "Polybar"' --shadow-exclude 'class_g = "keepassxc"' --focus-exclude 'class_g = "keepassxc"' --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Rofi"' --shadow-exclude '!focused'
 
 # Setup background
-exec_always feh --bg-scale ~/Pictures/spacewalk.jpg
+#exec_always feh --bg-scale ~/Pictures/persia.jpg
 
 # Startup programs
 exec firefox
 exec slack
 exec emacs
-#exec emacsclient -create-frame --alternate-editor=""
 exec --no-startup-id nm-applet   # connects to the internet
 exec toggletouchpad              # disable touchpad on startup
