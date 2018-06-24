@@ -1,24 +1,24 @@
 [colors]
 ; black
-background = #030514
-dim-background = #99030514
-light-background = #33030514
+background = #0a0f17
+dim-background = #990a0f17
+light-background = #330a0f17
 ; silver
-foreground = #D5D4D5
-dim-foreground = #AAD5D4D5
+foreground = #92bcd2
+dim-foreground = #AA92bcd2
 ; orange
-urgent = #CE9159
+urgent = #d39276
 ; blue
-focus = #2A73B9
-focus-2 = #1B649C
-focus-3 = #0C91B4
-focus-4 = #2FA0C1
+focus = #077cc2
+focus-2 = #58718f
+focus-3 = #1d6599
+focus-4 = #668393
 ; red
 piping-hot = #FF5555
 ; grey/gray
 dimmed = #444444
-dimmed-1 = #96A2A9
-dimmed-2 = #959495
+dimmed-1 = #58718f
+dimmed-2 = #668393
 ; transparent
 nothing = #0000
 
@@ -37,11 +37,10 @@ padding-right = 1
 padding-left = 0
 module-margin = 1
 
-font-0 = ProggyCleanTTSZ:pixelsize=12;+2
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;+2
-font-2 = ProggyCleanTTSZ:pixelsize=12;+2
-font-3 = file\-icons:pixelsize=13;+4
-font-4 = FontAwesome:pixelsize=13;+4
+font-0 = ProggyCleanTTSZ Nerd Font:antialias=false:pixelsize=12;+2
+font-1 = unifont:fontformat=truetype:size=10:antialias=false;+2
+font-3 = file\-icons:pixelsize=14;+4
+font-4 = FontAwesome:pixelsize=14;+4
 
 modules-left = volume
 modules-center = i3
@@ -69,9 +68,8 @@ spacing = 1
 module-margin-left = 0
 module-margin-right = 3
 
-font-0 = ProggyCleanTTSZ:pixelsize=12;+2
+font-0 = ProggyCleanTTSZ Nerd Font:antialias=false:pixelsize=12;+2
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;+2
-font-2 = ProggyCleanTTSZ:pixelsize=12;+2
 font-3 = file\-icons:pixelsize=13;+4
 font-4 = FontAwesome:pixelsize=13;+4
 
@@ -227,7 +225,7 @@ label-indicator-foreground = ${colors.focus}
 
 [module/eth]
 type = internal/network
-interface = enp5s0f1
+interface = enp8s0
 interval = 5
 
 format-connected-prefix = "lan up"
@@ -242,7 +240,7 @@ label-disconnected-foreground = ${colors.piping-hot}
 
 [module/wlan]
 type = internal/network
-interface = wlp4s0
+interface = wlp9s0
 interval = 5
 
 format-connected = <label-connected>
