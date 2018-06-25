@@ -1,7 +1,7 @@
 [colors]
 ; black
 background = #0a0f17
-dim-background = #990a0f17
+dim-background = #BB0a0f17
 light-background = #330a0f17
 ; silver
 foreground = #92bcd2
@@ -102,16 +102,16 @@ label-full = fully charged
 [module/i3]
 type = internal/i3
 ; 
-ws-icon-0 = 1;1 firefox
-ws-icon-1 = 2;2 emacs
-ws-icon-2 = 3;3 chrome
-ws-icon-3 = 4;4 shell
-ws-icon-4 = 5;5 slack
-ws-icon-5 = 6;6 java
-ws-icon-6 = 7;7 keepass
-ws-icon-7 = 8;8 file system
-ws-icon-8 = 9;9 random
-ws-icon-9 = 10;10 music
+ws-icon-0 = 1;1:firefox
+ws-icon-1 = 2;2:emacs
+ws-icon-2 = 3;3:chrome
+ws-icon-3 = 4;4:shell
+ws-icon-4 = 5;5:slack
+ws-icon-5 = 6;6:java
+ws-icon-6 = 7;7:keepass
+ws-icon-7 = 8;8:file system
+ws-icon-8 = 9;9:random
+ws-icon-9 = 10;10:music
 
 pin-workspaces = true
 
@@ -135,20 +135,20 @@ label-urgent-padding = 1
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
 date = "%Y-%m-%d"
-date-alt = " %Y-%m-%d"
+date-alt = "%Y-%m-%d"
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-label = %date% %time%
+label = date: %date% :: time: %time%
 
 [module/cmus]
 type = custom/script
 
-format-prefix = " cmus "
+format-prefix = " cmus: "
 format-prefix-foreground = ${colors.focus-3}
 
 exec = bash ~/.config/polybar/polymus.sh
@@ -164,13 +164,13 @@ type = internal/volume
 
 format-volume = <label-volume> <bar-volume>
 
-label-volume = " volume"
+label-volume = " volume:"
 label-volume-foreground = ${root.foreground}
 
 format-muted = <label-muted> <bar-volume>
 format-muted-foreground = ${colors.dim-foreground}
 
-label-muted = "  mute "
+label-muted = "  mute: "
 label-muted-foreground = ${colors.dim-foreground}
 
 bar-volume-width = 40
@@ -182,10 +182,10 @@ bar-volume-foreground-4 = ${colors.focus-4}
 bar-volume-foreground-5 = ${colors.focus-4}
 bar-volume-foreground-6 = ${colors.urgent}
 bar-volume-gradient = true
-bar-volume-indicator = |
+bar-volume-indicator = >
 bar-volume-indicator-font = 6
 bar-volume-indicator-foreground = ${colors.foreground}
-bar-volume-fill = ─
+bar-volume-fill = >
 bar-volume-fill-font = 6
 bar-volume-empty = ─
 bar-volume-empty-font = 6
@@ -198,7 +198,7 @@ label = %title:0:30:...%
 [module/xkeyboard]
 type = internal/xkeyboard
 
-format = <label-layout> <label-indicator>
+format = kbd: <label-layout> <label-indicator>
 format-spacing = 0
 
 label-layout-foreground = ${colors.foreground}
@@ -213,14 +213,14 @@ type = internal/network
 interface = enp8s0
 interval = 5
 
-format-connected-prefix = "lan up"
+format-connected-prefix = "lan: up"
 format-connected-prefix-foreground = ${colors.focus-4}
 
 label-connected = " "
 label-connected-foreground = ${colors.focus-4}
 
 format-disconnected = <label-disconnected>
-label-disconnected = "lan down"
+label-disconnected = "lan: down"
 label-disconnected-foreground = ${colors.piping-hot}
 
 [module/wlan]
@@ -229,15 +229,15 @@ interface = wlp9s0
 interval = 5
 
 format-connected = <label-connected>
-format-connected-prefix = "wifi"
+format-connected-prefix = "wifi: "
 format-connected-prefix-foreground = ${colors.focus-3}
 
-label-connected = " %signal%%"
+label-connected = "%signal%%"
 label-connected-foreground = ${colors.focus-3}
 
 format-disconnected = <label-disconnected>
 
-label-disconnected = "wifi down"
+label-disconnected = "wifi: down"
 label-disconnected-foreground = ${colors.piping-hot}
 
 [module/temperature]
@@ -249,10 +249,10 @@ format = <label>
 
 format-warn = <label-warn>
 
-label = "temp %temperature%"
+label = "temp: %temperature%"
 label-foreground = ${colors.urgent}
 
-label-warn = "temp %temperature%"
+label-warn = "temp: %temperature%"
 label-warn-foreground = ${colors.piping-hot}
 
 [settings]
