@@ -74,7 +74,7 @@ font-3 = file\-icons:pixelsize=13;+4
 font-4 = FontAwesome:pixelsize=13;+4
 
 modules-left = cmus
-modules-right = eth wlan temperature xkeyboard
+modules-right = battery eth wlan temperature xkeyboard
 modules-center = xwindow
 tray-position = right
 
@@ -84,35 +84,20 @@ fixed-center =  true
 
 [module/battery]
 type = internal/battery
+battery = BAT1
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
-format-full = <ramp-capacity> <label-full>
+format-charging = battery: <label-charging>
+format-discharging = battery: <label-discharging>
+format-full = battery: <label-full>
 
-ramp-capacity-0 = 
-ramp-capacity-0-foreground = #f53c3c
-ramp-capacity-1 = 
-ramp-capacity-1-foreground = #ffa900
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+label-charging = %percentage%%
+label-charging-foreground = ${colors.foreground}
 
-bar-capacity-width = 10
-bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
-bar-capacity-fill = █
-bar-capacity-fill-foreground = #ddffffff
-bar-capacity-fill-font = 3
-bar-capacity-empty = █
-bar-capacity-empty-font = 3
-bar-capacity-empty-foreground = #44ffffff
+label-discharging = %percentage%%
+label-discharging-foreground = ${colors.foreground}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 750
+label-full = fully charged
 
 [module/i3]
 type = internal/i3
