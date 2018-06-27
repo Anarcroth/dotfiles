@@ -1,20 +1,28 @@
+!--------------.
+! XTerm config |
+!--------------'
+Xterm*selectToClipboard: true
 XTerm.vt100.locale: true
 XTerm.vt100.metaSendsEscape: true
 XTerm.vt100.backarrowKey: false
 XTerm.ttyModes: erase ^?
-XTerm.vt100.translations: #override \n\
+XTerm.vt100.translations: #override \
     Ctrl <Key>M: maximize() \n\
-    Ctrl <Key>R: restore()
-    <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+    Ctrl <Key>R: restore() \n\
+    <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
     Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
     Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
 XTerm.vt100.saveLines: 4096
 XTerm.vt100.bellIsUrgent: true
-XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false
+XTerm.vt100.faceName: ProggyCleanTTSZ:size=12:antialias=false
+XTerm.vt100.faceName: fontawesome:size=12:antialias=false
 XTerm.vt100.font: 7x13
 XTerm.vt100.faceSize: 8
 XTerm.scaleHeight: 1.02
 
+!-------------.
+! Rofi config |
+!-------------'
 ! bg - Background color row
 ! fg - Text color
 ! bgalt - Background color alternating row
@@ -24,12 +32,12 @@ XTerm.scaleHeight: 1.02
 rofi.color-enabled: true
 
 ! State:                    'bg',     'fg',        'bgalt',         'hlbg',   'hlfg'
-!rofi.color-normal: argb:00000F30,  #EEFFFF,  argb:00000F30,  argb:00000F30,  #1088F9
-!rofi.color-urgent: argb: 00000026,  #B9AA97,  argb: 00412302,  argb: FFB9AA97,  #412302
-!rofi.color-active: argb: 00000026,  #9B5300,  argb: 00041534,  argb: FF412302,  #9B5300
+!rofi.color-normal: argb: XXYYYYYY,  #YYYYYY,  argb:XXYYYYYY,  argb: XXYYYYYY,  #YYYYYY
+!rofi.color-urgent: argb: XXYYYYYY,  #YYYYYY,  argb:XXYYYYYY,  argb: XXYYYYYY,  #YYYYYY
+!rofi.color-active: argb: XXYYYYYY,  #YYYYYY,  argb:XXYYYYYY,  argb: XXYYYYYY,  #YYYYYY
 
 ! State:            'background',      'border',    'separator'
-!rofi.color-window: argb:D900071F, argb:FF34C3EE,  argb:FF34C3EE
+!rofi.color-window: argb:XXYYYYYY, argb:XXYYYYYY,  argb:XXYYYYYY
 
 ! Dark theme.
 rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
@@ -37,7 +45,7 @@ rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
 rofi.width: 55
 rofi.lines: 8
 rofi.columns: 2
-rofi.font: GohuFont 14
+rofi.font: ProggyCleanTTSZ 12
 rofi.bw: 1
 rofi.padding: 35
 rofi.eh: 1
