@@ -36,7 +36,7 @@ LANG=/tmp/lang.png
 # Build lock screen3
 scrot $IMAGE
 convert $IMAGE -scale 10% -scale 1000% -fill black -colorize 25% $IMAGE
-convert -size "$joke_len"x60 xc:#FAFAFA -font Ubuntu -pointsize 24 -fill xc:#3F464D -gravity center -annotate +0+0 "$joke" $TEXT
+convert -size "$joke_len"x60 xc:#FAFAFA -font ProggyCleanTTSZ -pointsize 24 -fill xc:#3F464D -gravity center -annotate +0+0 "$joke" $TEXT
 convert -size 35x30 xc:#3F464D -font Ubuntu -pointsize 12 -fill xc:#FAFAFA -gravity center -annotate +0+0 "$kb_lang" $LANG
 convert $IMAGE $TEXT -gravity center -geometry +0+200 -composite $IMAGE
 convert $IMAGE $LANG -gravity NorthEast -geometry +0+1 -composite $IMAGE
