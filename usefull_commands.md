@@ -143,6 +143,21 @@ git branc -m OLD_NAME NEW_NAME
 # then
 git push origin :OLD_NAME NEW_NAME
 git push origin -u NEW_NAME
+
+# Working with remotes
+
+# Show the remote settings of a repo
+git remote show origin
+git remote -v
+
+# Force git repo to be a fetch-only (no-pushing must not exist as a dir)
+git remote set-url --push origin no-pushing
+
+# Set upstream to X
+git branch --set-upstream-to origin/master
+
+# Add new remote X URL
+git remote add X URL
 ```
 
 ---
