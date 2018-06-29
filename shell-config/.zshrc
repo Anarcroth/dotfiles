@@ -7,9 +7,11 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # powerlevel9k configuration
+
+POWERLEVEL9K_MODE="nerdfont-complete"
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE="true"
 POWERLEVEL9K_RPROMPT_ON_NEWLINE="true"
@@ -71,6 +73,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Xterm transperancy
+[ -n "$XTERM_VERSION" ] && transset-df --id "$WINDOWID" >/dev/null
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -84,7 +89,7 @@ else
 fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -99,7 +104,10 @@ alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Run antigen
-source $HOME/antigen.zsh
+source $HOME/antigen/antigen.zsh
+
+# Load oh-my-zsh's library
+antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh)
 antigen bundle git
@@ -148,8 +156,9 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 # source fonts
 source ~/.fonts/*.sh
 
-# Call neofetch with ascii
-#neofetch --ascii ~/.config/ascii_spaceship
-
 # Call neofetch with wallpaper
 neofetch
+source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+
+# changes to blinking bar
+echo -e -n "\x1b[\x35 q"
