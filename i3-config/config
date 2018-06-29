@@ -290,7 +290,7 @@ bindsym $mod+Control+l exec bash lock
 bindsym $mod+Control+p exec $HOME/.config/i3/cmus_launch.sh
 
 # IntelliJ
-bindsym $mod+Control+i exec $HOME/idea-IU-172.3317.76/bin/idea.sh
+bindsym $mod+Control+i exec idea
 
 # Enable Num Lock on startup
 exec_always --no-startup-id numlockx on
