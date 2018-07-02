@@ -13,14 +13,15 @@ git
 i3
 i3gaps
 i3lock
-inskape
+inkscape
 jq
-keepass
+keepassxc
 light
 lxappearance
 neofetch
 numlockx
 nyancat
+mplayer
 pactl
 pandoc
 playerctl
@@ -34,6 +35,7 @@ rsync
 scrot
 setxkbmap
 slack
+transset-df
 tree
 tty-clock
 xprop
