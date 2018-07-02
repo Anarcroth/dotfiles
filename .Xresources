@@ -1,9 +1,9 @@
-!---------------
+!--------------+
 ! XTerm config |
-!---------------
+!--------------+
 XTerm*selectToClipboard: true
 XTerm.vt100.locale: true
-XTerm.vt100.utf8: 1
+XTerm.vt100.utf8: true
 XTerm.vt100.metaSendsEscape: true
 XTerm.vt100.backarrowKey: false
 XTerm.ttyModes: erase ^?
@@ -12,21 +12,23 @@ XTerm.vt100.translations: #override \
     Ctrl <Key>R: restore() \n\
     <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
     Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
-    Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
+    Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n\
     Ctrl Alt <Key>S: secure()
 XTerm.vt100.saveLines: 4096
 XTerm.vt100.bellIsUrgent: true
-XTerm.vt100.faceName: ProggyCleanTTSZ:size=12:antialias=false
+XTerm.vt100.faceName: ProggyCleanTTSZ Nerd Font Mono:size=12:antialias=true:style=Regular
+XTerm.vt100.faceNameDoublesize: PowerlineSymbols:pixelsize=16
 XTerm.vt100.font: 7x13
-XTerm.vt100.faceSize: 8
-XTerm.scaleHeight: 1.02
+XTerm.vt100.renderFont: true
+XTerm.vt100.faceSize: 12
+XTerm.scaleHeight: 1.01
 XTerm*on3Clicks: regex [^ \n]+
 XTerm*on4Clicks: regex .*
 XTerm*on5Clicks: line
 
-!--------------
+!-------------+
 ! Rofi config |
-!--------------
+!-------------+
 ! bg - Background color row
 ! fg - Text color
 ! bgalt - Background color alternating row
@@ -43,7 +45,7 @@ rofi.color-enabled: true
 ! State:            'background',      'border',    'separator'
 !rofi.color-window: argb:XXYYYYYY, argb:XXYYYYYY,  argb:XXYYYYYY
 
-! Dark theme.
+! Dark theme
 rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
 
 rofi.width: 55
