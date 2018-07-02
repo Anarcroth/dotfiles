@@ -64,9 +64,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration #
 ######################
 
-# Xterm transparency
-#[ -n "$XTERM_VERSION" ] && transset-df --id "$WINDOWID" >/dev/null
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
