@@ -61,6 +61,25 @@ bg && disown -h %1
 
 # Check how much space is left on all partitions
 df --block-size=G --human-readable --total --print-type
+
+# Create an encrypted disk partition
+cryptsetup luksFormat --key-size 512 --hash sha512 --iter-time 2000 /dev/sdXY
+sudo cryptsetup luksOpen /dev/sdXY [new device name]
+sudo mkfs.ext4 /dev/mapper/devicename
+
+# Mount the encrypted partition
+sudo cryptsetup luksOpen /dev/sdXY devicename && sudo mount /dev/mapper/devicename mountpoint
+
+# Unmount the encrypted partition
+sudo umount mountpoint && sudo cryptsetup luksClose devicename
+
+# Change password of encrypted partition
+# Add new password
+sudo cryptsetup luksAddKey /dev/sdXY
+# Remove a password
+sudo cryptsetup luksRemoveKey /dev/sdXY
+# Or
+sudo cryptsetup luksChangeKey /dev/sdXY
 ```
 
 ---
