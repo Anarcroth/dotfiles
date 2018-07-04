@@ -10,6 +10,9 @@
 # Export .md to .pdf
 pandoc --latex-engine=xelatex --wrap=auto -p --highlight-style=kate -V mainfont="Times New Roman" -V fontsize=12pt -V geometry:margin=1in -V documentclass=article -V linestrech=1.5 -V colorlinks -V link-as-notes SRC.md -s -o DEST.pdf
 
+# Grep word within a file then copy the file
+grep -rl --null --include '*.txt' LINUX/UNIX . | xargs -0r cp -t /path/to/dest
+
 # Search for suffix type files, but only print the paths to directories that contain them.
 find . -name '*.<suffix>' | sed 's/\/[^\/]*$//' | sort | uniq
 
