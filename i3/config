@@ -134,12 +134,10 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 assign [class="Firefox"] $workspace1
-assign [class="Google-chrome"] $workspace3
+assign [class="jetbrains-idea"] $workspace3
 assign [class="XTerm"] $workspace4
 assign [class="Slack"] $workspace5
-assign [class="jetbrains-idea"] $workspace6
 assign [class="keepassxc"] $workspace7
-assign [class="ranger"] $workspace8
 assign [class="Audacious"] $workspace10
 
 # reload the configuration file
@@ -177,7 +175,7 @@ mode "$resize" {
 
 bindsym $mod+r mode "$resize"
 
-# Current color set
+# Current color set                #backup colors
 set_from_resource $bg  i3wm.color0 #ff0000
 set_from_resource $ibg i3wm.color0 #ff0000
 set_from_resource $ifg i3wm.color2 #00ff00
@@ -188,7 +186,7 @@ set_from_resource $ufg i3wm.color1 #f000ff
 # window color
 # class          border              background          text             indicator    child_border
 client.focused   $fg                 $bg                 $fg              $fg          $fg
-client.unfocused $fg                 $bg                 $ifg             $fg          $ifg
+client.unfocused $ifg                $bg                 $ifg             $fg          $ifg
 client.urgent    $ubg                $ubg                $ufg             $fg          $fg
 
 #client.focused-inactive $bg  $bg  $ifg  $fg  $ifg
@@ -236,6 +234,7 @@ mode "$mode_gaps_inner" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
 mode "$mode_gaps_outer" {
         bindsym plus  gaps outer current plus 5
         bindsym minus gaps outer current minus 5
@@ -296,13 +295,12 @@ bindsym $mod+Control+i exec idea
 exec_always --no-startup-id numlockx on
 
 # Background and transparency settings
-#exec_always --no-startup-id compton --shadow --clear-shadow --shadow-opacity=0.75 --shadow-radius=12 --shadow-red 0.105 --shadow-green 0.392 --shadow-blue 0.611 -b -f --fade-in-step=0.08 --fade-out-step=0.08 -i 0.7 --focus-exclude 'class_g = "MPlayer"' --shadow-exclude 'class_g = "Polybar"' --shadow-exclude 'class_g = "keepassxc"' --focus-exclude 'class_g = "keepassxc"' --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Rofi"' --shadow-exclude '!focused'
+exec_always --no-startup-id compton --shadow --shadow-offset-x=-20 --shadow-offset-y=-20 --no-dock-shadow --clear-shadow --shadow-opacity=0.70 --shadow-radius=6 --shadow-red 0.105 --shadow-green 0.392 --shadow-blue 0.611 -b -f --blur-background --shadow-exclude '!focused' --shadow-exclude 'class_g = "Emacs"' --shadow-exclude 'class_g = "Polybar"' --shadow-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g ="jetbrains-idea"'
 
 # Setup background
-exec_always feh --bg-scale ~/Pictures/penguing.png
+exec_always feh --bg-center ~/Pictures/penguing.png
 
 # Startup programs
 exec firefox
 exec slack
-exec --no-startup-id nm-applet   # connects to the internet
-exec toggletouchpad              # disable touchpad on startup
+exec xinput disable "ETPS/2 Elantech Touchpad" # disable touchpad on startup
