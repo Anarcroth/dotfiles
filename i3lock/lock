@@ -6,7 +6,7 @@
 sudo bash -c "echo 0 > /sys/bus/usb/devices/usb3/authorized_default"
 
 # Listen for background usb connections
-python3 ~/dotfiles/i3-config/i3lock/usblistener.py &
+python3 ~/dotfiles/i3lock/usblistener.py &
 
 i3lock
 
@@ -14,7 +14,7 @@ i3lock
 sudo bash -c "echo 1 > /sys/bus/usb/devices/usb3/authorized_default"
 
 # Clean background processes
-pgrep -f 'python3 /home/mdn/dotfiles/' | xargs kill
+pgrep -f 'python3 $HOME/dotfiles/' | xargs kill
 
 # Kill mplayer from python process
 killall mplayer
