@@ -1,24 +1,24 @@
 [colors]
 ; black
-background = #0a0f17
-dim-background = #BF0a0f17
-light-background = #330a0f17
+background = #0E0F10
+dim-background = #BF0E0F10
+light-background = #330E0F10
 ; silver
-foreground = #92bcd2
-dim-foreground = #AA92bcd2
+foreground = #7BB0DC
+dim-foreground = #AA7BB0DC
 ; orange
 urgent = #d39276
 ; blue
-focus = #1d6599
-focus-2 = #316893
-focus-3 = #58718f
-focus-4 = #077cc2
+focus = #1164AF
+focus-2 = #075AA7
+focus-3 = #074D8E
+focus-4 = #486992
 ; red
 piping-hot = #FF5555
 ; grey/gray
 dimmed = #444444
-dimmed-1 = #8a7cb7
-dimmed-2 = #668393
+dimmed-1 = #525E6D
+dimmed-2 = #567B9A
 ; transparent
 nothing = #0000
 
@@ -44,7 +44,6 @@ modules-left = volume
 modules-center = i3
 modules-right = date
 
-border-size = 3
 fixed-center = true
 
 wm-restack = i3
@@ -73,8 +72,6 @@ modules-left = cmus
 modules-right = battery eth wlan temperature xkeyboard
 modules-center = xwindow
 tray-position = right
-
-border-size = 3
 
 fixed-center =  true
 
@@ -171,10 +168,10 @@ label-muted-foreground = ${colors.dim-foreground}
 
 bar-volume-width = 40
 bar-volume-foreground-0 = ${colors.foreground}
-bar-volume-foreground-1 = ${colors.focus}
+bar-volume-foreground-1 = ${colors.foreground}
 bar-volume-foreground-2 = ${colors.focus}
 bar-volume-foreground-3 = ${colors.focus}
-bar-volume-foreground-4 = ${colors.focus-4}
+bar-volume-foreground-4 = ${colors.focus}
 bar-volume-foreground-5 = ${colors.focus-4}
 bar-volume-foreground-6 = ${colors.focus-4}
 bar-volume-gradient = true
