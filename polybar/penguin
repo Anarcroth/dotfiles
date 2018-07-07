@@ -97,12 +97,12 @@ type = internal/i3
 ; 
 ws-icon-0 = 1;1:firefox
 ws-icon-1 = 2;2:emacs
-ws-icon-2 = 3;3:chrome
+ws-icon-2 = 3;3:work
 ws-icon-3 = 4;4:shell
 ws-icon-4 = 5;5:slack
-ws-icon-5 = 6;6:java
-ws-icon-6 = 7;7:keepass
-ws-icon-7 = 8;8:file system
+ws-icon-5 = 6;6:keepass
+ws-icon-6 = 7;7:random
+ws-icon-7 = 8;8:random
 ws-icon-8 = 9;9:random
 ws-icon-9 = 10;10:music
 

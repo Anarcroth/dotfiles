@@ -137,8 +137,7 @@ assign [class="Firefox"] $workspace1
 assign [class="jetbrains-idea"] $workspace3
 assign [class="XTerm"] $workspace4
 assign [class="Slack"] $workspace5
-assign [class="keepassxc"] $workspace7
-assign [class="Audacious"] $workspace10
+assign [class="keepassxc"] $workspace6
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -152,7 +151,6 @@ set $resize Resize: j(Left), k(Down), l(Up), ;(Right), Return/Escape (default)
 
 mode "$resize" {
         # These bindings trigger as soon as you enter the resize mode
-
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
