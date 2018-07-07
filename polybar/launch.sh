@@ -7,5 +7,5 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Restart polybar from file quietly
-polybar -r -q -c $HOME/.config/polybar/kingdom top &
-polybar -r -q -c $HOME/.config/polybar/kingdom bottom
+polybar -r -q -c $HOME/.config/polybar/penguin top &
+polybar -r -q -c $HOME/.config/polybar/penguin bottom
