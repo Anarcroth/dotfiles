@@ -80,8 +80,8 @@ type = internal/battery
 battery = BAT1
 full-at = 98
 
-format-charging = battery: <label-charging>
-format-discharging = battery: <label-discharging>
+format-charging = battery: chrg <label-charging>
+format-discharging = battery: dchrg <label-discharging>
 format-full = battery: <label-full>
 
 label-charging = %percentage%%
@@ -114,11 +114,11 @@ wrapping-scroll = false
 label-mode = %mode%
 
 label-focused = %icon%
-label-focused-foreground = ${colors.focus-4}
+label-focused-foreground = ${colors.foreground}
 label-focused-padding = 1
 
 label-unfocused = %icon%
-label-unfocused-foreground = ${colors.foreground}
+label-unfocused-foreground = ${colors.focus-4}
 label-unfocused-padding = 1
 
 label-urgent = %icon%
