@@ -40,11 +40,7 @@ bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show run -config $HOME/.Xresources
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+x exec rofi -show drun -config $HOME/.Xresources
 
 # change focus
 bindsym $mod+h focus left
@@ -293,7 +289,7 @@ bindsym $mod+Control+i exec idea
 exec_always --no-startup-id numlockx on
 
 # Background and transparency settings
-exec_always --no-startup-id compton --shadow --shadow-offset-x=-20 --shadow-offset-y=-20 --no-dock-shadow --clear-shadow --shadow-opacity=0.70 --shadow-radius=6 --shadow-red 0.105 --shadow-green 0.392 --shadow-blue 0.611 -b -f --blur-background --shadow-exclude '!focused' --shadow-exclude 'class_g = "Emacs"' --shadow-exclude 'class_g = "Polybar"' --shadow-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g ="jetbrains-idea"'
+exec_always --no-startup-id compton --shadow --shadow-offset-x=-8 --shadow-offset-y=-8 --no-dock-shadow --clear-shadow --shadow-opacity=0.70 --shadow-radius=6 --shadow-red 0.105 --shadow-green 0.392 --shadow-blue 0.611 -b -f --blur-background --shadow-exclude '!focused' --shadow-exclude 'class_g = "Emacs"' --shadow-exclude 'class_g = "Polybar"' --shadow-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g ="jetbrains-idea"'
 
 # Setup background
 exec_always feh --bg-center ~/Pictures/penguing.png
