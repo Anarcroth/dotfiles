@@ -83,6 +83,9 @@ sudo cryptsetup luksAddKey /dev/sdXY
 sudo cryptsetup luksRemoveKey /dev/sdXY
 # Or
 sudo cryptsetup luksChangeKey /dev/sdXY
+
+# Watch the development and change of a file
+watch -e -c FILE_NAME
 ```
 
 ---
