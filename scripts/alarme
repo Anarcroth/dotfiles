@@ -21,27 +21,19 @@ while [[ $# -gt 0 ]]
 do
   key="$1"
 
-  case $key in
-    -m|--message)
-      MESSAGE="$2"
-      shift
-      shift
-      ;;
-    -t|--time)
-      TIME="$2"
-      shift
-      shift
-      ;;
-    -l|--level)
-      LEVEL="$2"
-      shift
-      shift
-      ;;
-    *)
-      POSITIONAL+=("$1")
-      shift
-      ;;
-  esac
+  if [[ $key == "-m" ]] || [[ $key == "--message" ]]; then
+    MESSAGE="$2"
+    shift
+  elif [[ $key == "-t" ]] || [[ $key == "--time" ]]; then
+    TIME="$2"
+    shift
+  elif [[ $key == "-l" ]] || [[ $key == "--level" ]]; then
+    LEVEL="$2"
+    shift
+  elif [[ $key == "-h" ]] || [[ $key == "--help" ]]; then
+    usage
+  fi
+  shift
 done
 set -- "${POSITIONAL[@]}"
 
