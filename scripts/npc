@@ -13,18 +13,18 @@ else
   n=0
   # checks for normal and hidden directories
   for d in $1/* .[^.]*; do
-      if [[ -d "$d" && ! -L "$d" ]]; then
-          cd "$d"
-          if git rev-parse --git-dir > /dev/null 2>&1; then
-              if git cherry -v > /dev/null 2>&1; then
-                  if [[ `git cherry -v` != "" ]]; then
-                      echo "$n. You have un-pushed commits in $d" >&2
-                      n=$((n+=1))
-                  fi
-              fi
+    if [[ -d "$d" && ! -L "$d" ]]; then
+      cd "$d"
+      if git rev-parse --git-dir > /dev/null 2>&1; then
+        if git cherry -v > /dev/null 2>&1; then
+          if [[ `git cherry -v` != "" ]]; then
+            echo "$n. You have un-pushed commits in $d" >&2
+            n=$((n+=1))
           fi
-          cd ..
+        fi
       fi
+      cd ..
+    fi
   done
 fi
 
