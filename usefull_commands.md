@@ -86,6 +86,14 @@ sudo cryptsetup luksChangeKey /dev/sdXY
 
 # Watch the development and change of a file
 watch -e -c FILE_NAME
+
+# Set time to UTC local time
+# First check the time status
+timedatectl status
+# Then set the time as desired
+sudo timedatectl set-time "yyyy-MM-dd hh:mm:ss"
+# Ensure that the hardware clock is in UTC
+sudo hwclock --systohc --utc
 ```
 
 ---
