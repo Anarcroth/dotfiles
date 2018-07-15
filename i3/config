@@ -183,7 +183,7 @@ client.focused   $fg                 $bg                 $fg              $fg   
 client.unfocused $ifg                $bg                 $ifg             $fg          $ifg
 client.urgent    $ubg                $ubg                $ufg             $fg          $fg
 
-#client.focused-inactive $bg  $bg  $ifg  $fg  $ifg
+#client.focused-inactive $ifg                $bg                 $ifg             $fg          $ifg
 
 hide_edge_borders both
 
@@ -277,7 +277,7 @@ bindsym XF86KbdBrightnessDown exec keyboardlight down
 bindsym $mod+Control+e exec $HOME/.emacs_anywhere/bin/run
 
 # i3lock
-bindsym $mod+Control+l exec bash lock
+bindsym $mod+Control+l exec --no-startup-id bash lock &
 
 # Cmus
 bindsym $mod+Control+p exec $HOME/.config/i3/cmus_launch.sh
