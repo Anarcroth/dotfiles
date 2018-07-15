@@ -203,7 +203,7 @@ label-indicator-foreground = ${colors.focus}
 
 [module/eth]
 type = internal/network
-interface = enp8s0
+interface = enp5s0f1
 interval = 5
 
 format-connected-prefix = "lan: up"
@@ -218,7 +218,7 @@ label-disconnected-foreground = ${colors.piping-hot}
 
 [module/wlan]
 type = internal/network
-interface = wlp9s0
+interface = wlp4s0
 interval = 5
 
 format-connected = <label-connected>
