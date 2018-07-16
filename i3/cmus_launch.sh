@@ -1,3 +1,3 @@
 #!/bin/bash
 
-gnome-terminal -- /bin/bash -c '(cat ~/.cache/wal/sequences &); cmus'
+xterm -e "cmus" & sleep .1s && transset-df -a 0.9
