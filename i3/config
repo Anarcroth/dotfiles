@@ -270,8 +270,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Keyboard backlight controls
-bindsym XF86KbdBrightnessUp exec keyboardlight up
-bindsym XF86KbdBrightnessDown exec keyboardlight down
+bindsym XF86KbdBrightnessUp exec kb-light + 1
+bindsym XF86KbdBrightnessDown exec kb-light - 1
 
 # Emacs-everywhere
 bindsym $mod+Control+e exec $HOME/.emacs_anywhere/bin/run
