@@ -191,6 +191,26 @@ git branch --set-upstream-to origin/master
 
 # Add new remote X URL
 git remote add X URL
+
+# Update local repo with the state of the remote one
+# (in the cases where remote branches are deleted as an example)
+git fetch --prune --progress
+
+# Move commits to a new branch
+git branch NEW_BRANCH
+git reset --hard HEAD~X # reset the main branch X commits back
+# or
+git reset --hard HASH
+git checkout NEW_BRANCH
+
+# Move commits to an existing branch
+git checkout EXISTING_BRANCH
+git merge PREV_BRANCH
+git checkout PREV_BRANCH
+git reset --hard HEAD~X
+# or
+git reset --hard HASH
+git checkout EXISTING_BRANCH
 ```
 
 ---
