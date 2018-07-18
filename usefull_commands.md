@@ -107,6 +107,12 @@ git commit --date="X day(s) ago" -m "MESSAGE"
 # Set git to push towards URL no_push (disable git push)
 git remote set-url --push origin no_push
 
+# Set remote branch to remote url
+git remote add origin URL
+
+# Set upstream to remote branch
+git branch --set-upstream-to origin/BRANCH_NAME
+
 # git-status flags
 M = modified
 A = added
