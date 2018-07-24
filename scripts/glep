@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# List the found matches
+
+ls -la | grep -Ee $1 
