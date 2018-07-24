@@ -89,6 +89,14 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# move a workspace from one monitor to the other
+bindsym $mod+n move workspace to output left
+bindsym $mod+m move workspace to output left
+
+# switch between the current and the previously focused one
+bindsym $mod+z workspace back_and_forth
+bindsym $mod+Shift+z move container to workspace back_and_forth
+
 # focus the child container
 #bindsym $mod+d focus child
 
@@ -253,8 +261,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -l -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -l -U 5 # decrease screen brightness
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec toggletouchpad # toggle touchpad
