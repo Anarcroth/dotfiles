@@ -39,7 +39,8 @@
 	stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git stash store -m \"$2\" $rev; }; _"
 	gsl = stash list
 	cod = checkout .
-	cam = commit -a -m 
+	cam = commit -a -m
+	fp = fetch -p --progress
 [github]
 	user = Anarcroth
 
