@@ -20,7 +20,7 @@ POWERLEVEL9K_RPROMPT_ON_NEWLINE="true"
 POWERLEVEL9K_PROMPT_ADD_NEWLINE="true"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time os_icon)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status root_indicator background_jobs history time os_icon)
 
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(icons_test)
 
