@@ -46,7 +46,7 @@ pulseaudio -k && sudo alsa force-reload
 # Compton setup for general use
 compton --shadow --clear-shadow --shadow-opacity=0.75 --shadow-radius108 --shadow-red 0.105 --shadow-green 0.392 --shadow-blue 0.611 --daemon --fading --fade-in-step=0.08 --fade-out-step=0.08 --inactive-opacity=0.7 --shadow-exclude 'class_g = "Polybar"' --shadow-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Firefox"' --focus-exclude 'class_g = "Rofi"' --shadow-exclude '!focused'
 
-# Checl the ASCII table for character encoding
+# Check the ASCII table for character encoding
 ascii -x || man ascii
 
 # Check SHA1 of a downloaded file
@@ -69,6 +69,8 @@ history
 # Make the currently running command go to the background and get back the shell
 # First do Ctrl+z then
 bg && disown -h %1
+# or
+nohup COMMAND &
 
 # Check how much space is left on all partitions
 df --block-size=G --human-readable --total --print-type
@@ -102,6 +104,12 @@ timedatectl status
 sudo timedatectl set-time "yyyy-MM-dd hh:mm:ss"
 # Ensure that the hardware clock is in UTC
 sudo hwclock --systohc --utc
+
+# Time a command
+/usr/bin/time -o outputfile --format='Elapsed Time = %E \n Inputs %I \n Outputs %O \n User Time = %U \n Kernel Time = %S' $COMMAND
+
+# Get size of directory
+du -sh $DIR
 ```
 
 ---
