@@ -110,6 +110,9 @@ sudo hwclock --systohc --utc
 
 # Get size of directory
 du -sh $DIR
+
+# Test a remote port without telnet or netcat
+timeout 1 bash -c '</dev/tcp/216.58.207.46/443 && echo Port is open || echo Port is closed' || echo Connection timeout
 ```
 
 ---
