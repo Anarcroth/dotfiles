@@ -3,12 +3,11 @@
 # Find any unstaged changes to git repositories
 
 if [[ "$EUID" -ne 0 ]]; then
-  echo "NOTE: If you want to search for hidden directories as well, run as root." >&2
-  echo
+  printf "\nNOTE: If you want to search for hidden directories as well, run as root.\n"
 fi
 
 if [[ $# -eq 0 ]]; then
-  echo "No directory supplied" >&2
+  printf "\nNo directory supplied\n"
 else
   num_dirs=0
   dirs=""
@@ -17,22 +16,20 @@ else
     if [[ -d "$d" && ! -L "$d" ]]; then
       cd "$d" > /dev/null 2>&1
       if git rev-parse --git-dir > /dev/null 2>&1; then
-        GIT_STATUS_OUTPUT="$(git status)"
-        if `echo ${GIT_STATUS_OUTPUT} | grep -v "nothing to commit" 1>/dev/null 2>&1`; then
-          num_dirs=$((num_dirs+=1))
+        git_status=$(git status)
+        if $(echo ${git_status} | grep -v "nothing to commit" &>/dev/null); then
+          num_dirs=$(( num_dirs+=1 ))
           dirs=$dirs$d$'\n'
         fi
       fi
       cd ..
     fi
   done
-  if [[ $num_dirs == 0 ]]; then
-    echo "No changes to stage or commit in $1" >&2
-  else
-    echo "Found these changed git repos:" >&2
-    echo "------------------------------" >&2
-    echo "$dirs" >&2
-    echo "------------------------------" >&2
-    echo "Found $num_dirs changed git repositories!" >&2
+  if [[ $num_dirs -ne 0 ]]; then
+    printf "\nFound these changed git repos:"
+    printf "\n------------------------------"
+    printf "\n$dirs"
+    printf -- "------------------------------"
+    printf "\nFound $num_dirs changed git repositories!\n"
   fi
 fi
