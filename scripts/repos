@@ -56,13 +56,11 @@ run() {
       cd ..
     fi
   done
-  if [[ $num_ncc_dirs -ne 0 || $num_npc_dirs -ne 0 ]]; then
-    if [[ $ncc ]]; then
-        print_ncc
-    fi
-    if [[ $npc ]]; then
-        print_npc
-    fi
+  if [[ $num_ncc_dirs -ne 0 ]]; then
+    print_ncc
+  fi
+  if [[ $num_npc_dirs -ne 0 ]]; then
+    print_npc
   fi
 }
 
@@ -88,19 +86,17 @@ run_npc() {
 }
 
 print_ncc() {
-  printf "\nFound these changed git repos:"
+  printf "\nFound $num_ncc_dirs changed git repositories!"
   printf "\n------------------------------"
   printf "\n$ncc_dirs"
-  printf -- "------------------------------"
-  printf "\nFound $num_ncc_dirs changed git repositories!\n"
+  printf -- "------------------------------\n"
 }
 
 print_npc() {
-  printf "\nFound these repos with unpushed commits:"
+  printf "\nFound $num_npc_dirs non-synced git repositories!"
   printf "\n------------------------------"
   printf "\n$npc_dirs"
-  printf -- "------------------------------"
-  printf "\nFound $num_npc_dirs non-synced git repositories!\n"
+  printf -- "------------------------------\n"
 }
 
 main $@
