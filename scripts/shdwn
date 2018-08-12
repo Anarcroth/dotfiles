@@ -16,7 +16,7 @@ main() {
   done
   set -- ${POSITIONAL[@]}
 
-  if $(sudo repos -d ~ -ncc -npc &>/dev/null); then
+  if [[ $(sudo repos -d ~ -ncc -npc) != "" ]]; then
     sudo repos -d ~ -ncc -npc
     printf "\nYou seem to have unsaved changes in some git repos\n"
     read -p "Do you want to continue? [Y/n] " YN
