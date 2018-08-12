@@ -56,7 +56,7 @@ run() {
       cd ..
     fi
   done
-  if [[ $num_dirs -ne 0 ]]; then
+  if [[ $num_ncc_dirs -ne 0 || $num_npc_dirs -ne 0 ]]; then
     if [[ $ncc ]]; then
         print_ncc
     fi
@@ -70,8 +70,8 @@ run_ncc() {
   if git rev-parse --git-dir &>/dev/null; then
     git_status=$(git status)
     if $(echo ${git_status} | grep -v "nothing to commit" &>/dev/null); then
-      num_ncc_dirs=$(( num_dirs+=1 ))
-      ncc_dirs=$dirs$d$'\n'
+      num_ncc_dirs=$(( num_ncc_dirs+=1 ))
+      ncc_dirs=$ncc_dirs$d$'\n'
     fi
   fi
 }
@@ -80,8 +80,8 @@ run_npc() {
   if git rev-parse --git-dir &>/dev/null; then
     if git cherry -v &>/dev/null; then
       if [[ `git cherry -v` != "" ]]; then
-        num_npc_dirs=$(( num_dirs+=1 ))
-        npc_dirs=$dirs$d$'\n'
+        num_npc_dirs=$(( num_npc_dirs+=1 ))
+        npc_dirs=$npc_dirs$d$'\n'
       fi
     fi
   fi
