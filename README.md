@@ -9,8 +9,11 @@
 The basic setup I'm running (as taken from [neofetch](https://github.com/dylanaraps/neofetch)):
 
 **OS**: Arch Linux x86_64
+
 **Shell**: zsh
+
 **WM**: i3
+
 **Terminal**: xterm
 
 This is how my setup looks:
@@ -22,14 +25,14 @@ pictures WIP
 ### What you can find here
 
 * Scripts
-** fgr - Find Git Repos. Goes through a given directory and tries to find if a git repository exists. Helpful when you don't know how many git repositories you have and you want to organize them.
-** npc - Not Pushed Commits. Goes through your git repos and checks if any of them have un-pushed comments to `origin`. Helpful when you are at the end of the day and forgot to sync in something.
-** ncc - Not Commited Changes. Goes through your git repos and checks if there are un-commited changes.
-** repos - A merge between npc/ncc.
-** shdwn - Before shutting down, it check if there isn't any un-commited and un-pushed code.
-** zsh jumpstart - A script that jumpstarts my default shell configuration. WIP.
-** installer script - An installer scrip that jump starts my default OS configuration. WIP.
-** alarme - A notification system for the desktop. WIP.
+  * fgr - Find Git Repos. Goes through a given directory and tries to find if a git repository exists. Helpful when you don't know how many git repositories you have and you want to organize them.
+  * npc - Not Pushed Commits. Goes through your git repos and checks if any of them have un-pushed comments to `origin`. Helpful when you are at the end of the day and forgot to sync in something.
+  * ncc - Not Commited Changes. Goes through your git repos and checks if there are un-commited changes.
+  * repos - A merge between npc/ncc.
+  * shdwn - Before shutting down, it check if there isn't any un-commited and un-pushed code.
+  * zsh jumpstart - A script that jumpstarts my default shell configuration. WIP.
+  * installer script - An installer scrip that jump starts my default OS configuration. WIP.
+  * alarme - A notification system for the desktop. WIP.
 
 ---
 
