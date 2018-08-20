@@ -16,10 +16,6 @@ The basic setup I'm running (as taken from [neofetch](https://github.com/dylanar
 
 **Terminal**: xterm
 
-This is how my setup looks:
-
-pictures WIP
-
 ---
 
 ### What you can find here
@@ -30,15 +26,15 @@ pictures WIP
   * ncc - Not Commited Changes. Goes through your git repos and checks if there are un-commited changes.
   * repos - A merge between npc/ncc.
   * shdwn - Before shutting down, it check if there isn't any un-commited and un-pushed code.
-  * zsh jumpstart - A script that jumpstarts my default shell configuration. WIP.
-  * installer script - An installer scrip that jump starts my default OS configuration. WIP.
-  * alarme - A notification system for the desktop. WIP.
+  * zsh jumpstart - A script that jumpstarts my default shell configuration. *WIP*.
+  * installer script - An installer scrip that jump starts my default OS configuration. *WIP*.
+  * alarme - A notification system for the desktop. *WIP*.
 
 ---
 
 ### Workflow
 
-Vanilla Emacs, forked from [purcell](https://github.com/purcell/emacs.d), [i3-gaps](https://github.com/Airblader/i3), [polybar](https://github.com/jaagr/polybar), and `xterm` with `zsh` + [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) + [powerlevel9k](https://github.com/bhilburn/powerlevel9k).
+Emacs, forked from [purcell](https://github.com/purcell/emacs.d), [i3-gaps](https://github.com/Airblader/i3), [polybar](https://github.com/jaagr/polybar), and `xterm` with `zsh` + [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) + [powerlevel9k](https://github.com/bhilburn/powerlevel9k).
 
 Also you can checkout my [todo](http://htmlpreview.github.io/?https://github.com/Anarcroth/dotfiles/blob/master/todo.html) list. This way I can open it whenever or wherever I am. I try to keep it in sync.
 
