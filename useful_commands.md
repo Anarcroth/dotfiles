@@ -113,6 +113,15 @@ du -sh $DIR
 
 # Test a remote port without telnet or netcat
 timeout 1 bash -c '</dev/tcp/216.58.207.46/443 && echo Port is open || echo Port is closed' || echo Connection timeout
+
+# netctl helping commands are case issues
+# When netctl tells you, that the interface is already up,
+# put the interface you want to use down and do not turn it on
+ip link set dev <interface> down
+
+# Connect to the wifi
+sudo wifi-menu
+sudo wifi-menu -o # Create a user profile for the connection
 ```
 
 ---
