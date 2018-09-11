@@ -245,6 +245,47 @@ git reset --hard HEAD~X
 # or
 git reset --hard HASH
 git checkout EXISTING_BRANCH
+
+# Show who changes file line by line
+git blame foo.c
+
+# Who was the last person who changed this file
+git log --patch foo.c
+# or
+git show HASH
+
+# When was a bug introduced
+# When you know the bad line of code
+git log -S"Bad line of code"
+# When you don't know what caused the bug
+git bisect start
+git bisect bad HEAD
+git bisect good <commit>
+# Then if  the bug isn't present here
+git bisect good
+# Else
+git bisect bad
+# In the end finish with
+git bisect reset
+
+# Show you all of the commits which changed foo.c in the last two weeks, starting with the oldest commit.
+git log --since=two.weeks.ago --reverse -- foo.c
+
+# Who has committed the most times in the whole repo
+git shortlog -s -n
+
+#Is there a foo.c in this repo
+git ls-files foo.c
+# or
+git ls-files *.c
+
+# Is there a file containing "foo bar"
+git grep “foo bar”
+# Shows also line numbers, file headings, and has case-insensitive search
+git grep -i --heading --line-number “foo bar”
+
+# Show the commits from a specific date range
+git log --after=”April 1, 2016" --before=”April 30, 2016"
 ```
 
 ---
