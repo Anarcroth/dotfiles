@@ -91,7 +91,7 @@ bindsym $mod+a focus parent
 
 # move a workspace from one monitor to the other
 bindsym $mod+n move workspace to output left
-bindsym $mod+m move workspace to output left
+bindsym $mod+m move workspace to output right
 
 # switch between the current and the previously focused one
 bindsym $mod+z workspace back_and_forth
@@ -304,5 +304,6 @@ exec_always feh --bg-center ~/Pictures/penguing.png
 
 # Startup programs
 exec firefox
-exec slack
 exec xinput disable "ETPS/2 Elantech Touchpad" # disable touchpad on startup
+exec --no-startup-id nm-applet
+exec --no-startup-id sudo NetworkManager
