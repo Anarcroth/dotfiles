@@ -138,6 +138,9 @@ git remote set-url --push origin no_push
 # Set remote branch to remote url
 git remote add origin URL
 
+# Reset URL location for a remote repo
+git remote set-url origin https://github.com/USER/REPO.git
+
 # Set upstream to remote branch
 git branch --set-upstream-to origin/BRANCH_NAME
 
