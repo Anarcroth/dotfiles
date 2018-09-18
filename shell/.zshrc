@@ -19,6 +19,13 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE="true"
 POWERLEVEL9K_RPROMPT_ON_NEWLINE="true"
 POWERLEVEL9K_PROMPT_ADD_NEWLINE="true"
 
+# Whitespace added
+POWERLEVEL9K_DISK_ICON=$' '
+POWERLEVEL9K_FOLDER_ICON=$' '
+POWERLEVEL9K_HOME_ICON=$' '
+POWERLEVEL9K_HOME_SUB_ICON=$' '
+POWERLEVEL9K_LINUX_ICON=$' '
+
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status root_indicator background_jobs history time os_icon)
 
@@ -90,6 +97,8 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # Example aliases
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
+alias padon="xinput enable \"ETPS/2 Elantech Touchpad\""
+alias padoff="xinput disable \"ETPS/2 Elantech Touchpad\""
 
 # Run antigen
 source $HOME/antigen/antigen.zsh
