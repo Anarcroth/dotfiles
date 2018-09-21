@@ -38,7 +38,7 @@ padding-right = 1
 padding-left = 0
 module-margin = 1
 
-font-0 = ProggyCleanTTSZ Nerd Font:antialias=false:pixelsize=12;+2
+font-0 = DejaVu Sans Mono Nerd Font:antialias=true:pixelsize=12;+2
 font-1 = unifont:fontformat=truetype:size=10:antialias=false;+2
 
 modules-left = volume
@@ -65,14 +65,13 @@ line-size = 2
 
 spacing = 1
 module-margin-left = 0
-module-margin-right = 3
+module-margin-right = 2
 
-font-0 = ProggyCleanTTSZ Nerd Font:antialias=false:pixelsize=12;+2
+font-0 = DejaVu Sans Mono Nerd Font:antialias=true:pixelsize=12;+2
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;+2
 
 modules-left = cmus
 modules-right = battery eth wlan temperature xkeyboard
-modules-center = xwindow
 tray-position = right
 
 fixed-center =  true
