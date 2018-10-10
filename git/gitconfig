@@ -25,7 +25,8 @@
 	name = Martin Nestorov
 
 [alias]
-	lg = log --all --stat --pretty=oneline --graph --format='%h %d %an %cr %s'
+	lg = log --all --stat --pretty=oneline --graph --format='%h %d %an %cr %s' --oneline
+	l = log --all --stat --graph --format='%h %d %an %cr %s'
 	up = pull --rebase
 	br = branch --verbose -a
 	sfp = push --force-with-lease
@@ -48,4 +49,4 @@
 	autocorrect = 20
 
 [core]
-	editor = vim
+	editor = emacsclient --alternate-editor "" --create-frame -nw
