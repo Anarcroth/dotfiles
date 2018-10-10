@@ -78,11 +78,13 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='emacs'
-fi
+export EDITOR='emacsclient --alternate-editor "" --create-frame -nw'
+# This is the old config, just in case something happens
+#if [[ -n $SSH_CONNECTION ]]; then
+#  export EDITOR='vim'
+#else
+#  export EDITOR='emacs'
+#fi
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
