@@ -78,11 +78,11 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-#if [[ -n $SSH_CONNECTION ]]; then
-#  export EDITOR='vim'
-#else
-#  export EDITOR='emacs'
-#fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='emacs'
+fi
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
@@ -162,6 +162,3 @@ source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
 # Changes cursor to blinking bar
 echo -e -n "\x1b[\x35 q"
-
-export VISUAL=te
-export EDITOR="$VISUAL"
