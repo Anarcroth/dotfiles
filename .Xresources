@@ -69,15 +69,12 @@ XTerm.vt100.color15: #ABB2BF
 rofi.color-enabled: true
 
 ! State:                    'bg',     'fg',        'bgalt',         'hlbg',   'hlfg'
-rofi.color-normal: argb:FF282C34,  #ABB2BF,  argb:FF5c6370,  argb:FF282C34,  #ABB2BF
-rofi.color-urgent: argb:FF282C34,  #BE5046,  argb:FF5c6370,  argb:FF282C34,  #BE5046
-rofi.color-active: argb:FF282C34,  #61AFEF,  argb:FF5c6370,  argb:FF282C34,  #61AFEF
+rofi.color-normal: argb:FF282C34,  #ABB2BF,  argb:FF282C34,  argb:77ABB2BF,  #98C379
+rofi.color-urgent: argb:FF282C34,  #BE5046,  argb:FF282C34,  argb:77ABB2BF,  #BE5046
+rofi.color-active: argb:FF282C34,  #D19A66,  argb:FF282C34,  argb:77ABB2BF,  #61AFEF
 
 ! State:            'background',      'border',    'separator'
-!rofi.color-window: argb:XXYYYYYY, argb:XXYYYYYY,  argb:XXYYYYYY
-
-! Dark theme
-!rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+rofi.color-window: argb:FF282C34, argb:FF61AFEF,  argb:FFE06C75
 
 rofi.width: 55
 rofi.lines: 8
