@@ -28,6 +28,34 @@ XTerm.scaleHeight: 1.01
 XTerm*on3Clicks: regex [^ \n]+
 XTerm*on4Clicks: regex .*
 XTerm*on5Clicks: line
+! One Dark Theme
+XTerm.vt100.foreground: #ABB2BF
+XTerm.vt100.background: #282C34
+XTerm.vt100.cursorColor: #528BFF
+! Black
+XTerm.vt100.color0: #282C34
+XTerm.vt100.color8: #5c6370
+! Red
+XTerm.vt100.color1: #E06C75
+XTerm.vt100.color9: #BE5046
+! Green
+XTerm.vt100.color2: #98C379
+XTerm.vt100.color10: #98C379
+! Yellow
+XTerm.vt100.color3: #D19A66
+XTerm.vt100.color11: #E5C07B
+! Blue
+XTerm.vt100.color4: #61AFEF
+XTerm.vt100.color12: #61AFEF
+! Magenta
+XTerm.vt100.color5: #C678DD
+XTerm.vt100.color13: #C678DD
+! Cyan
+XTerm.vt100.color6: #56B6C2
+XTerm.vt100.color14: #56B6C2
+! White
+XTerm.vt100.color7: #ABB2BF
+XTerm.vt100.color15: #ABB2BF
 
 !-------------+
 ! Rofi config |
@@ -41,15 +69,15 @@ XTerm*on5Clicks: line
 rofi.color-enabled: true
 
 ! State:                    'bg',     'fg',        'bgalt',         'hlbg',   'hlfg'
-!rofi.color-normal: argb: XXYYYYYY,  #YYYYYY,  argb:XXYYYYYY,  argb: XXYYYYYY,  #YYYYYY
-!rofi.color-urgent: argb: XXYYYYYY,  #YYYYYY,  argb:XXYYYYYY,  argb: XXYYYYYY,  #YYYYYY
-!rofi.color-active: argb: XXYYYYYY,  #YYYYYY,  argb:XXYYYYYY,  argb: XXYYYYYY,  #YYYYYY
+rofi.color-normal: argb:FF282C34,  #ABB2BF,  argb:FF5c6370,  argb:FF282C34,  #ABB2BF
+rofi.color-urgent: argb:FF282C34,  #BE5046,  argb:FF5c6370,  argb:FF282C34,  #BE5046
+rofi.color-active: argb:FF282C34,  #61AFEF,  argb:FF5c6370,  argb:FF282C34,  #61AFEF
 
 ! State:            'background',      'border',    'separator'
 !rofi.color-window: argb:XXYYYYYY, argb:XXYYYYYY,  argb:XXYYYYYY
 
 ! Dark theme
-rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+!rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
 
 rofi.width: 55
 rofi.lines: 8
