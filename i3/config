@@ -12,7 +12,7 @@
 set $mod Mod4
 
 # Restore wal setup. Has to be on the top of file!
-exec /usr/bin/wal -R
+#exec /usr/bin/wal -R
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -32,8 +32,8 @@ font pango: DejaVu Sans Mono Nerd Font 12
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal with transparency
-bindsym $mod+Return exec xterm & sleep .1s && transset-df -a 0.9
+# Start a terminal (with optional transparency)
+bindsym $mod+Return exec xterm # & sleep .1s && transset-df -a 0.9
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -109,7 +109,7 @@ set $workspace4 "4"
 set $workspace5 "5"
 set $workspace6 "6"
 set $workspace7 "7"
-set $workspace8 "8"
+Set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
 
@@ -300,10 +300,9 @@ exec_always --no-startup-id numlockx on
 exec_always --no-startup-id compton --shadow --shadow-offset-x=-8 --shadow-offset-y=-8 --no-dock-shadow --clear-shadow --shadow-opacity=0.70 --shadow-radius=6 --shadow-red 0.105 --shadow-green 0.392 --shadow-blue 0.611 -b -f --blur-background --shadow-exclude '!focused' --shadow-exclude 'class_g = "Emacs"' --shadow-exclude 'class_g = "Polybar"' --shadow-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g ="jetbrains-idea"'
 
 # Setup background
-exec_always feh --bg-center ~/Pictures/penguing.png
+exec_always --no-startup-id xsetroot -solid "#282c34"
 
 # Startup programs
 exec firefox
 exec xinput disable "ETPS/2 Elantech Touchpad" # disable touchpad on startup
 exec --no-startup-id nm-applet
-#exec sudo NetworkManager
