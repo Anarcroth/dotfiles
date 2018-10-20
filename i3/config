@@ -177,20 +177,25 @@ mode "$resize" {
 
 bindsym $mod+r mode "$resize"
 
-# Current color set                #backup colors
-set_from_resource $bg  i3wm.color0 #ff0000
-set_from_resource $ibg i3wm.color0 #ff0000
-set_from_resource $ifg i3wm.color2 #00ff00
-set_from_resource $fg  i3wm.color5 #0f0f0f
-set_from_resource $ubg i3wm.color0 #ff0000
-set_from_resource $ufg i3wm.color1 #f000ff
+# Color variables
+set $bg  #282C34
+set $ifg #5C6370
+set $fg  #61AFEF
+set $ufg #E06C75
+
+# Color set from resources files      #backup colors
+# set_from_resource $bg  i3wm.color0  #00ff00
+# set_from_resource $ibg i3wm.color0  #00ff00
+# set_from_resource $ifg i3wm.color2  #f0f0f0
+# set_from_resource $fg  i3wm.color5  #ff00ff
+# set_from_resource $ubg i3wm.color0  #00ff00
+# set_from_resource $ufg i3wm.color1  #0f0fff
 
 # window color
 # class          border              background          text             indicator    child_border
 client.focused   $fg                 $bg                 $fg              $fg          $fg
 client.unfocused $ifg                $bg                 $ifg             $fg          $ifg
-client.urgent    $ubg                $ubg                $ufg             $fg          $fg
-
+client.urgent    $ufg                $bg                 $ufg             $ufg         $ufg
 #client.focused-inactive $ifg                $bg                 $ifg             $fg          $ifg
 
 hide_edge_borders both
