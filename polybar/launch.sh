@@ -8,10 +8,10 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar -r -q -c $HOME/.config/polybar/penguin top &
-    MONITOR=$m polybar -r -q -c $HOME/.config/polybar/penguin bottom
+    MONITOR=$m polybar -r -q -c $HOME/.config/polybar/one-dark top &
+    MONITOR=$m polybar -r -q -c $HOME/.config/polybar/one-dark bottom
   done
 else
-  MONITOR=$m polybar -r -q -c $HOME/.config/polybar/penguin top &
-  MONITOR=$m polybar -r -q -c $HOME/.config/polybar/penguin bottom
+  MONITOR=$m polybar -r -q -c $HOME/.config/polybar/one-dark top &
+  MONITOR=$m polybar -r -q -c $HOME/.config/polybar/one-dark bottom
 fi

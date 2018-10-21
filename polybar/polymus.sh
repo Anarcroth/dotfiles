@@ -7,14 +7,6 @@ prepend_0 () {
 artist=$(echo -n $(cmus-remote -C status | grep artist -m 1 | cut -c 12-))
 song=$(echo -n $(cmus-remote -C status | grep title -m -1 | cut -c 11-))
 
-if [[ "$artist" == "" ]]; then
-  artist="Unknown artist"
-fi
-
-if [[ "$song" == "" ]]; then
-  song="Unknown song"
-fi
-
 position=$(cmus-remote -C status | grep position | cut -c 10-)
 if [[ "$position" != "" ]]; then
   minutes1=$(prepend_0 $(( $position / 60 )))
@@ -30,12 +22,16 @@ status=$(echo -n $(cmus-remote -C status | grep status -m 1 | cut -c 8-))
 bar=""
 
 i=1
-time1=$(( ${seconds1#0} + $(( ${minutes1#0} * 60 ))))
-time2=$(( ${seconds2#0} + $(( ${minutes2#0} * 60 ))))
+time1=$(( ${seconds1#0} + $(( minutes1 * 60 ))))
+time2=$(( ${seconds2#0} + $(( minutes2 * 60 ))))
 deltax=$(( $(( time1 - time2 )) / 20 ))
 
 if [[ "$status" == "playing" ]]; then
-  echo -n " $artist - $song > $minutes1:$seconds1 - $minutes2:$seconds2"
+  echo -n " $artist - $song  $minutes1:$seconds1 - $minutes2:$seconds2"
 else
-  echo -n " $artist - $song | $minutes1:$seconds1 - $minutes2:$seconds2"
+  if [[ "$artist" == "" ]]; then
+    echo -n " "
+  else
+    echo -n " $artist - $song  $minutes1:$seconds1 - $minutes2:$seconds2"
+  fi
 fi
