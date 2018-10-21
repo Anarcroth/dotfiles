@@ -1,20 +1,21 @@
 [colors]
-; black
-background = #0E0F10
-dim-background = #BF0E0F10
-light-background = #330E0F10
+; dark blue
+background = #282C34
+dim-background = #BF282C34
+light-background = #33282C34
 ; silver
-foreground = #7BB0DC
-dim-foreground = #AA7BB0DC
-; orange
-urgent = #d39276
-; blue
-focus = #1164AF
-focus-2 = #075AA7
-focus-3 = #074D8E
-focus-4 = #486992
+foreground = #ABB2BF
+dim-foreground = #AAABB2BF
+; yellow
+yellow = #D19A66
+; focus colors
+blue = #61AFEF
+blue2 = #528BFF
+magenta = #C678DD
+cyan = #56B6C2
+green = #98C379
 ; red
-piping-hot = #FF5555
+piping-hot = #E06C75
 ; grey/gray
 dimmed = #444444
 dimmed-1 = #525E6D
@@ -27,7 +28,7 @@ monitor = ${env:MONITOR:}
 width = 100%
 height = 30
 
-background = ${colors.dim-background}
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-color = ${colors.foreground}
@@ -81,17 +82,22 @@ type = internal/battery
 battery = BAT0
 full-at = 98
 
-format-charging = battery: chrg <label-charging>
-format-discharging = battery: dchrg <label-discharging>
-format-full = battery: <label-full>
+format-charging =  <label-charging>
+format-discharging =  <label-discharging>
+format-full =  <label-full>
 
 label-charging = %percentage%%
-label-charging-foreground = ${colors.foreground}
+label-charging-foreground = ${colors.yellow}
 
 label-discharging = %percentage%%
-label-discharging-foreground = ${colors.foreground}
+label-discharging-foreground = ${colors.blue}
 
 label-full = fully charged
+label-full-foreground = ${colors.green}
+
+format-charging-foreground = ${colors.yellow}
+format-discharging-foreground = ${colors.blue}
+format-full-foreground = ${colors.green}
 
 [module/i3]
 type = internal/i3
@@ -105,7 +111,7 @@ ws-icon-5 = 6;6:keepass
 ws-icon-6 = 7;7:random
 ws-icon-7 = 8;8:random
 ws-icon-8 = 9;9:random
-ws-icon-9 = 10;10:music
+adws-icon-9 = 10;10:music
 
 pin-workspaces = false
 
@@ -117,17 +123,17 @@ wrapping-scroll = false
 label-mode = %mode%
 
 label-focused = %icon%
-label-focused-foreground = ${colors.foreground}
+label-focused-foreground = ${colors.blue2}
 label-focused-padding = 1
 
 label-unfocused = %icon%
-label-unfocused-foreground = ${colors.focus-4}
+label-unfocused-foreground = ${colors.foreground}
 label-unfocused-padding = 1
 
-label-urgent = %icon%
-label-urgent-background = ${colors.nothing}
-label-urgent-foreground = ${colors.urgent}
-label-urgent-padding = 1
+label-yellow = %icon%
+label-yellow-background = ${colors.nothing}
+label-yellow-foreground = ${colors.yellow}
+label-yellow-padding = 1
 
 [module/date]
 type = internal/date
@@ -139,13 +145,13 @@ date-alt = "%Y-%m-%d"
 time = %H:%M:%S
 time-alt = %H:%M
 
-label = date: %date% :: time: %time%
+label =  %date%  %time%
 
 [module/cmus]
 type = custom/script
 
-format-prefix = " cmus: "
-format-prefix-foreground = ${colors.focus-3}
+format-prefix = "  "
+format-prefix-foreground = ${colors.green}
 
 exec = bash ~/.config/polybar/polymus.sh
 exec-if = pgrep -x cmus
@@ -158,43 +164,44 @@ click-right = cmuse-remote --stop
 [module/volume]
 type = internal/volume
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume><bar-volume>
 
-label-volume = " volume:"
+label-volume = " "
 label-volume-foreground = ${root.foreground}
 
-format-muted = <label-muted> <bar-volume>
+format-muted = <label-muted><bar-volume>
 format-muted-foreground = ${colors.dim-foreground}
 
-label-muted = "  mute: "
+label-muted = "  "
 label-muted-foreground = ${colors.dim-foreground}
 
 bar-volume-width = 40
 bar-volume-foreground-0 = ${colors.foreground}
 bar-volume-foreground-1 = ${colors.foreground}
-bar-volume-foreground-2 = ${colors.focus}
-bar-volume-foreground-3 = ${colors.focus}
-bar-volume-foreground-4 = ${colors.focus}
-bar-volume-foreground-5 = ${colors.focus-4}
-bar-volume-foreground-6 = ${colors.focus-4}
+bar-volume-foreground-2 = ${colors.green}
+bar-volume-foreground-3 = ${colors.green}
+bar-volume-foreground-4 = ${colors.blue}
+bar-volume-foreground-5 = ${colors.blue}
+bar-volume-foreground-6 = ${colors.magenta}
+bar-volume-foreground-7 = ${colors.magenta}
 bar-volume-gradient = true
-bar-volume-indicator = >
+bar-volume-indicator = 
 bar-volume-indicator-font = 6
-bar-volume-indicator-foreground = ${colors.urgent}
-bar-volume-fill = >
+bar-volume-indicator-foreground = ${colors.yellow}
+bar-volume-fill = 
 bar-volume-fill-font = 6
-bar-volume-empty = >
+bar-volume-empty = 
 bar-volume-empty-font = 6
 bar-volume-empty-foreground = ${colors.dimmed-2}
 
 [module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
+type = internal/
+label = %title:0:30:...
 
 [module/xkeyboard]
 type = internal/xkeyboard
 
-format = kbd: <label-layout> <label-indicator>
+format =  <label-layout> <label-indicator>
 format-spacing = 0
 
 label-layout-foreground = ${colors.foreground}
@@ -202,21 +209,21 @@ label-layout-foreground = ${colors.foreground}
 label-indicator = %name%
 label-indicator-padding = 0
 label-indicator-margin = 0
-label-indicator-foreground = ${colors.focus}
+label-indicator-foreground = ${colors.magenta}
 
 [module/eth]
 type = internal/network
 interface = enp5s0f1
 interval = 5
 
-format-connected-prefix = "lan: up"
-format-connected-prefix-foreground = ${colors.focus-4}
+format-connected-prefix = " up"
+format-connected-prefix-foreground = ${colors.magenta}
 
 label-connected = " "
-label-connected-foreground = ${colors.focus-4}
+label-connected-foreground = ${colors.blue}
 
 format-disconnected = <label-disconnected>
-label-disconnected = "lan: down"
+label-disconnected = " down"
 label-disconnected-foreground = ${colors.piping-hot}
 
 [module/wlan]
@@ -225,15 +232,15 @@ interface = wlp4s0
 interval = 5
 
 format-connected = <label-connected>
-format-connected-prefix = "wifi: "
-format-connected-prefix-foreground = ${colors.foreground}
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.green}
 
 label-connected = "%signal%%"
-label-connected-foreground = ${colors.foreground}
+label-connected-foreground = ${colors.green}
 
 format-disconnected = <label-disconnected>
 
-label-disconnected = "wifi: down"
+label-disconnected = " down"
 label-disconnected-foreground = ${colors.piping-hot}
 
 [module/temperature]
@@ -245,10 +252,10 @@ format = <label>
 
 format-warn = <label-warn>
 
-label = "temp: %temperature%"
-label-foreground = ${colors.urgent}
+label = " %temperature%"
+label-foreground = ${colors.yellow}
 
-label-warn = "temp: %temperature%"
+label-warn = " %temperature%"
 label-warn-foreground = ${colors.piping-hot}
 
 [settings]
