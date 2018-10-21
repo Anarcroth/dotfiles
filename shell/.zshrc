@@ -147,11 +147,11 @@ function lep() {
   fi
 }
 
+# Currently I am not using pywal
 # pywal call
-export PATH="${PATH}:${HOME}/.local/bin/"
-
+# export PATH="${PATH}:${HOME}/.local/bin/"
 # Import colorscheme from 'wal' asynchronously
-(cat ~/.cache/wal/sequences &)
+# (cat ~/.cache/wal/sequences &)
 
 # source fonts
 source ~/.fonts/*.sh
