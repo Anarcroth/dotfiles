@@ -275,6 +275,13 @@ git bisect bad
 # In the end finish with
 git bisect reset
 
+# Undo a commit and redo it
+git commit -m "Something terribly misguided"
+git reset HEAD~
+# edit files as necessary
+git add ...
+git commit -c ORIG_HEAD
+
 # Show you all of the commits which changed foo.c in the last two weeks, starting with the oldest commit.
 git log --since=two.weeks.ago --reverse -- foo.c
 
