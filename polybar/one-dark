@@ -92,7 +92,7 @@ label-charging-foreground = ${colors.yellow}
 label-discharging = %percentage%%
 label-discharging-foreground = ${colors.blue}
 
-label-full = fully charged
+label-full = %percentage%%
 label-full-foreground = ${colors.green}
 
 format-charging-foreground = ${colors.yellow}
@@ -108,10 +108,10 @@ ws-icon-2 = 3; work
 ws-icon-3 = 4; shell
 ws-icon-4 = 5; slack
 ws-icon-5 = 6; keepass
-ws-icon-6 = 7; random
-ws-icon-7 = 8; random
-ws-icon-8 = 9; random
-ws-icon-9 = 10; music
+ws-icon-6 = 7; random
+ws-icon-7 = 8; random
+ws-icon-8 = 9; random
+ws-icon-9 = 10; music
 
 pin-workspaces = false
 
@@ -216,11 +216,9 @@ type = internal/network
 interface = enp5s0f1
 interval = 5
 
-format-connected-prefix = " up"
-format-connected-prefix-foreground = ${colors.magenta}
-
-label-connected = " "
-label-connected-foreground = ${colors.blue}
+format-connected = <label-connected>
+label-connected = " up"
+label-connected-foreground = ${colors.green}
 
 format-disconnected = <label-disconnected>
 label-disconnected = " down"
