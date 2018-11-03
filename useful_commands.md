@@ -126,6 +126,9 @@ ip link set dev <interface> down
 # Connect to the wifi
 sudo wifi-menu
 sudo wifi-menu -o # Create a user profile for the connection
+
+# Highlights the lines that are not comments starting with '#'. Can be useful for picking out configuration lines while viewing a file.
+less /^[^#]+
 ```
 
 ---
