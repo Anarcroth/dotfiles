@@ -303,6 +303,14 @@ git grep -i --heading --line-number “foo bar”
 
 # Show the commits from a specific date range
 git log --after=”April 1, 2016" --before=”April 30, 2016"
+
+# When working with file premissions, git will report that the file permissions have been changed. There are two ways to handle this. Either let git ignore them or to fix them.
+# Ignore file permissions
+git config core.filemode false
+# Fix them
+sudo chmod -R -x . # remove the executable bit from all files
+sudo chmod -R +X . # add the executable bit only for directories
+chmod +x ./build.sh # where build.sh is the file you want to make executable again
 ```
 
 ---
