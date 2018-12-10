@@ -10,6 +10,9 @@
 # Export .md to .pdf
 pandoc --pdf-engine=xelatex --wrap=auto -p --highlight-style=kate -V mainfont="DejaVu Sans Mono" -V fontsize=12pt -V geometry:margin=1in -V documentclass=article -V linestrech=1.5 -V colorlinks -V link-as-notes SOURCE.md -s -o DEST.pdf
 
+# Senior Project export command
+pandoc --pdf-engine=xelatex --wrap=auto -p --highlight-style=kate -V mainfont="Arial" -V fontsize=12pt -V geometry:margin=1in -V documentclass=article -V linestretch=1 -V interlinespace=1ex -V colorlinks -V link-as-notes -f markdown-implicit_figures README.md -s -o README.pdf
+
 # Grep word within a file then copy the file
 grep -rl --null --include '*.txt' LINUX/UNIX . | xargs -0r cp -t /path/to/dest
 
