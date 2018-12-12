@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+from argparse import ArgumentParser
+
+parser = ArgumentParser(description="A notification alarm to remind you " +
+                        "things further on in the day!")
+
+parser.add_argument("-m", "--message", type=str,
+                    help="Message to be reminded of", required=True)
+parser.add_argument("-l", "--level", type=str, default="normal",
+                    help="Level of urgency. low, normal, critical")
+parser.add_argument("-t", "--time", type=int, nargs="?",
+                    help="Time until message pop-up. HHMMSS | HH | MM | SS",
+                    required=True)
+
+args = parser.parse_args()
+
+os.system("notify-send " + args.message +
+          "--icon=dialog-information --urgency=" + args.level)
+sys.exit()
