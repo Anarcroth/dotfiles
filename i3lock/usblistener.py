@@ -1,6 +1,7 @@
 #!bin/python3
 
-import sys, os
+import sys
+import os
 import pyudev
 
 context = pyudev.Context()
@@ -9,5 +10,5 @@ monitor.filter_by(subsystem='usb')
 
 for device in iter(monitor.poll, None):
     if device.action == 'add':
-        os.system("mplayer ~/dotfiles/i3-config/i3lock/breakinglaw.mp3 &")
+        os.system("mplayer ~/dotfiles/i3lock/breakinglaw.mp3 &")
         sys.exit()
