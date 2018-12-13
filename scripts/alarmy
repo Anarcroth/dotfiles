@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-import os
+import subprocess
 from argparse import ArgumentParser
 
 parser = ArgumentParser(description="A notification alarm to remind you " +
@@ -11,12 +11,18 @@ parser.add_argument("-m", "--message", type=str,
                     help="Message to be reminded of", required=True)
 parser.add_argument("-l", "--level", type=str, default="normal",
                     help="Level of urgency. low, normal, critical")
-parser.add_argument("-t", "--time", type=int, nargs="?",
-                    help="Time until message pop-up. HHMMSS | HH | MM | SS",
-                    required=True)
+parser.add_argument("-t", "--time", type=str, nargs="?",
+                    help="Time until message pop-up."
+                    "HHh MMm SSs | HHh | MMm | SSs", required=True)
 
 args = parser.parse_args()
 
-os.system("notify-send " + args.message +
-          "--icon=dialog-information --urgency=" + args.level)
-sys.exit()
+
+def issue_notification():
+    command = ("sleep " + args.time + " && notify-send '" + args.message +
+               "' --icon=dialog-information --urgency=" + args.level)
+    subprocess.Popen(command, shell=True)
+    sys.exit()
+
+
+issue_notification()
