@@ -132,6 +132,9 @@ sudo wifi-menu -o # Create a user profile for the connection
 
 # Highlights the lines that are not comments starting with '#'. Can be useful for picking out configuration lines while viewing a file.
 less /^[^#]+
+
+# Count number of lines in a target directory hierarchy
+find . -name '*.js' | xargs wc -l
 ```
 
 ---
