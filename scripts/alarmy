@@ -34,14 +34,10 @@ def issue_notification():
 
 
 def notify():
-    notify2.init("Cryptocurrency rates notifier")
-    # create Notification object
-    n = notify2.Notification("Crypto Notifier")
+    notify2.init("Alarmy notifier")
 
-    # Set the urgency level
+    n = notify2.Notification(args.message)
     n.set_urgency(notify2.URGENCY_NORMAL)
-
-    # Set the timeout
     n.set_timeout(1000)
 
     n.show()
