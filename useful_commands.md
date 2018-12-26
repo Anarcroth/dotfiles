@@ -194,8 +194,16 @@ git stash-rename <stash> [<message>]
 # Ommit current changes in branch
 git checkout .
 
+# Revert initial commit
+git update-red -d HEAD
+
 # Squash last N commits
 git rebase -i HEAD~N
+
+# Rebasing on first commit
+git rebase -i --root
+# or creating a new root commit
+git checkout --orphan
 
 # Other squash methods
 
