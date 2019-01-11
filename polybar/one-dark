@@ -101,7 +101,7 @@ format-full-foreground = ${colors.green}
 
 [module/i3]
 type = internal/i3
-; 
+
 ws-icon-0 = 1; firefox
 ws-icon-1 = 2; emacs
 ws-icon-2 = 3; work
@@ -140,10 +140,8 @@ type = internal/date
 interval = 1
 
 date = "%Y-%m-%d"
-date-alt = "%Y-%m-%d"
 
 time = %H:%M:%S
-time-alt = %H:%M
 
 label =  %date%  %time%
 
