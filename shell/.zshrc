@@ -19,13 +19,16 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE="true"
 POWERLEVEL9K_RPROMPT_ON_NEWLINE="true"
 POWERLEVEL9K_PROMPT_ADD_NEWLINE="true"
 
-# Whitespace added
+# Adds a white space for these characters on order to
+# not cut them off
 POWERLEVEL9K_DISK_ICON=$' '
 POWERLEVEL9K_FOLDER_ICON=$' '
 POWERLEVEL9K_HOME_ICON=$' '
 POWERLEVEL9K_HOME_SUB_ICON=$' '
 POWERLEVEL9K_LINUX_ICON=$' '
 POWERLEVEL9K_LINUX_ARCH_ICON=$' '
+POWERLEVEL9K_OK_ICON=$' '
+POWERLEVEL9K_EXECUTION_TIME_ICON=$' '
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status root_indicator background_jobs history time os_icon)
@@ -73,6 +76,9 @@ source $ZSH/oh-my-zsh.sh
 ######################
 
 # export MANPATH="/usr/local/man:$MANPATH"
+
+# Invoke compinit here
+compinit -d ~/.cache/zsh/zcompdump-anarcroth-$ZSH_VERSION
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
