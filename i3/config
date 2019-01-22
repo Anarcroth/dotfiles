@@ -259,7 +259,7 @@ mode "$mode_gaps_outer" {
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Keyboard layout
-exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant dvorak, -option "grp:alt_shift_toggle"
+exec_always setxkbmap -model "pc105" -layout "us,us,bg(phonetic)" -variant ,dvorak, -option "grp:alt_shift_toggle"
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
