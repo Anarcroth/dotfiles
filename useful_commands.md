@@ -64,7 +64,10 @@ lsblk --all --bytes --fs --perms
 
 # Create a bootable USB image
 sudo umount /dev/sd<?><?>
-sudo dd bs=4M if=/path/to/image.iso of=/dev/sd<?> conv=fdatasync
+# for .img
+sudo dd bs=4M if=/path/to/image.img of=/dev/sd<?> status=progress conv=fsync
+# for .iso
+sudo dd bs=4M if=/path/to/image.iso of=/dev/sd<?> status=progress conv=fdatasync
 
 # Reverse bash command line history
 `Ctrl` + `R`
