@@ -135,6 +135,13 @@ less /^[^#]+
 
 # Count number of lines in a target directory hierarchy
 find . -name '*.js' | xargs wc -l
+
+# Rename a file or a set of files
+rename from to *.regex
+# or
+for f in *.txt; do
+    mv -- "$f" "${f%.txt}.text"
+done
 ```
 
 ---
