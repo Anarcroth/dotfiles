@@ -8,7 +8,10 @@ sudo bash -c "echo 0 > /sys/bus/usb/devices/usb3/authorized_default"
 # Listen for background usb connections
 python3 ~/dotfiles/i3lock/usblistener.py &
 
-i3lock
+# Custom lock screen with a screensaver
+i3-msg workspace "9"
+nohup xlock -mode blank -geometry 1x1 >/dev/null 2>&1 &
+xterm -e "i3-msg fullscreen toggle && bash ~/git-anarcroth/color-scripts/color-scripts/pipes2"
 
 # Enable usbs
 sudo bash -c "echo 1 > /sys/bus/usb/devices/usb3/authorized_default"
