@@ -108,6 +108,7 @@ alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias padon="xinput enable \"ETPS/2 Elantech Touchpad\""
 alias padoff="xinput disable \"ETPS/2 Elantech Touchpad\""
+alias ff="firefox"
 
 # Run antigen
 source $HOME/antigen/antigen.zsh
