@@ -348,6 +348,12 @@ chmod +x ./build.sh # where build.sh is the file you want to make executable aga
 ## SSH / SCP
 
 ``` bash
+# Create ssh keys
+ssh-keygen -t rsa -b 4096 -C "youremail@email.com"
+
+# Create a new ssh password
+ssh-keygen -p -f ~/.ssh/id_rsa
+
 # Open a two-way SSH tunnel for backwards connection from destination.
 ssh -R $PORT_NUM:localhost:22 SERVER@IP
 # On server command
