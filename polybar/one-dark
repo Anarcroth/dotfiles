@@ -71,7 +71,7 @@ module-margin-right = 2
 font-0 = DejaVu Sans Mono Nerd Font:antialias=true:pixelsize=12;+2
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;+2
 
-modules-left = cmus
+modules-left = mpd
 modules-right = battery eth wlan temperature xkeyboard
 tray-position = right
 
@@ -158,6 +158,36 @@ interval = 1
 
 click-left = cmus-remote --pause
 click-right = cmuse-remote --stop
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
+
+; Seconds to sleep between progressbar/song timer sync
+interval = 1
+
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-seekb = 
+icon-seekf = 
+icon-random = 
+icon-repeat = 
+icon-single = 
+icon-consume = 
+
+format-online = <icon-prev> <icon-seekb> <icon-(stop|play)> <icon-(pause|play)> <icon-seekf> <icon-next>
+format-playing = ${self.format-online}
+format-paused = ${self.format-online}
+format-stopped = ${self.format-online}
+label-song =  %artist% - %title%
+label-offline =  mpd is offline
+
+label-time = %elapsed% / %total%
 
 [module/volume]
 type = internal/volume
