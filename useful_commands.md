@@ -145,6 +145,10 @@ rename from to *.regex
 for f in *.txt; do
     mv -- "$f" "${f%.txt}.text"
 done
+
+# Create access point to serve as a router
+# This is dependent on create_ap https://github.com/oblique/create_ap
+sudo nohup create_ap <target_intreface> <source_interface> <ap_name> <ap_password> >/dev/null 2>&1 &
 ```
 
 ---
