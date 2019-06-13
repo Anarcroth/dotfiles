@@ -345,6 +345,11 @@ git config core.filemode false
 sudo chmod -R -x . # remove the executable bit from all files
 sudo chmod -R +X . # add the executable bit only for directories
 chmod +x ./build.sh # where build.sh is the file you want to make executable again
+
+# Remove file from commit
+git reset --soft HEAD~1
+git reset HEAD path/to/file
+git commit -c ORIG_HEAD
 ```
 
 ---

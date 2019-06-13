@@ -23,8 +23,8 @@ dimmed-2 = #567B9A
 ; transparent
 nothing = #0000
 
-[bar/top]
-monitor = ${env:MONITOR:}
+[bar/topL]
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
 height = 30
 
@@ -52,16 +52,20 @@ wm-restack = i3
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-[bar/bottom]
-monitor = ${env:MONITOR:}
+[bar/topR]
+inherit = bar/topL
+monitor = ${env:MONITOR:eDP-1-1}
+
+[bar/bottomL]
+monitor = ${bar/topL.monitor}
 bottom = true
 width = 100%
 height = 30
 
-background = ${bar/top.background}
-foreground = ${bar/top.foreground}
+background = ${bar/topL.background}
+foreground = ${bar/topL.foreground}
 
-line-color = ${bar/top.background}
+line-color = ${bar/topL.background}
 line-size = 2
 
 spacing = 1
@@ -76,6 +80,10 @@ modules-right = battery eth wlan temperature xkeyboard
 tray-position = right
 
 fixed-center =  true
+
+[bar/bottomR]
+inherit = bar/bottomL
+monitor = ${env:MONITOR:eDP-1-1}
 
 [module/battery]
 type = internal/battery
@@ -241,7 +249,7 @@ label-indicator-foreground = ${colors.magenta}
 
 [module/eth]
 type = internal/network
-interface = enp5s0f1
+interface = enp60s0
 interval = 5
 
 format-connected = <label-connected>
@@ -254,7 +262,7 @@ label-disconnected-foreground = ${colors.piping-hot}
 
 [module/wlan]
 type = internal/network
-interface = wlp4s0
+interface = wlp0s20f3
 interval = 5
 
 format-connected = <label-connected>

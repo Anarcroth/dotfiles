@@ -31,7 +31,7 @@ POWERLEVEL9K_OK_ICON=$' '
 POWERLEVEL9K_EXECUTION_TIME_ICON=$' '
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status root_indicator background_jobs history time os_icon)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status time)
 
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(icons_test)
 
@@ -118,34 +118,29 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh)
 antigen bundle git
-antigen bundle catimg
-antigen bundle chucknorris
 antigen bundle command-not-found
 antigen bundle sudo
 antigen bundle archlinux
-antigen bundle lol
 antigen bundle mvn
 antigen bundle python
-antigen bundle rand-quote
 antigen bundle systemd
 antigen bundle emacs
+antigen bundle autojump
 
 antigen bundle zdharma/fast-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle chrissicool/zsh-256color
-antigen bundle djui/alias-tips
-antigen bundle srijanshetty/zsh-pandoc-completion
 antigen bundle aramboi/zsh-ipfs
 
 antigen apply
 
 # Ctrl+s show sensors output
-function sens() {
-  sensors
-}
-zle -N sens{,}
-bindkey ^s sens
+#function sens() {
+#  sensors
+#}
+#zle -N sens{,}
+#bindkey ^s sens
 
 # List current directory for passed pattern
 function lep() {
@@ -161,10 +156,10 @@ function lep() {
 # (cat ~/.cache/wal/sequences &)
 
 # source fonts
-source ~/.fonts/*.sh
+#source ~/.fonts/*.sh
 
 # Call neofetch with wallpaper
-neofetch
+#neofetch
 
 # Source zsh theme
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
