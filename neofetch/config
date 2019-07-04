@@ -5,32 +5,33 @@ print_info() {
     info underline
 
     info "OS" distro
-    # info "Host" model
-    # info "Kernel" kernel
-    info "Uptime" uptime
-    # info "Packages" packages
-    info "Shell" shell
-    # info "Resolution" resolution
-    # info "DE" de
-    info "WM" wm
-    info "WM Theme" wm_theme
-    info "Theme" theme
-    # info "Icons" icons
-    info "Terminal" term
-    # info "Terminal Font" term_font
-    info "CPU" cpu
+    info "Kernel" kernel
     info "GPU" gpu
+    info "CPU" cpu
+    info line_break
+
+    info "WM" wm
+    info "Terminal" term
+    info "Shell" shell
+    info "Packages" packages
     info "Memory" memory
 
+    # Info "Song" song
+    # info "Terminal Font" term_font
+    # info "Resolution" resolution
+    # info "DE" de
+    # info "WM Theme" wm_theme
+    # info "Theme" theme
+    # info "Icons" icons
+    # info "Uptime" uptime
+    # info "Host" model
     # info "GPU Driver" gpu_driver  # Linux only
     # info "CPU Usage" cpu_usage
     # info "Disk" disk
     # info "Battery" battery
     # info "Font" font
 
-    # info underline
-    info line_break
-    info "Song" song
+    # info line_break
 
     # info "Local IP" local_ip
     # info "Public IP" public_ip
@@ -66,7 +67,7 @@ distro_shorthand="off"
 # Default: 'on'
 # Values:  'on', 'off'
 # Flag:    --os_arch
-os_arch="off"
+os_arch="on"
 
 # Uptime
 # Shorten the output of the uptime function
@@ -293,7 +294,7 @@ underline_enabled="on"
 # Default:  '-'
 # Values:   'string'
 # Flag:     --underline_char
-underline_char="_"
+underline_char=""
 
 
 # Color Blocks
@@ -349,8 +350,8 @@ block_height=1
 # Example:
 # neofetch --bar_char 'elapsed' 'total'
 # neofetch --bar_char '-' '='
-bar_char_elapsed="="
-bar_char_total="~"
+bar_char_elapsed=""
+bar_char_total=""
 
 # Toggle Bar border
 #
@@ -396,8 +397,8 @@ bar_color_total="distro"
 # infobar: 'info [---=======]'
 # barinfo: '[---=======] info'
 # off:     'info'
-cpu_display="off"
-memory_display="bar"
+cpu_display="bar"
+memory_display="off"
 battery_display="bar"
 disk_display="off"
 
@@ -423,7 +424,7 @@ image_backend="w3m"
 # NOTE: 'auto' will pick the best image source for whatever image backend is used.
 #       In ascii mode, distro ascii art will be used and in an image mode, your
 #       wallpaper will be used.
-#image_source="$HOME/Pictures/spacewalk.jpg"
+image_source="/home/anarcroth/Pictures/corgi.jpg"
 
 
 # Ascii Options
@@ -442,7 +443,7 @@ image_backend="w3m"
 #       Change this to 'Lubuntu', 'Xubuntu', 'Ubuntu-GNOME' or 'Ubuntu-Budgie' to use the flavors.
 # NOTE: Arch, Crux and Gentoo have a smaller logo variant.
 #       Change this to 'arch_small', 'crux_small' or 'gentoo_small' to use the small logos.
-ascii_distro="Ubuntu-GNOME"
+#ascii_distro="arch"
 
 # Ascii Colors
 #
@@ -453,7 +454,7 @@ ascii_distro="Ubuntu-GNOME"
 # Example:
 # ascii_colors=(distro)      - Ascii is colored based on Distro colors.
 # ascii_colors=(4 6 1 8 8 6) - Ascii is colored using these colors.
-ascii_colors=(distro)
+#ascii_colors=(distro)
 
 # Bold ascii logo
 # Whether or not to bold the ascii logo.
@@ -461,7 +462,7 @@ ascii_colors=(distro)
 # Default: 'on'
 # Values:  'on', 'off'
 # Flag:    --ascii_bold
-ascii_bold="on"
+#ascii_bold="on"
 
 
 # Image Options
@@ -508,14 +509,14 @@ crop_offset="north"
 # Values:  'auto', '00px', '00%', 'none'
 # Flags:   --image_size
 #          --size
-image_size="195px"
+image_size="240px"
 
 # Ggap between image and text
 #
 # Default: '3'
 # Values:  'num', '-num'
 # Flag:    --gap
-gap=3
+gap=1
 
 # Image offsets
 # Only works with the w3m backend.
@@ -524,8 +525,8 @@ gap=3
 # Values:  'px'
 # Flags:   --xoffset
 #          --yoffset
-yoffset=15
-xoffset=15
+yoffset=25
+xoffset=10
 
 # Image background color
 # Only works with the w3m backend.
