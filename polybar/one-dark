@@ -31,15 +31,15 @@ height = 30
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-color = ${colors.foreground}
+line-color = ${colors.blue}
 line-size = 2
 
 spacing = 1
 padding-right = 1
-padding-left = 0
+padding-left = 1
 module-margin = 1
 
-font-0 = DejaVu Sans Mono Nerd Font:antialias=true:pixelsize=12;+2
+font-0 = GohuFont Nerd Font Mono:antialias=true:pixelsize=11;+2
 font-1 = unifont:fontformat=truetype:size=10:antialias=false;+2
 
 modules-left = volume
@@ -72,11 +72,11 @@ spacing = 1
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = DejaVu Sans Mono Nerd Font:antialias=true:pixelsize=12;+2
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;+2
+font-0 = GohuFont Nerd Font Mono:antialias=true:pixelsize=11;+2
+font-1 = unifont:fontformat=truetype:size=20:antialias=false;+2
 
 modules-left = mpd
-modules-right = battery eth wlan temperature xkeyboard
+modules-right = battery eth wlan cputemp xkeyboard
 tray-position = right
 
 fixed-center =  true
@@ -90,36 +90,43 @@ type = internal/battery
 battery = BAT0
 full-at = 98
 
-format-charging =  <label-charging>
-format-discharging =  <label-discharging>
-format-full =  <label-full>
+format-charging = power <label-charging>
+format-charging-foreground = ${colors.yellow}
+format-charging-underline = ${colors.yellow}
+
+format-discharging = bat <label-discharging>
+format-discharging-foreground = ${colors.blue}
+format-discharging-underline = ${colors.blue}
+
+format-full = power <label-full>
+format-full-foreground = ${colors.green}
+format-full-underline = ${colors.green}
 
 label-charging = %percentage%%
 label-charging-foreground = ${colors.yellow}
+label-charging-underline = ${colors.yellow}
 
 label-discharging = %percentage%%
 label-discharging-foreground = ${colors.blue}
+label-discharging-underline = ${colors.blue}
 
 label-full = %percentage%%
 label-full-foreground = ${colors.green}
-
-format-charging-foreground = ${colors.yellow}
-format-discharging-foreground = ${colors.blue}
-format-full-foreground = ${colors.green}
+label-full-underline = ${colors.green}
 
 [module/i3]
 type = internal/i3
 
-ws-icon-0 = 1; ffox
-ws-icon-1 = 2; emacs
-ws-icon-2 = 3; work
-ws-icon-3 = 4; sh
-ws-icon-4 = 5; msg
-ws-icon-5 = 6; kpxc
-ws-icon-6 = 7; rand
-ws-icon-7 = 8; rand
-ws-icon-8 = 9; rand
-ws-icon-9 = 10; music
+ws-icon-0 = 1;1 ffox
+ws-icon-1 = 2;2 emacs
+ws-icon-2 = 3;3 work
+ws-icon-3 = 4;4 sh
+ws-icon-4 = 5;5 msg
+ws-icon-5 = 6;6 kpxc
+ws-icon-6 = 7;7 rand
+ws-icon-7 = 8;8 rand
+ws-icon-8 = 9;9 rand
+ws-icon-9 = 10;10 music
 
 pin-workspaces = false
 
@@ -132,6 +139,7 @@ label-mode = %mode%
 
 label-focused = %icon%
 label-focused-foreground = ${colors.blue2}
+label-focused-underline = ${colors.blue2}
 label-focused-padding = 1
 
 label-unfocused = %icon%
@@ -151,7 +159,8 @@ date = "%Y-%m-%d"
 
 time = %H:%M:%S
 
-label =  %date%  %time%
+label = date %date% : time %time%
+label-underline = ${colors.foreground}
 
 [module/cmus]
 type = custom/script
@@ -202,14 +211,16 @@ type = internal/volume
 
 format-volume = <label-volume><bar-volume>
 
-label-volume = " "
+label-volume = "vol"
 label-volume-foreground = ${root.foreground}
+label-volume-underline = ${colors.foreground}
 
 format-muted = <label-muted><bar-volume>
 format-muted-foreground = ${colors.dim-foreground}
 
-label-muted = "  "
+label-muted = "mute"
 label-muted-foreground = ${colors.dim-foreground}
+label-muted-underline = ${colors.foreground}
 
 bar-volume-width = 40
 bar-volume-foreground-0 = ${colors.foreground}
@@ -221,12 +232,12 @@ bar-volume-foreground-5 = ${colors.blue}
 bar-volume-foreground-6 = ${colors.magenta}
 bar-volume-foreground-7 = ${colors.magenta}
 bar-volume-gradient = true
-bar-volume-indicator = 
+bar-volume-indicator = >
 bar-volume-indicator-font = 6
 bar-volume-indicator-foreground = ${colors.yellow}
-bar-volume-fill = 
+bar-volume-fill = -
 bar-volume-fill-font = 6
-bar-volume-empty = 
+bar-volume-empty = -
 bar-volume-empty-font = 6
 bar-volume-empty-foreground = ${colors.dimmed-2}
 
@@ -237,10 +248,12 @@ label = %title:0:30:...
 [module/xkeyboard]
 type = internal/xkeyboard
 
-format =  <label-layout> <label-indicator>
+format = keyb <label-layout> <label-indicator>
 format-spacing = 0
+format-underline = ${colors.foreground}
 
 label-layout-foreground = ${colors.foreground}
+label-layout-underline = ${colors.foreground}
 
 label-indicator = %name%
 label-indicator-padding = 0
@@ -253,12 +266,14 @@ interface = enp60s0
 interval = 5
 
 format-connected = <label-connected>
-label-connected = " up"
+label-connected = "eth up"
 label-connected-foreground = ${colors.green}
+label-connected-underline = ${colors.green}
 
 format-disconnected = <label-disconnected>
-label-disconnected = " down"
+label-disconnected = "eth down"
 label-disconnected-foreground = ${colors.piping-hot}
+label-disconnected-underline = ${colors.piping-hot}
 
 [module/wlan]
 type = internal/network
@@ -266,16 +281,17 @@ interface = wlp0s20f3
 interval = 5
 
 format-connected = <label-connected>
-format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.green}
 
-label-connected = "%signal%%"
+label-connected = "wifi %signal%%"
 label-connected-foreground = ${colors.green}
+label-connected-underline = ${colors.green}
 
 format-disconnected = <label-disconnected>
 
-label-disconnected = " down"
+label-disconnected = "wifi down"
 label-disconnected-foreground = ${colors.piping-hot}
+label-disconnected-underline = ${colors.piping-hot}
 
 [module/temperature]
 type = internal/temperature
@@ -288,9 +304,25 @@ format-warn = <label-warn>
 
 label = " %temperature%"
 label-foreground = ${colors.yellow}
+label-underline = ${colors.yellow}
 
 label-warn = " %temperature%"
 label-warn-foreground = ${colors.piping-hot}
+label-warn-underline = ${colors.piping-hot}
+
+[module/cputemp]
+type = custom/script
+
+exec = echo `sensors -A | grep -oP '^Core.+?  \+\K\d+' | awk '{k+=$1}END{print int(k/NR)}'`C°
+
+interval = 5
+
+format-underline = ${colors.yellow}
+format-foreground = ${colors.yellow}
+
+format-prefix = " "
+format-prefix-foreground = ${colors.yellow}
+
 
 [settings]
 screenchange-reload = true
