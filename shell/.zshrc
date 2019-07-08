@@ -15,6 +15,9 @@ export ZSH=~/.oh-my-zsh
 
 POWERLEVEL9K_MODE="nerdfont-complete"
 
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='▓▒░'
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='░▒▓'
+
 POWERLEVEL9K_PROMPT_ON_NEWLINE="true"
 POWERLEVEL9K_RPROMPT_ON_NEWLINE="true"
 POWERLEVEL9K_PROMPT_ADD_NEWLINE="true"
@@ -109,6 +112,8 @@ alias ohmyzsh="mate ~/.oh-my-zsh"
 alias padon="xinput enable \"ETPS/2 Elantech Touchpad\""
 alias padoff="xinput disable \"ETPS/2 Elantech Touchpad\""
 alias ff="firefox"
+alias glep="ls -la | grep -Ee $1"
+alias shdwn="shutdown -h now"
 
 # Run antigen
 source $HOME/antigen/antigen.zsh
@@ -141,13 +146,6 @@ antigen apply
 #}
 #zle -N sens{,}
 #bindkey ^s sens
-
-# List current directory for passed pattern
-function lep() {
-  if [[ -n "$1" ]]; then
-    l | grep "$1"
-  fi
-}
 
 # Currently I am not using pywal
 # pywal call
