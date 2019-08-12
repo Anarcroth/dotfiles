@@ -39,7 +39,7 @@ padding-right = 1
 padding-left = 1
 module-margin = 1
 
-font-0 = GohuFont Nerd Font Mono:antialias=true:pixelsize=11;+2
+font-0 = DejaVu Sans Mono Nerd Font:antialias=true:pixelsize=12;+2
 font-1 = unifont:fontformat=truetype:size=10:antialias=false;+2
 
 modules-left = volume
@@ -72,7 +72,7 @@ spacing = 1
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = GohuFont Nerd Font Mono:antialias=true:pixelsize=11;+2
+font-0 = DejaVu Sans Mono Nerd Font:antialias=true:pixelsize=12;+2
 font-1 = unifont:fontformat=truetype:size=20:antialias=false;+2
 
 modules-left = mpd
@@ -90,15 +90,15 @@ type = internal/battery
 battery = BAT0
 full-at = 98
 
-format-charging = power <label-charging>
+format-charging =  <label-charging>
 format-charging-foreground = ${colors.yellow}
 format-charging-underline = ${colors.yellow}
 
-format-discharging = bat <label-discharging>
+format-discharging =  <label-discharging>
 format-discharging-foreground = ${colors.blue}
 format-discharging-underline = ${colors.blue}
 
-format-full = power <label-full>
+format-full =  <label-full>
 format-full-foreground = ${colors.green}
 format-full-underline = ${colors.green}
 
@@ -211,18 +211,18 @@ type = internal/volume
 
 format-volume = <label-volume><bar-volume>
 
-label-volume = "vol"
+label-volume = ""
 label-volume-foreground = ${root.foreground}
 label-volume-underline = ${colors.foreground}
 
 format-muted = <label-muted><bar-volume>
 format-muted-foreground = ${colors.dim-foreground}
 
-label-muted = "mute"
+label-muted = ""
 label-muted-foreground = ${colors.dim-foreground}
-label-muted-underline = ${colors.foreground}
+label-muted-underline = ${colors.dim-foreground}
 
-bar-volume-width = 40
+bar-volume-width = 45
 bar-volume-foreground-0 = ${colors.foreground}
 bar-volume-foreground-1 = ${colors.foreground}
 bar-volume-foreground-2 = ${colors.green}
@@ -232,12 +232,12 @@ bar-volume-foreground-5 = ${colors.blue}
 bar-volume-foreground-6 = ${colors.magenta}
 bar-volume-foreground-7 = ${colors.magenta}
 bar-volume-gradient = true
-bar-volume-indicator = >
+bar-volume-indicator = 
 bar-volume-indicator-font = 6
 bar-volume-indicator-foreground = ${colors.yellow}
-bar-volume-fill = -
+bar-volume-fill = 
 bar-volume-fill-font = 6
-bar-volume-empty = -
+bar-volume-empty = 
 bar-volume-empty-font = 6
 bar-volume-empty-foreground = ${colors.dimmed-2}
 
@@ -266,12 +266,12 @@ interface = enp60s0
 interval = 5
 
 format-connected = <label-connected>
-label-connected = "eth up"
+label-connected = ""
 label-connected-foreground = ${colors.green}
 label-connected-underline = ${colors.green}
 
 format-disconnected = <label-disconnected>
-label-disconnected = "eth down"
+label-disconnected = ""
 label-disconnected-foreground = ${colors.piping-hot}
 label-disconnected-underline = ${colors.piping-hot}
 
@@ -283,13 +283,13 @@ interval = 5
 format-connected = <label-connected>
 format-connected-prefix-foreground = ${colors.green}
 
-label-connected = "wifi %signal%%"
+label-connected = " %signal%%"
 label-connected-foreground = ${colors.green}
 label-connected-underline = ${colors.green}
 
 format-disconnected = <label-disconnected>
 
-label-disconnected = "wifi down"
+label-disconnected = ""
 label-disconnected-foreground = ${colors.piping-hot}
 label-disconnected-underline = ${colors.piping-hot}
 
@@ -313,7 +313,7 @@ label-warn-underline = ${colors.piping-hot}
 [module/cputemp]
 type = custom/script
 
-exec = echo `sensors -A | grep -oP '^Core.+?  \+\K\d+' | awk '{k+=$1}END{print int(k/NR)}'`C°
+exec = echo `sensors -A | grep -oP '^Core.+?  \+\K\d+' | awk '{k+=$1}END{print int(k/NR)}'`°C
 
 interval = 5
 

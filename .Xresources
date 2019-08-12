@@ -19,8 +19,8 @@ XTerm.vt100.translations: #override \
     Ctrl <Key> plus: larger-vt-font()
 XTerm.vt100.saveLines: 4096
 XTerm.vt100.bellIsUrgent: true
-XTerm.vt100.faceName: GohuFont Nerd Font Mono:size=11:antialias=true:style=Regular
-XTerm.vt100.faceNameDoublesize: PowerlineSymbols:pixelsize=12
+XTerm.vt100.faceName: DejaVu Sans Mono Nerd Font:size=11:antialias=true:style=Regular
+XTerm.vt100.faceNameDoublesize: PowerlineSymbols:pixelsize=11:style=Regular
 XTerm.vt100.font: 7x13
 XTerm.vt100.renderFont: true
 XTerm.vt100.faceSize: 12
@@ -79,7 +79,7 @@ rofi.color-window: argb:FF282C34, argb:FF61AFEF,  argb:FFE06C75
 rofi.width: 55
 rofi.lines: 8
 rofi.columns: 2
-rofi.font: GohuFont Nerd Font Mono 11
+rofi.font: DejaVu Sans Mono Nerd Font 12
 rofi.bw: 1
 rofi.padding: 35
 rofi.eh: 1
