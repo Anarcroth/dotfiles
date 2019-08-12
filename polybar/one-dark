@@ -24,7 +24,7 @@ dimmed-2 = #567B9A
 nothing = #0000
 
 [bar/topL]
-monitor = ${env:MONITOR:HDMI-0}
+monitor = ${env:MONITOR:HDMI-2}
 width = 100%
 height = 30
 
@@ -54,7 +54,7 @@ scroll-down = i3wm-wsprev
 
 [bar/topR]
 inherit = bar/topL
-monitor = ${env:MONITOR:eDP-1-1}
+monitor = ${env:MONITOR:eDP-1}
 
 [bar/bottomL]
 monitor = ${bar/topL.monitor}
@@ -83,7 +83,7 @@ fixed-center =  true
 
 [bar/bottomR]
 inherit = bar/bottomL
-monitor = ${env:MONITOR:eDP-1-1}
+monitor = ${env:MONITOR:eDP-1}
 
 [module/battery]
 type = internal/battery
@@ -159,7 +159,7 @@ date = "%Y-%m-%d"
 
 time = %H:%M:%S
 
-label = date %date% : time %time%
+label =  %date% :  %time%
 label-underline = ${colors.foreground}
 
 [module/cmus]
@@ -248,7 +248,7 @@ label = %title:0:30:...
 [module/xkeyboard]
 type = internal/xkeyboard
 
-format = keyb <label-layout> <label-indicator>
+format =  <label-layout> <label-indicator>
 format-spacing = 0
 format-underline = ${colors.foreground}
 
@@ -262,22 +262,22 @@ label-indicator-foreground = ${colors.magenta}
 
 [module/eth]
 type = internal/network
-interface = enp60s0
+interface = enp5s0f1
 interval = 5
 
 format-connected = <label-connected>
-label-connected = ""
+label-connected = " up"
 label-connected-foreground = ${colors.green}
 label-connected-underline = ${colors.green}
 
 format-disconnected = <label-disconnected>
-label-disconnected = ""
+label-disconnected = " down"
 label-disconnected-foreground = ${colors.piping-hot}
 label-disconnected-underline = ${colors.piping-hot}
 
 [module/wlan]
 type = internal/network
-interface = wlp0s20f3
+interface = wlp4s0
 interval = 5
 
 format-connected = <label-connected>
@@ -289,7 +289,7 @@ label-connected-underline = ${colors.green}
 
 format-disconnected = <label-disconnected>
 
-label-disconnected = ""
+label-disconnected = " down"
 label-disconnected-foreground = ${colors.piping-hot}
 label-disconnected-underline = ${colors.piping-hot}
 
