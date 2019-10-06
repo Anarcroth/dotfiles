@@ -54,3 +54,5 @@
 [core]
 	editor = emacsclient --alternate-editor "" --create-frame -nw
 	filemode = false
+[pull]
+	rebase = true
