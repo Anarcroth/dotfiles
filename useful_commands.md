@@ -149,6 +149,14 @@ done
 # Create access point to serve as a router
 # This is dependent on create_ap https://github.com/oblique/create_ap
 sudo nohup create_ap <target_intreface> <source_interface> <ap_name> <ap_password> >/dev/null 2>&1 &
+
+# Disable laptop keyboard
+# find keyboard id and slave number
+xinput list # look for AT Translated Set 2 keyboard
+# float the keyboard
+xinput float <id>
+# re-enable the keyboard
+xinput reattach <id> <slave-number>
 ```
 
 ---
