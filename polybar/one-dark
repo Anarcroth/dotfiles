@@ -24,7 +24,7 @@ dimmed-2 = #567B9A
 nothing = #0000
 
 [bar/topL]
-monitor = ${env:MONITOR:HDMI-2}
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
 height = 30
 
@@ -39,7 +39,7 @@ padding-right = 1
 padding-left = 1
 module-margin = 1
 
-font-0 = DejaVu Sans Mono Nerd Font:antialias=true:pixelsize=12;+2
+font-0 = Iosevka Nerd Font:antialias=true:pixelsize=12;+2
 font-1 = unifont:fontformat=truetype:size=10:antialias=false;+2
 
 modules-left = volume
@@ -54,7 +54,11 @@ scroll-down = i3wm-wsprev
 
 [bar/topR]
 inherit = bar/topL
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:eDP-1-1}
+
+[bar/topM]
+inherit = bar/topL
+monitor = ${env:MONITOR:DP-1-1}
 
 [bar/bottomL]
 monitor = ${bar/topL.monitor}
@@ -72,7 +76,7 @@ spacing = 1
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = DejaVu Sans Mono Nerd Font:antialias=true:pixelsize=12;+2
+font-0 = Iosevka Nerd Font:antialias=true:pixelsize=12;+2
 font-1 = unifont:fontformat=truetype:size=20:antialias=false;+2
 
 modules-left = mpd
@@ -83,14 +87,18 @@ fixed-center =  true
 
 [bar/bottomR]
 inherit = bar/bottomL
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:eDP-1-1}
+
+[bar/bottomM]
+inherit = bar/bottomL
+monitor = ${env:MONITOR:DP-1-1}
 
 [module/battery]
 type = internal/battery
 battery = BAT0
 full-at = 98
 
-format-charging =  <label-charging>
+format-charging =  <label-charging>
 format-charging-foreground = ${colors.yellow}
 format-charging-underline = ${colors.yellow}
 
