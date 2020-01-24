@@ -45,6 +45,7 @@
 	fp = fetch -p --progress
 	unstage = reset HEAD --
 	last = log -1 HEAD
+	whatadded = log --diff-filter=A
 [github]
 	user = Anarcroth
 

@@ -380,6 +380,11 @@ git shortlog -sne
 # Show all users, emails, and the number of commits in all branches:
 git shortlog --summary --numbered --email --all
 git shortlog -sne --all
+
+# Find commit where file was added
+git log --diff-filter=A -- foo.js
+# recursively
+git log --diff-filter=A -- **foo.js
 ```
 
 ---
