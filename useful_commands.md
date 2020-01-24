@@ -367,6 +367,19 @@ chmod +x ./build.sh # where build.sh is the file you want to make executable aga
 git reset --soft HEAD~1
 git reset HEAD path/to/file
 git commit -c ORIG_HEAD
+
+# Change email and name of all commits in a branch
+git rebase -i HEAD~<N> -x "git commit --amend --author 'Author Name <author.name@mail.com>' --no-edit"
+
+git rebase -i --root -x "git commit --amend --author 'Author Name <author.name@mail.com>' --no-edit"
+
+# Show all users, emails, and the number of commits in the current branch:
+git shortlog --summary --numbered --email
+git shortlog -sne
+
+# Show all users, emails, and the number of commits in all branches:
+git shortlog --summary --numbered --email --all
+git shortlog -sne --all
 ```
 
 ---
