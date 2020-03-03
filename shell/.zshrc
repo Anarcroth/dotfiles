@@ -166,3 +166,9 @@ source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
 # Changes cursor to blinking bar
 echo -e -n "\x1b[\x35 q"
+
+# Disable cowsay for ansible
+export ANSIBLE_NOCOWS=1
+
+# Export rust src path
+export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
