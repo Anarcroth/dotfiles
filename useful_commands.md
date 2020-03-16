@@ -44,6 +44,9 @@ ffmpeg -y -i input_file.avi -s 432x320 -b:v 384k -vcodec libx264 -flags +loop+mv
 import NAME.png
 import -window root NAME.png
 
+# Take screen shot after a certain amount of time, where -d is the time in seconds
+scrot --focused -q 100 -d 4 FILENAME.png
+
 # Use -k to search for something in all man pages, like 'sound'
 man -k sound
 
