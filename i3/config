@@ -19,7 +19,7 @@ exec --no-startup-id  ~/.screenlayout/work.sh
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: DejaVu Sans Mono Nerd Font 12
+font pango: Iosevka Nerd Font 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -42,8 +42,8 @@ bindsym $mod+Return exec xterm # & sleep .1s && transset-df -a 0.9
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -config $HOME/.Xresources
-bindsym $mod+x exec rofi -show drun -config $HOME/.Xresources
+bindsym $mod+d exec rofi -show run -config $HOME/.config/rofi/.Xresources
+bindsym $mod+x exec rofi -show drun -config $HOME/.config/rofi/.Xresources
 
 # change focus
 bindsym $mod+h focus left
@@ -140,7 +140,6 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 assign [class="Firefox"] $workspace1
 assign [class="jetbrains-idea"] $workspace3
-#assign [class="XTerm"] $workspace4
 assign [class="Slack"] $workspace5
 assign [class="keepassxc"] $workspace6
 
@@ -202,14 +201,15 @@ client.urgent    $ufg                $bg                 $ufg             $ufg  
 hide_edge_borders both
 
 # i3-gaps config
-gaps inner 20
+gaps inner 10
 gaps outer 5
 smart_borders no_gaps
-smart_gaps on
+smart_gaps inverse_outer
 
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 2
 
 for_window [title="Emacs Peek"] floating enable
+
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -257,7 +257,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id ~/dotfiles/polybar/launch.sh
 
 # Keyboard layout
 exec_always setxkbmap -model "pc105" -layout "us,bg" -variant dvorak,phonetic  -option "grp:alt_shift_toggle"
@@ -302,10 +302,10 @@ bindsym $mod+Control+i exec idea
 exec_always --no-startup-id numlockx on
 
 # Background and transparency settings
-exec_always --no-startup-id compton --shadow --shadow-offset-x=-8 --shadow-offset-y=-8 --no-dock-shadow --clear-shadow --shadow-opacity=0.70 --shadow-radius=6 --shadow-red 0.105 --shadow-green 0.392 --shadow-blue 0.611 -b -f --blur-background --shadow-exclude 'focused' --shadow-exclude 'class_g = "Emacs"' --shadow-exclude 'class_g = "Polybar"' --shadow-exclude 'class_g = "Firefox"' --shadow-exclude 'class_g ="jetbrains-idea"'
+exec_always --no-startup-id compton -b -f --blur-background
 
 # Setup background
-exec_always --no-startup-id xsetroot -solid "#282c34"
+exec_always --no-startup-id xsetroot -solid "#121417"
 
 # Startup programs
 exec firefox
