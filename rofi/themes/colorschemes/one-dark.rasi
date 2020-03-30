@@ -1,0 +1,15 @@
+* {
+    accent:           #61AFEF;
+    blue:             #61AFEF;
+    red:              #E06C75;
+    green:            #98C379;
+    yellow:           #E5C07B;
+    orange:           #D19A66;
+    cyan:             #56B6C2;
+    magenta:          #C678DD;
+    background:       #121417;
+    background-light: #282C34;
+    foreground:       #ABB2BF;
+    on:               #98C379;
+    off:              #E06C75;
+}
