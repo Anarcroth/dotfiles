@@ -47,9 +47,9 @@ bindsym $mod+x exec rofi -show drun -config $HOME/.config/rofi/.Xresources
 
 # change focus
 bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+g focus down
+bindsym $mod+c focus up
+bindsym $mod+t focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -288,6 +288,9 @@ bindsym XF86AudioPrev exec playerctl previous
 # Keyboard backlight controls
 bindsym XF86KbdBrightnessUp exec kb-light + 1
 bindsym XF86KbdBrightnessDown exec kb-light - 1
+
+# Pop-up screenshot menu
+bindsym $mod+o exec --no-startup-id ~/.config/rofi/scripts/screenshot.sh
 
 # Emacs-everywhere
 bindsym $mod+Control+e exec $HOME/.emacs_anywhere/bin/run
