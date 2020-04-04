@@ -13,7 +13,7 @@ logout=""
 # Variable passed to rofi
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 
-chosen="$(echo -e "$options" | $rofi_command -p "祥 $uptime" -dmenu -selected-row 2)"
+chosen="$(echo -e "$options" | $rofi_command -p "祥 $uptime uptime" -dmenu -selected-row 2)"
 case $chosen in
     $shutdown)
         systemctl poweroff
