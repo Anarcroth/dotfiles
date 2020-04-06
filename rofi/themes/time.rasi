@@ -5,24 +5,24 @@
 * {
   /* General */
   text-font:                            "Iosevka 14";
-  icon-font:                            "Hurmit Nerd Font Mono 32";
-  icon-font-small:                      "Hurmit Nerd Font Mono 24";
+  icon-font:                            "Iosevka 20";
+  icon-font-small:                      "Iosevka 20";
 
-  option-6-listview-spacing:            10px;
+  option-6-listview-spacing:            0px;
 
   menu-window-padding:                   5px 15px;
   menu-inputbar-margin:                  10px 0px;
   menu-prompt-padding:                   10px 20px 10px 20px;
   menu-prompt-margin:                    0px 0px 0px 5px;
-  menu-element-border:                   10px;
-  menu-element-padding:                  10px 10px -1px -40px;
+  menu-element-border:                   5px;
+  menu-element-padding:                  0px -10px 0px -28px;
 }
 
 /* ########### */
 
 #window {
-  width: 20%;
-  height: 15%;
+  width: 17%;
+  height: 37%;
 }
 
 /* ########### */
@@ -31,14 +31,14 @@
   background-color: @background;
   text-color: @foreground;
   font: @icon-font;
-  border-radius: 5px;
+  border-radius: 0px;
 }
 
 #horibox {
   children: [ listview ];
 }
 #listview {
-  layout: horizontal;
+  layout: vertical;
 }
 #element {
   padding: @option-element-padding;
@@ -70,6 +70,7 @@ textbox-prompt-colon {
   padding: @menu-prompt-padding;
   border: 2px;
   border-color: @green;
+  border-radius: 10px;
 }
 #prompt {
   margin: @menu-prompt-margin;
@@ -87,7 +88,7 @@ textbox-prompt-colon {
 }
 #listview {
   spacing: @option-6-listview-spacing;
-  lines: 3;
+  lines: 7;
 }
 #element {
   font: @icon-font;

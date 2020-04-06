@@ -3,12 +3,12 @@
 rofi_command="rofi -theme themes/time.rasi"
 
 ## Get time and date
-TIME="$(date +"%A, %R")"
-DAY="$(date +"%d")"
-MONTH="$(date +"%m")"
-YEAR="$(date +"%Y")"
+TIME_DATE="$(date +"%a %d, %R")"
+DAY="$(date +"%d" | tr -d '0')"
 
-options="$DAY\n$MONTH\n$YEAR"
+calendar="$(cal -m | sed '/^[[:space:]]*$/d')"
+
+options="$calendar"
 
 ## Main
-chosen="$(echo -e "$options" | $rofi_command -p "$TIME" -dmenu -selected-row 1)"
+chosen="$(echo -e "$options" | $rofi_command -p "$TIME_DATE" -dmenu -selected-row 1)"
