@@ -3,22 +3,22 @@
 rofi_command="rofi -theme themes/menu/apps.rasi"
 
 # Links
-editor=""
+editor=""
 keepassxc=""
-terminal=""
+terminal=""
 browser=""
-files="ﱮ"
+slack=""
 
 # Variable passed to rofi
-options="$editor\n$keepassxc\n$terminal\n$browser\n$files"
+options="$editor\n$keepassxc\n$slack\n$terminal\n$browser"
 
 chosen="$(echo -e "$options" | $rofi_command -p "Most Used" -dmenu -selected-row 0)"
 case $chosen in
     $terminal)
         xterm &
         ;;
-    $files)
-        qtfm &
+    $slack)
+        slack &
         ;;
     $editor)
         emacs &

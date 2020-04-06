@@ -5,7 +5,7 @@
 * {
   /* General */
   text-font:                            "Iosevka 16";
-  icon-font:                            "Hurmit Nerd Font Mono 48";
+  icon-font:                            "file-icons 38";
   icon-font-small:                      "Hurmit Nerd Font Mono 24";
 
   option-6-listview-spacing:            10px;
@@ -21,7 +21,7 @@
 /* ########### */
 
 #window {
-  width: 40%;
+  width: 41%;
   height: 26%;
   anchor: center;
   location: center;
