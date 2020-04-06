@@ -45,7 +45,7 @@
   background-color: @background-light;
 }
 #element.selected {
-  background-color: @red;
+  background-color: @foreground;
   text-color: @background;
 }
 
@@ -58,7 +58,7 @@
   padding: @menu-window-padding;
   children: [ inputbar, horibox ];
   border: 2px;
-  border-color: @red;
+  border-color: @foreground;
   border-radius: 10px;
 }
 #inputbar {
@@ -69,17 +69,17 @@ prompt,
 textbox-prompt-colon {
   padding: @menu-prompt-padding;
   border: 0px;
-  border-color: @red;
+  border-color: @foreground;
 }
 #prompt {
   margin: @menu-prompt-margin;
   background-color: @background;
-  text-color: @red;
+  text-color: @foreground;
 }
 #textbox-prompt-colon {
   expand: false;
   str: "Screenshot";
-  background-color: @red;
+  background-color: @foreground;
   text-color: @background;
 }
 #horibox {
@@ -96,7 +96,7 @@ textbox-prompt-colon {
   border-color: @background-light;
 }
 #element.selected {
-  border-color: @red;
+  border-color: @foreground;
 }
 element.active,
 element.selected.urgent {
@@ -105,7 +105,7 @@ element.selected.urgent {
   border-color: @on;
 }
 element.selected.urgent {
-  border-color: @red;
+  border-color: @foreground;
 }
 element.urgent,
 element.selected.active {
@@ -114,5 +114,5 @@ element.selected.active {
   border-color: @off;
 }
 element.selected.active {
-  border-color: @red;
+  border-color: @foreground;
 }
