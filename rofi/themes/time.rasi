@@ -22,7 +22,7 @@
 
 #window {
   width: 17%;
-  height: 37%;
+  height: 41%;
 }
 
 /* ########### */
@@ -88,7 +88,7 @@ textbox-prompt-colon {
 }
 #listview {
   spacing: @option-6-listview-spacing;
-  lines: 7;
+  lines: 10;
 }
 #element {
   font: @icon-font;
