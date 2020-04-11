@@ -41,9 +41,12 @@ bindsym $mod+Return exec xterm # & sleep .1s && transset-df -a 0.9
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -config $HOME/.config/rofi/.Xresources
+# Rofi pop-up menus
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/menu_apps.sh
 bindsym $mod+x exec rofi -show drun -config $HOME/.config/rofi/.Xresources
+bindsym $mod+Control+a exec rofi -show run -config $HOME/.config/rofi/.Xresources
+bindsym $mod+Control+o exec --no-startup-id ~/.config/rofi/scripts/screenshot.sh
+bindsym $mod+Control+p exec --no-startup-id ~/.config/rofi/scripts/menu_powermenu.sh
 
 # change focus
 bindsym $mod+h focus left
@@ -263,10 +266,10 @@ exec_always --no-startup-id ~/dotfiles/polybar/launch.sh
 exec_always setxkbmap -model "pc105" -layout "us,us,bg" -variant ,dvorak,phonetic  -option "grp:alt_shift_toggle"
 
 # Pulse Audio controls
-bindsym exec --no-startup-id pactl set-default-sink 1 # set default audio sink
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+bindsym exec --no-startup-id pactl set-default-sink 0 # set default audio sink
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec light -l -A 5 # increase screen brightness
@@ -288,11 +291,6 @@ bindsym XF86AudioPrev exec playerctl previous
 # Keyboard backlight controls
 bindsym XF86KbdBrightnessUp exec kb-light + 1
 bindsym XF86KbdBrightnessDown exec kb-light - 1
-
-# Rofi pop-up menus
-bindsym $mod+Control+o exec --no-startup-id ~/.config/rofi/scripts/screenshot.sh
-bindsym $mod+Control+a exec --no-startup-id ~/.config/rofi/scripts/menu_apps.sh
-bindsym $mod+Control+p exec --no-startup-id ~/.config/rofi/scripts/menu_powermenu.sh
 
 # Emacs-everywhere
 bindsym $mod+Control+e exec $HOME/.emacs_anywhere/bin/run
