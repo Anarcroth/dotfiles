@@ -46,6 +46,7 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	whatadded = log --diff-filter=A
+	pull-into = "!p() { git checkout $1 && git pull --rebase && git checkout - ; }; p"
 [github]
 	user = Anarcroth
 
