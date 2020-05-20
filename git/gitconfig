@@ -47,6 +47,7 @@
 	last = log -1 HEAD
 	whatadded = log --diff-filter=A
 	pull-into = "!p() { git checkout $1 && git pull --rebase && git checkout - ; }; p"
+	change-date = "!c() { change_git_date.sh $1; }; c"
 [github]
 	user = Anarcroth
 
