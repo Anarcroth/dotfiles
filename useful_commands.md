@@ -169,6 +169,13 @@ grep --include=\*.{c,h} -rnw '/path/to/somewhere/' -e "pattern"
 grep --exclude=*.o -rnw '/path/to/somewhere/' -e "pattern"
 # This will exclude a particular directory(ies).
 grep --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"
+
+# Eject a SCSI disk
+sudo eject -s /mount/point
+# or
+sudo scsiadd -p
+# Then see which device to shutdown
+sudo scsiadd -r 1 0 0 0
 ```
 
 ---
