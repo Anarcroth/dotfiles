@@ -24,13 +24,23 @@ COMMIT_MSG_FILE=$1
 COMMIT_SOURCE=$2
 SHA1=$3
 
-# TODO add warning and a check if the current branch in master, dev, or does not conform to ticket system
+# TODO add warning and a check if the current branch does not conform to ticket system
+
+WARNING_MSG="\n!!!WARNING, YOU ARE COMMITTING TO %s\nARE YOU SURE YOU WANT TO DO THIS?!!!\n"
 
 if [[ -z "$COMMIT_SOURCE" ]]
 then
+    ref=$(git rev-parse --abbrev-ref HEAD)
     orig_msg=$(cat "$COMMIT_MSG_FILE")
-    commit_templ=$(cat `git rev-parse --git-dir`/commit-msg-template)
+    commit_templ=$(cat `git rev-parse --git-dir`/commit-msg)
     echo -e "$commit_templ" > $COMMIT_MSG_FILE
+    if [[ "$ref" == "master" ]]
+    then
+	printf "$WARNING_MSG" "MASTER" >> $COMMIT_MSG_FILE
+    elif [[ "$ref" == "dev" ]] || [[ "$ref" == "devlop" ]]
+    then
+	printf "$WARNING_MSG" "DEVELOP" >> $COMMIT_MSG_FILE
+    fi
     echo -e "$orig_msg" >> $COMMIT_MSG_FILE
     /usr/bin/perl -i.bak -ne 'print unless(m/^. Please enter the commit message/..m/^#$/)' "$COMMIT_MSG_FILE"
 fi
