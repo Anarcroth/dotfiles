@@ -1,0 +1,71 @@
+#!/usr/bin/env python
+#
+import re
+import sys
+import subprocess
+
+WHITESPACE = "\s+$"
+PUNCTUATION = "^[,.;:!?]|[,.;:!?]$"
+
+def validate(message):
+    lines = message.splitlines()
+    # Ignore commented lines
+    lines = [x for x in lines if not re.match(r'^#', x)]
+    heading, empty_line = lines.pop(0), lines.pop(0)
+    if not heading[0].isupper(): # check first character of first word of first line
+        sys.exit("Commit message heading is not capitalized!")
+    if re.search(WHITESPACE, heading):
+        sys.exit("Commit message heading ends with whitespaces!")
+    if re.search(PUNCTUATION, heading):
+        sys.exit("Commit message heading has punctuation!")
+    if len(heading) > 50:
+        sys.exit("Commit message heading is longer than 50 characters!")
+    if not empty_line == '':
+        sys.exit("Commit message does not have empty line below heading!")
+    if lines[0] == '':
+        sys.exit("Commit message has more than one empty line below heading!")
+    if not lines[0][0].isupper(): # check first character of first word of the body
+        sys.exit("Commit message body is not capitalized!")
+    for body_line in lines:
+        if len(body_line) > 72:
+            sys.exit("Commit message body is longer than 72 characters!")
+        if re.search(WHITESPACE, body_line):
+            sys.exit("Commit message body line ends with whitespaces!")
+
+
+def main():
+  message_file = sys.argv[1]
+  try:
+      txt_file = open(message_file, 'r')
+      commit_message = txt_file.read()
+  finally:
+      txt_file.close()
+
+  validate(commit_message)
+
+
+if __name__ == "__main__":
+  main()
+
+# An example hook script to check the commit log message.
+# Called by "git commit" with one argument, the name of the file
+# that has the commit message.  The hook should exit with non-zero
+# status after issuing an appropriate message if it wants to stop the
+# commit.  The hook is allowed to edit the commit message file.
+#
+# To enable this hook, rename this file to "commit-msg".
+
+# Uncomment the below to add a Signed-off-by line to the message.
+# Doing this in a hook is a bad idea in general, but the prepare-commit-msg
+# hook is more suited to it.
+#
+#SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+#grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
+
+# This example catches duplicate Signed-off-by lines.
+
+#test "" = "$(grep '^Signed-off-by: ' "$1" |
+#	 sort | uniq -c | sed -e '/^[ 	]*1[ 	]/d')" || {
+#	echo >&2 Duplicate Signed-off-by lines.
+#	exit 1
+#}
