@@ -7,8 +7,8 @@ import subprocess
 WHITESPACE = "\s+$"
 PUNCTUATION = "^[,.;:!?]|[,.;:!?]$"
 
-def validate_heading(heading):
-    print("Valid heading")
+def validate_heading(heading, empty_line):
+    print("Validating heading")
     if not heading[0].isupper(): # check first character of first word of first line
         sys.exit("Commit message heading is not capitalized!")
     if re.search(WHITESPACE, heading):
@@ -44,6 +44,7 @@ def validate(message):
     if empty_line == '' and False not in [True for x in lines if x == '']:
         validate_heading(heading, empty_line)
     else:
+        validate_heading(heading, empty_line)
         validate_body(lines, body)
 
 def main():
