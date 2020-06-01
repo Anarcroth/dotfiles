@@ -36,7 +36,7 @@ then
     if [[ "$ref" == "master" ]]
     then
 	printf "$WARNING_MSG" "MASTER" >> $COMMIT_MSG_FILE
-    elif [[ "$ref" == "dev" ]] || [[ "$ref" == "devlop" ]]
+    elif [[ "$ref" == "dev" ]] || [[ "$ref" == "develop" ]]
     then
 	printf "$WARNING_MSG" "DEVELOP" >> $COMMIT_MSG_FILE
     elif ! [[ "$ref" =~ ^((feature|bugfix|hotfix))\/((WFC|RMS|NBI)-[0-9]+).* ]]
