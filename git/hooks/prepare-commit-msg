@@ -34,19 +34,26 @@ if [[ -z "$COMMIT_SOURCE" ]]
 then
     ref=$(git rev-parse --abbrev-ref HEAD)
     orig_msg=$(cat "$COMMIT_MSG_FILE")
+
     commit_templ=$(cat `git rev-parse --git-dir`/hooks/commit-msg-template)
     echo -e "$commit_templ" > $COMMIT_MSG_FILE
-    if [[ "$ref" == "master" ]]
-    then
+
+    # Warn on committing to master
+    if [[ "$ref" == "master" ]]; then
 	printf "$WARNING_MSG" "MASTER" >> $COMMIT_MSG_FILE
-    elif [[ "$ref" == "dev" ]] || [[ "$ref" == "develop" ]]
-    then
+
+    # Warn on committing to develop
+    elif [[ "$ref" == "dev" ]] || [[ "$ref" == "develop" ]]; then
 	printf "$WARNING_MSG" "DEVELOP" >> $COMMIT_MSG_FILE
-    elif ! [[ "$ref" =~ ^($BRANCH_PREFIXES)\/($PROJECT_GROUPS-[0-9]+).* ]]
-    then
+
+    # Warn on committing to non-uniform branch name
+    elif ! [[ "$ref" =~ ^($BRANCH_PREFIXES)\/($PROJECT_GROUPS-[0-9]+).* ]]; then
 	printf "$BRANCH_WARN" "$ref" >> $COMMIT_MSG_FILE
     fi
+
     echo -e "$orig_msg" >> $COMMIT_MSG_FILE
+
+    # Remove useless commit message comment
     /usr/bin/perl -i.bak -ne 'print unless(m/^. Please enter the commit message/..m/^#$/)' "$COMMIT_MSG_FILE"
 fi
 
