@@ -47,7 +47,8 @@ then
 	printf "$WARNING_MSG" "DEVELOP" >> $COMMIT_MSG_FILE
 
     # Warn on committing to non-uniform branch name
-    elif ! [[ "$ref" =~ ^($BRANCH_PREFIXES)\/($PROJECT_GROUPS-[0-9]+).* ]]; then
+    elif ! [[ "$ref" =~ ^($BRANCH_PREFIXES)\/($PROJECT_GROUPS-[0-9]+).* ||
+		  "$ref" =~ ^("release")\/(\d+\.\d+\.\d+)$ ]]; then
 	printf "$BRANCH_WARN" "$ref" >> $COMMIT_MSG_FILE
     fi
 
