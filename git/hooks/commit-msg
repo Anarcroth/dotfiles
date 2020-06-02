@@ -21,7 +21,7 @@ def validate_heading(heading, empty_line):
         sys.exit("Commit message does not have empty line below heading!")
 
 
-def validate_body(lines, body):
+def validate_body(lines):
     print("Validating commit body...")
     if lines[0] == '':
         sys.exit("Commit message has more than one empty line below heading!")
@@ -42,11 +42,11 @@ def validate(message):
     empty_line = lines.pop(0) if lines else ''
     try:
         # Basically if there is only a heading and then only empty lines
-        if empty_line == '' and False not in [True for x in lines if x == '']:
+        if empty_line == '' and True not in [True for x in lines if x != '']:
             validate_heading(heading, empty_line)
         else:
             validate_heading(heading, empty_line)
-            validate_body(lines, body)
+            validate_body(lines)
     except SystemExit as se:
         print("Invalid commit message!\nThis was your commit message:\n")
         print(message)
