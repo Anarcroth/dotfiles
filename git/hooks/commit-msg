@@ -8,7 +8,7 @@ WHITESPACE = "\s+$"
 PUNCTUATION = "^[,.;:!?]|[,.;:!?]$"
 
 def validate_heading(heading, empty_line):
-    print("Validating heading")
+    print("Validating commit heading...")
     if not heading[0].isupper(): # check first character of first word of first line
         sys.exit("Commit message heading is not capitalized!")
     if re.search(WHITESPACE, heading):
@@ -22,7 +22,7 @@ def validate_heading(heading, empty_line):
 
 
 def validate_body(lines, body):
-    print("Validating body")
+    print("Validating commit body...")
     if lines[0] == '':
         sys.exit("Commit message has more than one empty line below heading!")
     if not lines[0][0].isupper(): # check first character of first word of the body
