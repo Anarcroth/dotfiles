@@ -20,6 +20,12 @@ BRANCH=`git rev-parse --abbrev-ref HEAD`
 PUSH_COMMAND=`ps -ocommand= -p $PPID`
 PROTECTED_BRANCHES="^(master|dev|develop|release/*)"
 FORCE_PUSH="force|delete|-f"
+WIP=`git rev-list --grep '(WIP)' develop...HEAD`
+
+if [[ -n "$WIP" ]]; then
+    echo "Cannot force-push to protected branch $BRANCH with a WIP commit"
+    exit 1
+fi
 
 if [[ "$BRANCH" =~ $PROTECTED_BRANCHES && "$PUSH_COMMAND" =~ $FORCE_PUSH ]]; then
     echo "Cannot force-push to protected branch \"$BRANCH\"!"
