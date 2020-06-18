@@ -51,7 +51,7 @@
 	last = log -1 HEAD
 	whatadded = log --diff-filter=A
 	pull-into = "!p() { git checkout $1 && git pull --rebase && git checkout - ; }; p"
-	change-date = "!c() { change_git_date.sh $1; }; c"
+	change-date = "!c() { bash ~/dotfiles/git/change_git_date.sh $1; }; c"
 	clean-brchs = "!cbrchs() { bash ~/dotfiles/git/delete_merged_branches.sh ; }; cbrchs"
 [github]
 	user = Anarcroth
