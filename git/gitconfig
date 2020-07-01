@@ -45,6 +45,7 @@
 	shash-unappl = !git stash show -p | git apply -R
 	gsl = stash list
 	cod = checkout .
+	rsd = restore --staged .
 	cam = commit -a -m
 	fp = fetch -p --progress
 	unstage = reset HEAD --
