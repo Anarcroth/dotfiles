@@ -16,7 +16,7 @@ def validate_heading(heading, empty_line):
     if re.search(PUNCTUATION, heading):
         sys.exit("Commit message heading has punctuation!")
     if len(heading) > 50:
-        sys.exit("Commit message heading is longer than 50 characters!")
+        sys.exit("Commit message heading must not be longer than 50 characters! Yours was {}".format(len(heading)))
     if not empty_line == '':
         sys.exit("Commit message does not have empty line below heading!")
 
