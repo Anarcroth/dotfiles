@@ -172,3 +172,6 @@ export ANSIBLE_NOCOWS=1
 
 # Export rust src path
 export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
+
+# Export QT scaling as a fix to broken keepassxc visuals
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
