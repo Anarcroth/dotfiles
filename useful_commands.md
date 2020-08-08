@@ -176,6 +176,10 @@ sudo eject -s /mount/point
 sudo scsiadd -p
 # Then see which device to shutdown
 sudo scsiadd -r 1 0 0 0
+
+# Better grepping experience
+# grep with lines around the match (2 lines above and below) and line number to each line
+grep -n -C 2 <<REGEX>>
 ```
 
 ---

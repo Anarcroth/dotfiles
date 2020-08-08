@@ -116,6 +116,7 @@ alias padoff="xinput disable \"ETPS/2 Elantech Touchpad\""
 alias ff="firefox"
 alias glep="ls -la | grep -Ee $1"
 alias shdwn="shutdown -h now"
+alias gep="grep -n -C 2 $1"
 
 # Run antigen
 source $HOME/antigen/antigen.zsh
