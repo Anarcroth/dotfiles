@@ -14,15 +14,15 @@
   menu-inputbar-margin:                  10px 0px;
   menu-prompt-padding:                   10px 20px 10px 20px;
   menu-prompt-margin:                    0px 0px 0px 5px;
-  menu-element-border:                   10px;
-  menu-element-padding:                  25px 35px 20px -40px;
+  menu-element-border:                   0px;
+  menu-element-padding:                  25px 35px 20px -39px;
 }
 
 /* ########### */
 
 #window {
-  width: 41%;
-  height: 26%;
+  width: 36%;
+  height: 24%;
   anchor: center;
   location: center;
   x-offset: 0%;
@@ -32,7 +32,7 @@
 /* ########### */
 
 * {
-  background-color: @background;
+  background-color: @background-light;
   text-color: @foreground;
   font: @icon-font;
   border-radius: 5px;
@@ -49,8 +49,8 @@
   background-color: @background-light;
 }
 #element.selected {
-  background-color: @accent;
-  text-color: @background;
+  background-color: @foreground;
+  text-color: @background-light;
 }
 
 /* ########### */
@@ -78,7 +78,7 @@ textbox-prompt-colon {
 #prompt {
   margin: @menu-prompt-margin;
   background-color: @background-light;
-  text-color: @accent;
+  text-color: @orange;
 }
 #textbox-prompt-colon {
   expand: false;
