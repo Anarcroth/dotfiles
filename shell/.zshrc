@@ -163,7 +163,7 @@ antigen apply
 #neofetch
 
 # Source zsh theme
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # Changes cursor to blinking bar
 echo -e -n "\x1b[\x35 q"
