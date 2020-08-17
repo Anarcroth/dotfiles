@@ -8,15 +8,15 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 
 if xrandr --query | grep "^HDMI.* connected";
 then
-  polybar -r -q -c $HOME/dotfiles/polybar/one-dark.conf bottomL &
+  polybar -q -c $HOME/dotfiles/polybar/one-dark.conf bottomL &
 fi
 
 if xrandr --query | grep "^eDP.* connected";
 then
-  polybar -r -q -c $HOME/dotfiles/polybar/one-dark.conf bottomR &
+  polybar -q -c $HOME/dotfiles/polybar/one-dark.conf bottomR &
 fi
 
 if xrandr --query | grep "^DP.* connected";
 then
-  polybar -r -q -c $HOME/dotfiles/polybar/one-dark.conf bottomM &
+  polybar -q -c $HOME/dotfiles/polybar/one-dark.conf bottomM &
 fi
