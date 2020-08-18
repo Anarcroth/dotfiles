@@ -35,7 +35,7 @@ then
     ref=$(git rev-parse --abbrev-ref HEAD)
     orig_msg=$(cat "$COMMIT_MSG_FILE")
 
-    commit_templ=$(cat `git rev-parse --git-dir`/hooks/commit-msg-template)
+    commit_templ=$(cat ~/dotfiles/hooks/commit-msg-template)
     echo -e "$commit_templ" > $COMMIT_MSG_FILE
 
     # Warn on committing to master
