@@ -265,8 +265,10 @@ exec_always --no-startup-id ~/dotfiles/polybar/launch.sh
 # Keyboard layout
 # 3 keyboard setup
 #exec_always setxkbmap -model "pc105" -layout "us,us,bg" -variant ,dvorak,phonetic  -option "grp:alt_shift_toggle"
-# 2 keyboard setup
-exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant dvorak, -option "grp:alt_shift_toggle" -option
+# Laptop setup
+#exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant dvorak, -option "grp:alt_shift_toggle" -option
+# Desktop setup with dvorak keyboard
+exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -option "grp:alt_shift_toggle" -option
 
 # Pulse Audio controls
 set $sink_num SINK_NUM
