@@ -60,9 +60,3 @@ sudo cp -u ~/dotfiles/scripts/* /usr/local/bin/
 # Restart i3 so that all changes can take effect
 echo "Restarting i3"
 i3-msg restart
-
-# Finally discard any local changes to polybar in the dotfiles repo
-# This is not a problem as polybar does not reload upon configuration change (see option -r)
-echo "Restoring polybar config (omitting changes done by this script)"
-cd ~/dotfiles/
-git restore polybar/one-dark.conf
