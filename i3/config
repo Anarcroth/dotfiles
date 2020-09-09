@@ -43,8 +43,7 @@ bindsym $mod+Shift+q kill
 
 # Rofi pop-up menus
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/menu_apps.sh
-bindsym $mod+x exec rofi -show drun -config $HOME/.config/rofi/.Xresources
-bindsym $mod+Control+a exec rofi -show run -config $HOME/.config/rofi/.Xresources
+bindsym $mod+Control+a exec --no-startup-id ~/.config/rofi/launcher/launcher.sh
 bindsym $mod+Control+o exec --no-startup-id ~/.config/rofi/scripts/screenshot.sh
 bindsym $mod+Control+p exec --no-startup-id ~/.config/rofi/scripts/menu_powermenu.sh
 
@@ -271,7 +270,7 @@ exec_always --no-startup-id ~/dotfiles/polybar/launch.sh
 exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant , -option "grp:alt_shift_toggle"
 
 # Pulse Audio controls
-set $sink_num SINK_NUM
+set $sink_num 0
 bindsym exec --no-startup-id pactl set-default-sink $sink_num # set default audio sink
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink_num +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $sink_num -5% #decrease sound volume
