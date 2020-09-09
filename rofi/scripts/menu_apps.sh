@@ -10,9 +10,9 @@ browser=""
 slack=""
 
 # Variable passed to rofi
-options="$editor\n$keepassxc\n$slack\n$terminal\n$browser"
+options="$slack\n$keepassxc\n$editor\n$browser\n$terminal"
 
-chosen="$(echo -e "$options" | $rofi_command -p "Most Used" -dmenu -selected-row 0)"
+chosen="$(echo -e "$options" | $rofi_command -p "Most Used" -dmenu -selected-row 2)"
 case $chosen in
     $terminal)
         xterm &
