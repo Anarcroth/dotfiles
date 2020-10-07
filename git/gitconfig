@@ -42,19 +42,18 @@
 	pom = push origin master
 	qfix = commit -p --amend --no-edit
 	stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git stash store -m \"$2\" $rev; }; _"
-	shash-unappl = !git stash show -p | git apply -R
-	gsl = stash list
+	stash-unappl = !git stash show -p | git apply -R
+	sl = stash list
 	cod = checkout .
-	rsd = restore --staged .
+	unstage = restore --staged .
 	cam = commit -a -m
 	fp = fetch -p --progress
-	unstage = reset HEAD --
 	last = log -1 HEAD
 	whatadded = log --diff-filter=A
 	pull-into = "!p() { git checkout $1 && git pull --rebase && git checkout - ; }; p"
 	change-date = "!c() { bash ~/dotfiles/git/change_git_date.sh $1; }; c"
 	clean-brchs = "!cbrchs() { bash ~/dotfiles/git/delete_merged_branches.sh ; }; cbrchs"
-	cnovm = commit --no-verify -m
+	direct-commit = commit --no-verify -m
 	past-commit = "!a() { git commit --date '\"'$1' days ago\"' -m \"$2\" ; }; a"
 
 [github]
@@ -64,7 +63,7 @@
 	autocorrect = 20
 
 [core]
-	editor = emacsclient --alternate-editor "" --create-frame -nw
+	editor = emacsclient --alternate-editor "emacs" --create-frame
 	filemode = false
 	hooksPath = ~/dotfiles/git/hooks
 [pull]
