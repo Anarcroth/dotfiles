@@ -6,7 +6,11 @@ rofi_command="rofi -theme themes/time.rasi"
 TIME_DATE="$(date +"%a %d, %R")"
 DAY="$(date +"%d" | tr -d '0')"
 
-month_num="$(date +"%m" | tr -d '0')"
+if [[ $(date +"%m") -eq "10" ]]; then
+    month_num="10"
+else
+    month_num="$(date +"%m" | tr -d '0')"
+fi
 month_num=$(( ($month_num - 1) * 8 + 1 ))
 
 calendar=""
