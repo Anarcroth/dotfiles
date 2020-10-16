@@ -45,7 +45,7 @@
 	stash-unappl = !git stash show -p | git apply -R
 	sl = stash list
 	cod = checkout .
-	unstage = restore --staged .
+	unstage = "!u() { git restore --staged $@; }; u"
 	cam = commit -a -m
 	fp = fetch -p --progress
 	last = log -1 HEAD
