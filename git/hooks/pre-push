@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# An example hook script to verify what is about to be pushed.  Called by "git
-# push" after it has checked the remote status, but before anything has been
-# pushed.  If this script exits with a non-zero status nothing will be pushed.
+# Called by "git push" after it has checked the remote status,
+# but before anything has been pushed.
+# If this script exits with a non-zero status nothing will be pushed.
 #
 # This hook is called with the following parameters:
 #
@@ -15,6 +15,10 @@
 # the standard input in the form:
 #
 #   <local ref> <local sha1> <remote ref> <remote sha1>
+#
+# This hook will:
+# 1. Stop pushing if the branch contains a WIP commit
+# 2. Stop pushing if the push is going to be a force push to $protected_branches
 
 # Get pre-push variables
 source ~/dotfiles/git/hooks/git-hook-helper.sh
@@ -25,13 +29,13 @@ PUSH_COMMAND=`ps -ocommand= -p $PPID`
 FORCE_PUSH="force|delete|-f"
 WIP=`git rev-list --grep '(WIP)' develop...HEAD`
 
-if [[ -n "$WIP" ]]; then
-    echo "Cannot force-push to protected branch $BRANCH with a WIP commit"
+if [[ -n "$WIP" && "$BRANCH" =~ $pre_push_protected_branches ]]; then
+    echo "Cannot push to protected branch $BRANCH with a WIP commit"
     exit 1
 fi
 
 if [[ "$BRANCH" =~ $pre_push_protected_branches && "$PUSH_COMMAND" =~ $FORCE_PUSH ]]; then
-    echo "Cannot force-push to protected branch \"$BRANCH\"!"
+    echo "Pre-push stop! Cannot force-push to protected branch \"$BRANCH\"!"
     exit 1
 fi
 

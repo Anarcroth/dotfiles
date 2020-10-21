@@ -1,24 +1,17 @@
 #!/bin/bash
 #
-# An example hook script to prepare the commit log message.
-# Called by "git commit" with the name of the file that has the
-# commit message, followed by the description of the commit
-# message's source.  The hook's purpose is to edit the commit
-# message file.  If the hook fails with a non-zero status,
-# the commit is aborted.
+# This hook is called by "git commit" with the name of the
+# file that has the commit message, followed by the description
+# of the commit message's source.
 #
-# To enable this hook, rename this file to "prepare-commit-msg".
-
-# This hook includes three examples. The first one removes the
-# "# Please enter the commit message..." help message.
+# The hook's purpose is to edit the commit message file.
+# If the hook fails with a non-zero status, the commit is aborted.
 #
-# The second includes the output of "git diff --name-status -r"
-# into the message, just before the "git status" output.  It is
-# commented because it doesn't cope with --amend or with squashed
-# commits.
-#
-# The third example adds a Signed-off-by line to the message, that can
-# still be edited.  This is rarely a good idea.
+# This hook will:
+# 1. Warn when you are about to commit to master
+# 2. Warn when you are about to commit to develop
+# 3. Warn when you are about to commit to a branch with a non-uniform name
+# 4. Remove useless commit message comment
 
 # Get pre-commit variables
 source ~/dotfiles/git/hooks/git-hook-helper.sh
@@ -56,6 +49,11 @@ then
     /usr/bin/perl -i.bak -ne 'print unless(m/^. Please enter the commit message/..m/^#$/)' "$COMMIT_MSG_FILE"
 fi
 
+# This will include the output of "git diff --name-status -r"
+# into the message, just before the "git status" output.  It is
+# commented because it doesn't cope with --amend or with squashed
+# commits.
+#
 # case "$COMMIT_SOURCE,$SHA1" in
 #  ,|template,)
 #    /usr/bin/perl -i.bak -pe '
@@ -64,6 +62,9 @@ fi
 #  *) ;;
 # esac
 
+# This adds a Signed-off-by line to the message, that can
+# still be edited.  This is rarely a good idea.
+#
 # SOB=$(git var GIT_COMMITTER_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
 # git interpret-trailers --in-place --trailer "$SOB" "$COMMIT_MSG_FILE"
 # if test -z "$COMMIT_SOURCE"
