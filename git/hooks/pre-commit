@@ -5,12 +5,12 @@
 # if it wants to stop the commit.
 #
 # This hook will:
-# Check that the commit to be done will not contain any $BAD_WORDS.
-# Check for any markers or whitespace errors.
-#
-# Variables to configure:
-# This is a set of words that *should* not be in a commit. Change it to your own liking
-BAD_WORDS='(TODO|FIXME|DEBUG|STUB)'
+# 1. Check that the commit to be done will not contain any $pre_commit_bad_words.
+# 2. Check for any markers or whitespace errors.
+
+# Get pre-commit variables
+source ~/dotfiles/git/hooks/git-hook-helper.sh
+create_variables ~/dotfiles/git/hooks/git-hook-variables.yaml
 
 if git rev-parse --verify HEAD >/dev/null 2>&1
 then
@@ -23,15 +23,15 @@ fi
 # Redirect output to stderr.
 exec 1>&2
 
-# If there are the following keywords in the diff, print offending file names and fail.
-offending_files=$(git diff-index --cached --name-only -G"$BAD_WORDS" $against)
+# If there are the bad keywords in the diff, print offending file names and fail.
+offending_files=$(git diff-index --cached --name-only -G"$pre_commit_bad_words" $against)
 if [[ -n $offending_files ]]
 then
     cat <<\EOF
 
 Error: You are about to commit files with one of the following keywords:
 EOF
-    echo $BAD_WORDS | tr "[(|)]" " "
+    echo $pre_commit_bad_words | tr "[(|)]" " "
     cat <<\EOF
 Make sure that you have addressed all of them appropriately
 

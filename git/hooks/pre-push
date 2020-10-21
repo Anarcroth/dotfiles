@@ -16,9 +16,12 @@
 #
 #   <local ref> <local sha1> <remote ref> <remote sha1>
 
+# Get pre-push variables
+source ~/dotfiles/git/hooks/git-hook-helper.sh
+create_variables ~/dotfiles/git/hooks/git-hook-variables.yaml
+
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 PUSH_COMMAND=`ps -ocommand= -p $PPID`
-PROTECTED_BRANCHES="^(master|dev|develop|release/*)"
 FORCE_PUSH="force|delete|-f"
 WIP=`git rev-list --grep '(WIP)' develop...HEAD`
 
@@ -27,7 +30,7 @@ if [[ -n "$WIP" ]]; then
     exit 1
 fi
 
-if [[ "$BRANCH" =~ $PROTECTED_BRANCHES && "$PUSH_COMMAND" =~ $FORCE_PUSH ]]; then
+if [[ "$BRANCH" =~ $pre_push_protected_branches && "$PUSH_COMMAND" =~ $FORCE_PUSH ]]; then
     echo "Cannot force-push to protected branch \"$BRANCH\"!"
     exit 1
 fi

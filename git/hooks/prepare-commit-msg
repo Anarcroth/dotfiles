@@ -20,15 +20,13 @@
 # The third example adds a Signed-off-by line to the message, that can
 # still be edited.  This is rarely a good idea.
 
+# Get pre-commit variables
+source ~/dotfiles/git/hooks/git-hook-helper.sh
+create_variables ~/dotfiles/git/hooks/git-hook-variables.yaml
+
 COMMIT_MSG_FILE=$1
 COMMIT_SOURCE=$2
 SHA1=$3
-
-WARNING_MSG="\n!!!WARNING, YOU ARE COMMITTING TO '%s'\nARE YOU SURE YOU WANT TO DO THIS?!!!\n"
-BRANCH_WARN="\n# Your branch name looks fishy.\n# '%s' does not conform to our usual standards.\n# Please fix it if needed.\n"
-
-BRANCH_PREFIXES="(feature|bugfix|hotfix)"
-PROJECT_GROUPS="(WFC|DPS|BBL|RMS|NBI)"
 
 if [[ -z "$COMMIT_SOURCE" ]]
 then
@@ -40,16 +38,16 @@ then
 
     # Warn on committing to master
     if [[ "$ref" == "master" ]]; then
-	printf "$WARNING_MSG" "MASTER" >> $COMMIT_MSG_FILE
+	printf "$prepare_commit_warning_msg" "MASTER" >> $COMMIT_MSG_FILE
 
     # Warn on committing to develop
     elif [[ "$ref" == "dev" ]] || [[ "$ref" == "develop" ]]; then
-	printf "$WARNING_MSG" "DEVELOP" >> $COMMIT_MSG_FILE
+	printf "$prepare_commit_warning_msg" "DEVELOP" >> $COMMIT_MSG_FILE
 
     # Warn on committing to non-uniform branch name
-    elif ! [[ "$ref" =~ ^($BRANCH_PREFIXES)\/($PROJECT_GROUPS-[0-9]+).* ||
+    elif ! [[ "$ref" =~ ^($prepare_commit_branch_prefixes)\/($prepare_commit_project_groups-[0-9]+).* ||
 		  "$ref" =~ ^("release")\/(\d+\.\d+\.\d+)$ ]]; then
-	printf "$BRANCH_WARN" "$ref" >> $COMMIT_MSG_FILE
+	printf "$prepare_commit_branch_warning" "$ref" >> $COMMIT_MSG_FILE
     fi
 
     echo -e "$orig_msg" >> $COMMIT_MSG_FILE
