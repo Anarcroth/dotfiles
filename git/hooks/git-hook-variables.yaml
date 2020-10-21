@@ -23,3 +23,5 @@ pre_push:
   # These are the branches that are considered protected when force pushing to
   # and will not allow to be forced pushed to
   protected_branches: ^(master|dev|develop|release/*)
+  # Branch to compare against for checking against WIP commits
+  branch_to_compare: develop

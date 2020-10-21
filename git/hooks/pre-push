@@ -27,7 +27,7 @@ create_variables ~/dotfiles/git/hooks/git-hook-variables.yaml
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 PUSH_COMMAND=`ps -ocommand= -p $PPID`
 FORCE_PUSH="force|delete|-f"
-WIP=`git rev-list --grep '(WIP)' develop...HEAD`
+WIP=$(git rev-list --grep '(WIP)' $pre_push_branch_to_compare...HEAD)
 
 if [[ -n "$WIP" && "$BRANCH" =~ $pre_push_protected_branches ]]; then
     echo "Cannot push to protected branch $BRANCH with a WIP commit"
