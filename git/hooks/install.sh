@@ -5,7 +5,6 @@
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -p|--path) config_path="$2"; shift ;;
-        -n|--name) config_dir_name="$2"; shift ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
     shift
@@ -17,19 +16,11 @@ orig_path=$(readlink -e $(dirname $0))
 if [[ -z $config_path ]]; then
     config_path=$orig_path
 fi
-# Default to "git" if no name for config dir is specified
-if [[ -z $config_dir_name ]]; then
-    config_dir_name="git"
-fi
 
 # Setup git hooks directory
 config_path=$(readlink -e $config_path)
 echo "Going into $config_path"
 cd $config_path
-
-#echo "Creating directory $config_dir_name"
-#mkdir -p -v $config_dir_name
-#cd $config_dir_name
 
 if [[ "$orig_path" != "$config_path" ]]; then
     echo "Copying files to target directory $config_path"
