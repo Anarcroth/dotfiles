@@ -2,6 +2,7 @@
 #
 # Setup how git hooks to a central place
 
+# Handle script arguments
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -p|--path) config_path="$2"; shift ;;
@@ -10,27 +11,29 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
-orig_path=$(readlink -e $(dirname $0))
-
 # Default to path of the installation script if no path for config is specified
 if [[ -z $config_path ]]; then
     config_path=$orig_path
 fi
 
+# Evaluate the absolute path of the installation script
+# Here are all of the files to be found if we would copy them later on
+orig_path=$(readlink -e $(dirname $0))
+
 # Setup git hooks directory
 config_path=$(readlink -e $config_path)
-echo "Going into $config_path"
+echo "Going into: $config_path"
 cd $config_path
 
 if [[ "$orig_path" != "$config_path" ]]; then
-    echo "Copying files to target directory $config_path"
+    echo "Copying files to target directory: $config_path"
     orig_path="$orig_path/*"
     cp $orig_path "$config_path"
 fi
 
 # Fix git hooks variable yaml file and helper functions
 pwd=$(pwd) # this makes sense because we `cd`ed already in a previous step to the right dir
-dir="${pwd////\\/}"
+dir="${pwd////\\/}" # replace all `/` characters with `\/` in order to escape slashes for sed... UNIX!
 echo "Updating git hook variable configs for pre-push"
 sed -i 's/\(source \).*/\1'"$dir"'\/git-hook-helper.sh/' pre-push
 sed -i 's/\(create_variables \).*/\1'"$dir"'\/git-hook-variables.yaml/' pre-push
