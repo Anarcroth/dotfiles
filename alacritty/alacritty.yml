@@ -31,6 +31,8 @@ shell:
 cursor:
   style: Beam
 
+draw_bold_text_with_bright_colors: true
+
 # One Dark Theme
 colors:
   primary:
@@ -38,10 +40,10 @@ colors:
     foreground: '#abb2bf'
   cursor:
     text:       CellBackground
-    cursor:     '#528bff' # syntax-cursor-color
+    cursor:     '#528bff'
   selection:
     text:       CellForeground
-    background: '#3e4451' # syntax-selection-color
+    background: '#3e4451'
   normal:
     black:      '#282c34'
     red:        '#e06c75'
@@ -52,7 +54,7 @@ colors:
     cyan:       '#56b6c2'
     white:      '#828997'
   bright:
-    black:      '#282c34'
+    black:      '#5C6370'
     red:        '#e06c75'
     green:      '#98c379'
     yellow:     '#e5c07b'
@@ -60,3 +62,29 @@ colors:
     magenta:    '#c678dd'
     cyan:       '#56b6c2'
     white:      '#828997'
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+  # If this is `true`, the cursor is temporarily hidden when typing.
+  hide_when_typing: false
+
+  url:
+    # When set to `launcher: None`, URL launching will be disabled completely.
+    launcher:
+      program: xdg-open
+    #  args: []
+
+    # URL modifiers
+    #
+    # These are the modifiers that need to be held down for opening URLs when clicking
+    # on them. The available modifiers are documented in the key binding section.
+    modifiers: None
+
+selection:
+  # This string contains all characters that are used as separators for "semantic words" in Alacritty.
+  #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: true
