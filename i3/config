@@ -36,7 +36,7 @@ font pango: Iosevka Nerd Font 12
 floating_modifier $mod
 
 # Start a terminal (with optional transparency)
-bindsym $mod+Return exec xterm # & sleep .1s && transset-df -a 0.9
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
