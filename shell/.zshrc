@@ -22,17 +22,6 @@ POWERLEVEL9K_PROMPT_ADD_NEWLINE="true"
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="  "
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="   "
 
-# Adds a white space for these characters on order to
-# not cut them off
-POWERLEVEL9K_DISK_ICON=$' '
-POWERLEVEL9K_FOLDER_ICON=$' '
-POWERLEVEL9K_HOME_ICON=$' '
-POWERLEVEL9K_HOME_SUB_ICON=$' '
-POWERLEVEL9K_LINUX_ICON=$' '
-POWERLEVEL9K_LINUX_ARCH_ICON=$' '
-POWERLEVEL9K_OK_ICON=$' '
-POWERLEVEL9K_EXECUTION_TIME_ICON=$' '
-
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='black'
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
@@ -80,8 +69,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration #
 ######################
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # Invoke compinit here
 compinit -d ~/.cache/zsh/zcompdump-anarcroth-$ZSH_VERSION
 
@@ -89,13 +76,7 @@ compinit -d ~/.cache/zsh/zcompdump-anarcroth-$ZSH_VERSION
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='emacsclient --alternate-editor "" --create-frame -nw'
-# This is the old config, just in case something happens
-#if [[ -n $SSH_CONNECTION ]]; then
-#  export EDITOR='vim'
-#else
-#  export EDITOR='emacs'
-#fi
+export EDITOR='emacsclient --alternate-editor "" --create-frame'
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
@@ -109,8 +90,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
 alias padon="xinput enable \"ETPS/2 Elantech Touchpad\""
 alias padoff="xinput disable \"ETPS/2 Elantech Touchpad\""
 alias ff="firefox"
@@ -127,11 +106,6 @@ antigen use oh-my-zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh)
 antigen bundle git
 antigen bundle command-not-found
-antigen bundle sudo
-antigen bundle archlinux
-antigen bundle mvn
-antigen bundle python
-antigen bundle systemd
 antigen bundle emacs
 antigen bundle autojump
 
@@ -139,16 +113,8 @@ antigen bundle zdharma/fast-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle chrissicool/zsh-256color
-antigen bundle aramboi/zsh-ipfs
 
 antigen apply
-
-# Ctrl+s show sensors output
-#function sens() {
-#  sensors
-#}
-#zle -N sens{,}
-#bindkey ^s sens
 
 # Currently I am not using pywal
 # pywal call
@@ -156,23 +122,14 @@ antigen apply
 # Import colorscheme from 'wal' asynchronously
 # (cat ~/.cache/wal/sequences &)
 
-# source fonts
-#source ~/.fonts/*.sh
-
 # Call neofetch with wallpaper
 #neofetch
 
 # Source zsh theme
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
-# Changes cursor to blinking bar
-echo -e -n "\x1b[\x35 q"
-
 # Disable cowsay for ansible
 export ANSIBLE_NOCOWS=1
 
 # Export rust src path
 export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
-
-# Export QT scaling as a fix to broken keepassxc visuals
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
