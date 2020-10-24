@@ -96,6 +96,17 @@ alias ff="firefox"
 alias glep="ls -la | grep -Ee $1"
 alias shdwn="shutdown -h now"
 alias gep="grep -n -C 2 $1"
+alias pacin="sudo pacman -S" # Install packages from the repositories
+alias pacinf="pacman -Qi" # Display information about a package in the local database
+alias pacsur="pacman -Qs" # Search for packages in the local database
+alias pacorph="sudo pacman -Qdt" # List all orphaned packages
+alias pacrem="sudo pacman -Rns" # Remove packages, including its settings and dependencies
+alias pacrinf="fpacman -Si" # Display information about a package in the repositories
+alias pacrsur="pacman -Ss" # Search for packages in the repositories
+alias pacrmorphs="sudo pacman -Rs $(pacman -Qtdq)" # Delete all orphaned packages
+alias pacupg="sudo pacman -Syu" # Sync with repositories before upgrading packages
+alias pacfls="pacman -Ql" # List files in a package
+alias pacown="pacman -Qo" # Show which package owns a file
 
 # Run antigen
 source $HOME/antigen/antigen.zsh
