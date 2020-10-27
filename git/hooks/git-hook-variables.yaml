@@ -22,6 +22,8 @@ prepare_commit:
 pre_push:
   # These are the branches that are considered protected when force pushing to
   # and will not allow to be forced pushed to
-  protected_branches: ^(master|dev|develop|release/*)
-  # Branch to compare against for checking against WIP commits
+  protected_branches: ^(master|dev|release/*)
+  # Branch to compare against for checking against WIP commits.
+  # Usually, this is meant to cover only develop and/or master branch
+  # This will default to either develop or master, depending on branch which exists and which doesn't
   branch_to_compare: develop

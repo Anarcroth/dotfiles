@@ -27,6 +27,18 @@ create_variables ~/dotfiles/git/hooks/git-hook-variables.yaml
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 PUSH_COMMAND=`ps -ocommand= -p $PPID`
 FORCE_PUSH="force|delete|-f"
+
+if [[ -z $(git branch --list $pre_push_branch_to_compare) ]]; then
+    # The reason why these if's are so explicit is that if neither master or develop match,
+    # we want to keep the original branch name
+    if [[ $pre_push_branch_to_compare == "master" ]]; then
+        pre_push_branch_to_compare="develop"
+    fi
+    if [[ $pre_push_branch_to_compare == "develop" ]]; then
+        pre_push_branch_to_compare="master"
+    fi
+fi
+
 WIP=$(git rev-list --grep '(WIP)' $pre_push_branch_to_compare...HEAD)
 
 if [[ -n "$WIP" && "$BRANCH" =~ $pre_push_protected_branches ]]; then
