@@ -27,6 +27,8 @@
 [alias]
 	lg = log --all --stat --pretty=oneline --graph --format='%h %d %an %cr %s' --oneline
 	l = log --all --stat --graph --format='%h %d %an %cr %s'
+	log-search = "!l() { git log --all --grep=$1 ; }; l"
+	repo-search = "!r() { git grep $1 $(git rev-list --all) ; }; r"
 	obl = "!o() { git log --pretty=oneline --graph --oneline ; }; o"
 	sobl = "!so() { git log --stat --pretty=oneline --graph --oneline ; }; so"
 	mobl = "!mo() { git log --pretty=oneline --graph --oneline $1.. ; }; mo"
