@@ -91,6 +91,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 #
 # Example aliases
 alias ssh="TERM=xterm-256color ssh"
+alias lxc="TERM=xterm-256color lxc"
 alias padon="xinput enable \"ETPS/2 Elantech Touchpad\""
 alias padoff="xinput disable \"ETPS/2 Elantech Touchpad\""
 alias ff="firefox"
