@@ -2,6 +2,7 @@
 pre_commit:
   # bad_words are words that are not usually found in production ready commits
   # and should be omitted or addressed before actually committing
+  # Ex: (TODO|FIXME|DEBUG|STUB|TEST|WONTFIX)
   bad_words: (TODO|FIXME|DEBUG|STUB)
 
 # prepare-commit-msg variables
@@ -14,15 +15,18 @@ prepare_commit:
   branch_warning: \n# Your branch name looks fishy.\n# '%s' does not conform to our usual standards.\n# Please fix it if needed.\n
   # Branch prefixes that should be found on every branch that would later be
   # merged to production
+  # Ex: (feature|bugfix|hotfix|issue|test)
   branch_prefixes: (feature|bugfix|hotfix)
   # Branch project groups indicating the project and the issue of the branch
+  # Ex: (ABC|FOO|BAR)
   project_groups: (WFC|DPS|BBL|RMS|NBI)
 
 # pre-push variables
 pre_push:
   # These are the branches that are considered protected when force pushing to
   # and will not allow to be forced pushed to
-  protected_branches: ^(master|dev|release/*)
+  # Ex: ^(master|develop|dev|release/*)
+  protected_branches: ^(dev|release/*)
   # Branch to compare against for checking against WIP commits.
   # Usually, this is meant to cover only develop and/or master branch
   # This will default to either develop or master, depending on branch which exists and which doesn't
