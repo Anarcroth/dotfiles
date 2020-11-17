@@ -318,6 +318,9 @@ exec_always --no-startup-id xsetroot -solid "#121417"
 # Startup programs
 exec firefox
 exec slack
-exec xinput disable "ETPS/2 Elantech Touchpad" # disable touchpad on startup
+# To disable the tocuhpade, run `xinput | grep "Touchpad"` and copy the whole touchpad address
+# Example:
+# exec xinput disable "ETPS/2 Elantech Touchpad"
+# exec xinput disable "DELL0825:00 06CB:7E92 Touchpad"
 exec --no-startup-id nm-applet
 exec $HOME/.config/i3/nwl.sh
