@@ -310,7 +310,10 @@ bindsym $mod+Control+i exec idea
 exec_always --no-startup-id numlockx on
 
 # Background and transparency settings
-exec_always --no-startup-id compton -b -f --blur-background
+# This also makes the non-focused screen dim-out (note that this is not the same
+# as the configartion above that just changes the colors of the windows when they
+# are focused or not focused)
+# exec_always --no-startup-id compton -b -f --blur-background
 
 # Setup background
 exec_always --no-startup-id xsetroot -solid "#121417"
