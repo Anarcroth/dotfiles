@@ -12,6 +12,7 @@ while [[ "$#" -gt 0 ]]; do
         -m|--message) message="$2"; shift ;;
         -b|--branch) tmp_branch="$2"; shift ;;
         -p|--push) to_push=1; shift ;;
+        -c|--clean-slate) clean_slate=1; shift ;;
         -h|--help) help; exit 1 ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
@@ -59,6 +60,11 @@ fi
 # Go back to the original place HEAD was
 git switch -
 
-# Reset the commit we just did. We want to do this so that we can be an the exact same state we were before doing this whole process
-git reset --soft HEAD^
-git restore --staged .
+if [[ $clean_slate ]]; then
+    git reset --hard HEAD^
+else
+    # Reset the commit we just did
+    # We want to do this so that we can be an the exact same state we were before doing this whole process
+    git reset --soft HEAD^
+    git restore --staged .
+fi
