@@ -54,7 +54,7 @@
 	whatadded = log --diff-filter=A
 	pull-into = "!p() { git checkout $1 && git pull --rebase && git checkout - ; }; p"
 	change-date = "!c() { bash ~/dotfiles/git/change_git_date.sh $1; }; c"
-	temp-commit = "!t() { bash ~/dotfiles/git/temp_commit.sh $@; }; t"
+	temp-commit = "!t() { bash ~/dotfiles/git/temp_commit.sh \"$@\"; }; t"
 	clean-brchs = "!cbrchs() { bash ~/dotfiles/git/delete_merged_branches.sh ; }; cbrchs"
 	direct-commit = commit --no-verify -m
 	past-commit = "!a() { git commit --date '\"'$1' days ago\"' -m \"$2\" ; }; a"
