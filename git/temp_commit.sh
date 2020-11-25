@@ -2,7 +2,7 @@
 
 function help {
     echo -e "\nThis script will save your local changes to a temporary branch.\nUseful in cases where you are working on many changes and you don't know which will stick and which will go,\nbut you still need to save your work and push it to remote before committing to anything specific.\n"
-    echo "usage: git temp-commit [-m|--message <commit message>] [-b|--branch <temp branch name>] [-p|--push]"
+    echo -e "usage: git temp-commit [-m|--message <commit message>]\n\t[-b|--branch <temp branch name>]\n\t[-p|--push]\n\t[--retrieve-changes]\n\t[-c|--clean-slate]"
 }
 
 # Handle script arguments
