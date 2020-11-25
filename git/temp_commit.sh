@@ -11,6 +11,7 @@ while [[ "$#" -gt 0 ]]; do
         -m|--message) message="$2"; shift ;;
         -b|--branch) tmp_branch="$2"; shift ;;
         -p|--push) to_push=1; shift ;;
+        --retrieve-changes) retrieve_changes=1; shift ;;
         -c|--clean-slate) clean_slate=1; shift ;;
         -h) help; exit 1 ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
@@ -20,6 +21,18 @@ done
 
 if [[ -z $tmp_branch ]]; then
     echo -e "\nYou have not specified a temporary branch!\nAborting!"; exit 1
+fi
+
+if [[ $retrieve_changes ]]; then
+    commits=$(git rev-list --reverse HEAD..$tmp_branch)
+    IFS='\n' read -r -a commits_array <<< "$commits"
+    for c in "${commits_array[@]}"
+    do
+        git cherry-pick --no-commit $c
+    done
+    # Unstage everything so that the committer can decide what to stage, step by step
+    git restore --staged .
+    exit 0
 fi
 
 # Prepend temp/ before the name branch, just to follow nomenclature
