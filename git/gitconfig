@@ -29,10 +29,10 @@
 	l = log --all --stat --graph --format='%h %d %an %cr %s'
 	log-search = "!l() { git log --all --grep=$1 ; }; l"
 	repo-search = "!r() { git grep $1 $(git rev-list --all) ; }; r"
-	obl = "!o() { git log --pretty=oneline --graph --oneline ; }; o"
-	sobl = "!so() { git log --stat --pretty=oneline --graph --oneline ; }; so"
-	mobl = "!mo() { git log --pretty=oneline --graph --oneline $1.. ; }; mo"
-	mobls = "!os() { git log --stat --pretty=oneline --graph --oneline $1.. ; }; os"
+	lg-small-graph = "!o() { git log --pretty=oneline --graph --oneline ; }; o"
+	lg-stat-small-graph = "!so() { git log --stat --pretty=oneline --graph --oneline ; }; so"
+	lg-curr-br = "!mo() { git log --pretty=oneline --graph --oneline $1.. ; }; mo"
+	lg-stat-curr-br = "!os() { git log --stat --pretty=oneline --graph --oneline $1.. ; }; os"
 	up = pull --rebase
 	br = branch --verbose -a
 	sfp = push --force-with-lease
