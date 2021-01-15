@@ -6,6 +6,7 @@ import subprocess
 
 WHITESPACE = "\s+$"
 PUNCTUATION = "^[,.;:!?]|[,.;:!?]$"
+SPELLCHECKER_CMD = []
 
 def validate_heading(heading, empty_line):
     print("Validating commit heading...")
@@ -55,8 +56,30 @@ def validate(message):
         sys.exit(se)
 
 
-def spellcheck_commit(commit_file):
-    spell_check = subprocess.check_output(["aspell", "list", "-l", "en"], stdin=commit_file).decode("utf-8").split("\n")
+def command_exists(cmd):
+    return subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0
+
+
+def spellchecker_exists():
+    # Currently, it's difficult to support 'ispell', since it has quite verbose output, even with options '-a/-A'
+    # thus checking it's results harder for this script. Don't get me wrong, I like a good challenge, but maybe for
+    # a simple commit-msg hook it's not worth supporting 'ispell' as well.
+
+    # Return the first found spellchecker. Priority is 'aspell', since it's considered the "best"
+    if command_exists(["aspell", "-v"]):
+        print("Found 'aspell' checker. Continuing...")
+        return ["aspell", "list", "-l", "en"]
+    elif command_exists(["spell", "--version"]):
+        print("Fonud 'spell' checker. Continuing...")
+        return ["spell"]
+    else:
+        return False
+    return True
+
+
+def spellcheck_commit(commit_file, spellchecker_cmd):
+    print("Checking spelling...")
+    spell_check = list(filter(None, subprocess.check_output(spellchecker_cmd, stdin=commit_file).decode("utf-8").split("\n")))
     if spell_check:
         print("#" * 37 + "\nCommit message has spelling mistakes!\n" + "#" * 37 + "\n")
         print("Misspelled words:")
@@ -65,7 +88,7 @@ def spellcheck_commit(commit_file):
         if cont == "y" or cont == "Y":
             print("Spelling OK!")
             return
-        sys.exit("\nSpelling mistakes detected! Aborting commit message...")
+        sys.exit("Spelling mistakes detected! Aborting commit message...")
     else:
         print("Spelling OK!")
 
@@ -76,7 +99,9 @@ def main():
 
     message_file = sys.argv[1]
     with open(message_file, 'r') as txt_file:
-        spellcheck_commit(txt_file)
+        cmd = spellchecker_exists()
+        if cmd:
+            spellcheck_commit(txt_file, cmd)
         # Reset file to read from the beginning, as in the previous method,
         # we issued a command that reads from the file ('aspell' in this case)
         txt_file.seek(0)
