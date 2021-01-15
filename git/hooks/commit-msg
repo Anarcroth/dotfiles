@@ -75,17 +75,12 @@ def main():
     sys.stdin = open("/dev/tty", "r")
 
     message_file = sys.argv[1]
-    try:
-        txt_file = open(message_file, 'r')
+    with open(message_file, 'r') as txt_file:
         spellcheck_commit(txt_file)
         # Reset file to read from the beginning, as in the previous method,
         # we issued a command that reads from the file ('aspell' in this case)
         txt_file.seek(0)
-        commit_message = txt_file.read()
-    finally:
-        txt_file.close()
-
-    validate(commit_message)
+        validate(txt_file.read())
 
 
 if __name__ == "__main__":
