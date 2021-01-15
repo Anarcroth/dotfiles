@@ -6,7 +6,6 @@ import subprocess
 
 WHITESPACE = "\s+$"
 PUNCTUATION = "^[,.;:!?]|[,.;:!?]$"
-SPELLCHECKER_CMD = []
 
 def validate_heading(heading, empty_line):
     print("Validating commit heading...")
