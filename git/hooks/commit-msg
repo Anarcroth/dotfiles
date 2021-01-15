@@ -54,15 +54,38 @@ def validate(message):
         print(message)
         sys.exit(se)
 
-def main():
-  message_file = sys.argv[1]
-  try:
-      txt_file = open(message_file, 'r')
-      commit_message = txt_file.read()
-  finally:
-      txt_file.close()
 
-  validate(commit_message)
+def spellcheck_commit(commit_file):
+    spell_check = subprocess.check_output(["aspell", "list", "-l", "en"], stdin=commit_file).decode("utf-8").split("\n")
+    if spell_check:
+        print("#" * 37 + "\nCommit message has spelling mistakes!\n" + "#" * 37 + "\n")
+        print("Misspelled words:")
+        [print(str(indx + 1) + ": " + word) for indx, word in enumerate(spell_check) if word]
+        cont = input("\nDo you want to continue? [Y/n] ")
+        if cont == "y" or cont == "Y":
+            print("Spelling is OK!")
+            return
+        sys.exit("\nSpelling mistakes detected! Aborting commit message...")
+    else:
+        print("Spelling is OK!")
+
+
+def main():
+    # Enable this so that this script can take input from the user (used in #spellcheck_commit method)
+    sys.stdin = open("/dev/tty", "r")
+
+    message_file = sys.argv[1]
+    try:
+        txt_file = open(message_file, 'r')
+        spellcheck_commit(txt_file)
+        # Reset file to read from the beginning, as in the previous method,
+        # we issued a command that reads from the file ('aspell' in this case)
+        txt_file.seek(0)
+        commit_message = txt_file.read()
+    finally:
+        txt_file.close()
+
+    validate(commit_message)
 
 
 if __name__ == "__main__":
