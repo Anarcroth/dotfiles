@@ -19,7 +19,7 @@ def validate_heading(heading, empty_line):
         sys.exit("Commit message heading must not be longer than 50 characters! Yours was {}".format(len(heading)))
     if not empty_line == '':
         sys.exit("Commit message does not have empty line below heading!")
-    print("Commit heading valid. [{} out of max 50]".format(len(heading)))
+    print("Commit heading OK! [{} out of max 50]".format(len(heading)))
 
 
 def validate_body(lines):
@@ -33,7 +33,7 @@ def validate_body(lines):
             sys.exit("Commit message body is longer than 72 characters!")
         if re.search(WHITESPACE, body_line):
             sys.exit("Commit message body line ends with whitespaces!")
-    print("Commit body valid.")
+    print("Commit body OK!")
 
 
 def validate(message):
@@ -63,11 +63,11 @@ def spellcheck_commit(commit_file):
         [print(str(indx + 1) + ": " + word) for indx, word in enumerate(spell_check) if word]
         cont = input("\nDo you want to continue? [Y/n] ")
         if cont == "y" or cont == "Y":
-            print("Spelling is OK!")
+            print("Spelling OK!")
             return
         sys.exit("\nSpelling mistakes detected! Aborting commit message...")
     else:
-        print("Spelling is OK!")
+        print("Spelling OK!")
 
 
 def main():
