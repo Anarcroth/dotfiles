@@ -71,3 +71,5 @@
 	hooksPath = ~/dotfiles/git/hooks
 [pull]
 	rebase = true
+[init]
+	defaultBranch = master
