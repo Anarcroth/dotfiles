@@ -78,7 +78,8 @@ def spellchecker_exists():
 
 def spellcheck_commit(commit_file, spellchecker_cmd):
     print("Checking spelling...")
-    spell_check = list(filter(None, subprocess.check_output(spellchecker_cmd, stdin=commit_file).decode("utf-8").split("\n")))
+    spell_check = set(filter(None, subprocess.check_output(spellchecker_cmd, stdin=commit_file)
+                             .decode("utf-8").split("\n")))
     if spell_check:
         print("#" * 37 + "\nCommit message has spelling mistakes!\n" + "#" * 37 + "\n")
         print("Misspelled words:")
