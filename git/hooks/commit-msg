@@ -88,6 +88,9 @@ def spellcheck_commit(commit_file, spellchecker_cmd):
         if cont == "y" or cont == "Y":
             print("Spelling OK!")
             return
+        commit_file.seek(0)  # Hack so that you can read the file again after it has been read by the subprocess above
+        print("\n" + "#" * 37 + "\nHere is the commit message you wrote!\n")
+        print(commit_file.read())
         sys.exit("Spelling mistakes detected! Aborting commit message...")
     else:
         print("Spelling OK!")
