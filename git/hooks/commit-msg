@@ -4,12 +4,13 @@ import re
 import sys
 import subprocess
 
-WHITESPACE = "\s+$"
+WHITESPACE = "\\s+$"
 PUNCTUATION = "^[,.;:!?]|[,.;:!?]$"
+
 
 def validate_heading(heading, empty_line):
     print("Validating commit heading...")
-    if not heading[0].isupper(): # check first character of first word of first line
+    if not heading[0].isupper():  # check first character of first word of first line
         sys.exit("Commit message heading is not capitalized!")
     if re.search(WHITESPACE, heading):
         sys.exit("Commit message heading ends with whitespaces!")
@@ -26,7 +27,7 @@ def validate_body(lines):
     print("Validating commit body...")
     if lines[0] == '':
         sys.exit("Commit message has more than one empty line below heading!")
-    if not lines[0][0].isupper(): # check first character of first word of the body
+    if not lines[0][0].isupper():  # check first character of first word of the body
         sys.exit("Commit message body is not capitalized!")
     for body_line in lines:
         if len(body_line) > 72:
@@ -126,13 +127,13 @@ if __name__ == "__main__":
 # Doing this in a hook is a bad idea in general, but the prepare-commit-msg
 # hook is more suited to it.
 #
-#SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
-#grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
+# SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+# grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
 
 # This example catches duplicate Signed-off-by lines.
 
-#test "" = "$(grep '^Signed-off-by: ' "$1" |
-#	 sort | uniq -c | sed -e '/^[ 	]*1[ 	]/d')" || {
-#	echo >&2 Duplicate Signed-off-by lines.
-#	exit 1
-#}
+# test "" = "$(grep '^Signed-off-by: ' "$1" |
+# 	 sort | uniq -c | sed -e '/^[ 	]*1[ 	]/d')" || {
+# 	echo >&2 Duplicate Signed-off-by lines.
+# 	exit 1
+# }
