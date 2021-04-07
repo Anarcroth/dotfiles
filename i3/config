@@ -42,10 +42,10 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # Rofi pop-up menus
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/menu_apps.sh
-bindsym $mod+Control+a exec --no-startup-id ~/.config/rofi/launcher/launcher.sh
-bindsym $mod+Control+o exec --no-startup-id ~/.config/rofi/scripts/screenshot.sh
-bindsym $mod+Control+p exec --no-startup-id ~/.config/rofi/scripts/menu_powermenu.sh
+bindsym $mod+d exec --no-startup-id ~/dotfiles/rofi/scripts/menu_apps.sh
+bindsym $mod+Control+a exec --no-startup-id ~/dotfiles/rofi/launcher/launcher.sh
+bindsym $mod+Control+o exec --no-startup-id ~/dotfiles/rofi/scripts/screenshot.sh
+bindsym $mod+Control+p exec --no-startup-id ~/dotfiles/rofi/scripts/menu_powermenu.sh
 
 # change focus
 bindsym $mod+h focus left
