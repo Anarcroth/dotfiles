@@ -268,14 +268,12 @@ exec_always --no-startup-id ~/dotfiles/polybar/launch.sh
 # Laptop setup
 #exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant dvorak, -option "grp:alt_shift_toggle"
 # Desktop setup with dvorak keyboard
-exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant , -option "grp:alt_shift_toggle"
+#exec_always setxkbmap -model "pc105" -layout "us,bg(phonetic)" -variant , -option "grp:alt_shift_toggle"
 
-# Pulse Audio controls
-set $sink_num 0
-bindsym exec --no-startup-id pactl set-default-sink $sink_num # set default audio sink
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink_num +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $sink_num -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $sink_num toggle # mute sound
+# Pulse Audio controls managed through i3-volume, otherwise, use pactl
+bindsym XF86AudioRaiseVolume exec --no-startup-id i3-volume up 5
+bindsym XF86AudioLowerVolume exec --no-startup-id i3-volume down 5
+bindsym XF86AudioMute exec --no-startup-id i3-volume mute
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
