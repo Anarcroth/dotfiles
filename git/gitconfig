@@ -58,6 +58,8 @@
 	clean-brchs = "!cbrchs() { bash ~/dotfiles/git/delete_merged_branches.sh ; }; cbrchs"
 	direct-commit = commit --no-verify -m
 	past-commit = "!a() { git commit --date '\"'$1' days ago\"' -m \"$2\" ; }; a"
+	shod = show --word-diff
+	shodp = show --word-diff -p
 
 [github]
 	user = Anarcroth
