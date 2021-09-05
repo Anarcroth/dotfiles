@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+# Create a bootable USB device from an image
+
+function help {
+    echo -e "Create a bootable USB device from an image\n"
+    echo -e "Usage: imagetousb [-i | --image <path>] [-d | --device <path>] [-t | --try-umount] [-h | --help]"
+    echo -e "\t -i | --image \t\t Path to the image to be put into a bootable device"
+    echo -e "\t -d | --device \t\t Path to the device to be turned into a bootable device"
+    echo -e "\t -t | --try-umount \t Try to unmount the specified device if it's already mounted"
+    echo -e "\t -h | --help \t\t Print this message"
+}
+
+if [[ "$#" -le 0 ]]; then
+    help; exit 0
+fi
+
+# Handle script arguments
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+	-i|--image) IMAGE_PATH="$2"; shift ;;
+	-d|--device) DEVICE_PATH="$2"; shift;;
+	-t|--try-umount) TRY_UMOUNT=1; shift;;
+        -h|--help) help; exit 0 ;;
+        *) echo "Unknown parameter passed: $1"; help; exit 1 ;;
+    esac
+    shift
+done
+
+if mount | grep -q $DEVICE_PATH; then
+    echo "Device $DEVICE_PATH is mounted!"
+    if $TRY_UMOUNT; then
+	umount $DEVICE_PATH
+	echo "Unmonted device path!"
+    else
+	echo "Can't create bootable USB while device is mounted!"
+	echo "Exiting..."; exit 1
+    fi
+fi
+
+IMAGE_SIVE=$(du -b $IMAGE_PATH | cut -f 1)
+DEVICE_SIZE=$(lsblk -bno SIZE $DEVICE_PATH | head -1)
+if [[ IMAGE_SIVE -gt DEVICE_SIZE ]]; then
+    echo "The image is bigger than the specified device! Cannot create bootable USB!"
+    echo "Exiting..."; exit 1
+fi
+
+echo "This will destroy your device data and there's no turning back!"
+read -p "Are you sure you want to continue [Y/n]?" yesno
+if [[ yesno == "no" ]]; then
+    echo "Exiting..."; exit 1
+fi
+
+if echo $IMAGE_PATH | grep -q "\.img"; then
+    dd bs=4m if=$IMAGE_PATH of=$DEVICE_PATH status=progress conv=fsync
+elif echo $IMAGE_PATH | grep -q "\.iso"; then
+    dd bs=4m if=$IMAGE_PATH of=$DEVICE_PATH status=progress conv=fdatasync
+else
+    echo "Unrecognized image type!"
+    echo "Exiting..."; exit 1
+fi
