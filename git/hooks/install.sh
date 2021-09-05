@@ -17,14 +17,14 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
+# Evaluate the absolute path of the installation script
+# Here are all of the files to be found if we would copy them later on
+orig_path=$(readlink -e $(dirname $0))
+
 # Default to path of the installation script if no path for config is specified
 if [[ -z $config_path ]]; then
     config_path=$orig_path
 fi
-
-# Evaluate the absolute path of the installation script
-# Here are all of the files to be found if we would copy them later on
-orig_path=$(readlink -e $(dirname $0))
 
 # Setup git hooks directory
 config_path=$(readlink -e $config_path)
@@ -35,6 +35,8 @@ if [[ "$orig_path" != "$config_path" ]]; then
     echo "Copying files to target directory: $config_path"
     orig_path="$orig_path/*"
     cp $orig_path "$config_path"
+else
+    echo "Nothing to copy! You should have the necessary hooks in the current directory!"
 fi
 
 # Fix git hooks variable yaml file and helper functions
@@ -53,9 +55,9 @@ sed -i 's/\(create_variables \).*/\1'"$dir"'\/git-hook-variables.yaml/' prepare-
 # Configure user .gitconfig, which is found in $HOME
 # The "hooksPath" setting is part of the "[core]" section
 # Thus we don't want to override that section if there is something in it
-if ! grep "hooksPath" $HOME/.gitconfig &>/dev/null ; then
+if ! grep -q "hooksPath" $HOME/.gitconfig; then
     echo "Updating user $HOME/.gitconfig to have 'hooksPath' variable"
-    if grep "[core]" $HOME/.gitconfig &>/dev/null ; then
+    if ! grep -q "\[core\]" $HOME/.gitconfig; then
         echo -e "[core]\n\thooksPath = $(pwd)" >> $HOME/.gitconfig
     else
         sed -i '/\[core\]/a \\thooksPath = '"$dir" $HOME/.gitconfig
