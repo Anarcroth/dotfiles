@@ -3,15 +3,15 @@
 # Setup how git hooks to a central place
 
 function help {
-    echo -e "\nThis script aims at configuring git hooks for you!\n"
-    echo "usage: install.sh [-p | --path <path>]"
+    echo "This script aims at configuring git hooks for you!"
+    echo "Usage: install.sh [-p | --path <path>]"
 }
 
 # Handle script arguments
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -p|--path) config_path="$2"; shift ;;
-        -h|--help) help; exit 1 ;;
+        -h|--help) help; exit 0 ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
     shift
