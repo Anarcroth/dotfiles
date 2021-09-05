@@ -1,6 +1,14 @@
 # Git hooks
 
-These are (to my experience) useful git hooks that would *reduce* the risk of committing or pushing wrong or inappropriately formatted information to a git repo.
+These are git hooks that would _potentially reduce_ the risk of committing or pushing wrong or inappropriately formatted information to a git repo.
+
+## Installation
+
+These git hooks come with an installer script. When run, the installer shall copy the files from this directory to a desired place (or if no path is passed, the installer shall use current directory) and configure the hooks there.
+
+```bash
+bash install.sh
+```
 
 ## Configuration
 
@@ -11,7 +19,7 @@ The following git hooks - `pre-commit`, `prepare-commit-msg` and `pre-push`, hav
 Each of these three git hooks starts off with the following lines:
 
 ``` bash
-# Get pre-commit variables
+# Get pre-<hook_name> variables
 source ~/path/to/git-hook-helper.sh
 create_variables ~/path/to/git-hook-variables.yaml
 ```
@@ -25,13 +33,15 @@ Additionally, you can also configure to have a *main* directory for all your hoo
         hooksPath = ~/dotfiles/git/hooks
 ```
 
+Keep in mind that this variable should already be set if the hooks were installed with the provided installer.
+
 **Note 2:** the `commit-msg` hooks requires python3.
 
 ## Usage
 
-`pre-commit` - called only by `git commit`
-`commit-msg` - called by finishing `git commit`
-`pre-merge-commit` - called only by `git merge`
-`pre-push` - called only by `git push`
-`pre-rebase` - called only by `git rebase`
-`prepare-commit-msg` - called only by `git commit`
+`pre-commit` - called before executing `git commit`
+`commit-msg` - called before finishing `git commit`
+`pre-merge-commit` - called before executing `git merge`
+`pre-push` - called before executing `git push`
+`pre-rebase` - called before executing `git rebase`
+`prepare-commit-msg` - called during `git commit`
