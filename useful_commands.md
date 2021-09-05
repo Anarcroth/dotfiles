@@ -66,11 +66,21 @@ sha1sum $FILE
 lsblk --all --bytes --fs --perms
 
 # Create a bootable USB image
-sudo umount /dev/sd<?><?>
+sudo umount /path/to/mount/point
 # for .img
 sudo dd bs=4M if=/path/to/image.img of=/dev/sd<?> status=progress conv=fsync
 # for .iso
 sudo dd bs=4M if=/path/to/image.iso of=/dev/sd<?> status=progress conv=fdatasync
+
+# Get size (in bytes) of a file/dir
+du -b /path/to/file/or/dir
+# in human readable format
+du -h /path/to/file/or/dir
+
+# Get size of a device
+lsblk -bno SIZE /dev/sd<?>[<?>]
+# in human readable format
+lsblk -no SIZE /dev/sd<?>[<?>]
 
 # Reverse bash command line history
 `Ctrl` + `R`
