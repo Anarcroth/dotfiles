@@ -51,6 +51,7 @@ sed -i 's/\(create_variables \).*/\1'"$dir"'\/git-hook-variables.yaml/' pre-comm
 echo "Updating git hook variable configs for prepare-commit-msg "
 sed -i 's/\(source \).*/\1'"$dir"'\/git-hook-helper.sh/' prepare-commit-msg
 sed -i 's/\(create_variables \).*/\1'"$dir"'\/git-hook-variables.yaml/' prepare-commit-msg
+sed -i 's/\(commit_templ=\$(cat \).*/\1'"$dir"'\/commit-msg-template)/' prepare-commit-msg
 
 # Configure user .gitconfig, which is found in $HOME
 # The "hooksPath" setting is part of the "[core]" section
