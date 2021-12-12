@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi_command="rofi -theme themes/network.rasi"
+rofi_command="rofi -theme $HOME/dotfiles/rofi/themes/network.rasi"
 
 ## Get info
 IFACE="$(nmcli | grep -i interface | awk '/interface/ {print $2}')"

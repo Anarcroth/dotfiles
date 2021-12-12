@@ -35,12 +35,13 @@ configuration {
   width: 50%;
   height: 60%;
   padding: 40px 40px;
-  border: 0px;
+  border: 5px;
   border-radius: 14px;
 }
 
 * {
-  background-color: @background;
+  border-color: @accent;
+  background-color: @background-light;
   text-color: @foreground;
   font: @text-font;
 }
@@ -49,7 +50,7 @@ inputbar,
 prompt,
 textbox-prompt-colon,
 entry {
-  background-color: @background-light;
+  background-color: @background;
   border: 0px;
   border-radius: 10px;
 }
@@ -80,8 +81,8 @@ entry {
   padding: @list-element-padding;
   margin: @list-element-margin;
   border: @list-element-border;
-  background-color: @background-light;
-  border-color: @background-light;
+  background-color: @background;
+  border-color: @background;
   border-radius: 10px;
 }
 

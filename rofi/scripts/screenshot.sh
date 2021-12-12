@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi_command="rofi -theme themes/screenshot.rasi"
+rofi_command="rofi -theme $HOME/dotfiles/rofi/themes/screenshot.rasi"
 
 # Options
 screen=""

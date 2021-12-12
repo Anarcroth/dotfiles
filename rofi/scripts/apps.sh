@@ -1,11 +1,6 @@
 #!/bin/bash
 
-## Author : Aditya Shakya (adi1090x)
-## Mail : adi1090x@gmail.com
-## browser : @adi1090x
-## music : @adi1090x
-
-rofi_command="rofi -theme themes/apps.rasi"
+rofi_command="rofi -theme $HOME/dotfiles/rofi/themes/apps.rasi"
 
 # Links
 editor=""

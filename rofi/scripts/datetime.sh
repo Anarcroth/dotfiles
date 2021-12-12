@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi_command="rofi -theme themes/time.rasi"
+rofi_command="rofi -theme $HOME/dotfiles/rofi/themes/time.rasi"
 
 ## Get time and date
 TIME_DATE="$(date +"%a %d, %R")"

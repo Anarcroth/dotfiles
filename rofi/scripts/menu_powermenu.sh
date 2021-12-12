@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi_command="rofi -theme themes/menu/powermenu.rasi"
+rofi_command="rofi -theme $HOME/dotfiles/rofi/themes/menu/powermenu.rasi"
 uptime=$(uptime -p | sed -e 's/up //g' | sed -e 's/ minutes/ min/g')
 
 # Options

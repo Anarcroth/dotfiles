@@ -21,7 +21,7 @@
 /* ########### */
 
 #window {
-  width: 36%;
+  width: 37%;
   height: 24%;
   anchor: center;
   location: center;

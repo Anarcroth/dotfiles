@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi_command="rofi -theme themes/menu/apps.rasi"
+rofi_command="rofi -theme $HOME/dotfiles/rofi/themes/menu/apps.rasi"
 
 # Links
 editor=""

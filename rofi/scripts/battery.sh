@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi_command="rofi -theme themes/battery.rasi"
+rofi_command="rofi -theme $HOME/dotfiles/rofi/themes/battery.rasi"
 
 BATTERY="$(acpi | awk -F ' ' '{print $4}' | tr -d \%,)"
 BATTERY_MSG="$(acpi | awk -F ' ' '{print $4}{print $5}' | tr -d \, | tr \\n ' ' | awk '{$1=$1};1')"
