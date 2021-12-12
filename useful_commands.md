@@ -190,6 +190,11 @@ sudo scsiadd -r 1 0 0 0
 # Better grepping experience
 # grep with lines around the match (2 lines above and below) and line number to each line
 grep -n -C 2 <<REGEX>>
+
+# Set keyboard layout
+setxkbmap -model "pc105" -layout "us(dvorak),bg(phonetic)" -option "grp:alt_shift_toggle"
+# or
+loadkeys dvorak
 ```
 
 ---
