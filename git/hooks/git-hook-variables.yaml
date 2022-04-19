@@ -26,7 +26,7 @@ pre_push:
   # These are the branches that are considered protected when force pushing to
   # and will not allow to be forced pushed to
   # Ex: ^(master|develop|dev|release/*)
-  protected_branches: ^(dev|release/*)
+  protected_branches: ^(master|release/*)
   # Branch to compare against for checking against WIP commits.
   # Usually, this is meant to cover only develop and/or master branch
   # This will default to either develop or master, depending on branch which exists and which doesn't
