@@ -60,6 +60,7 @@
 	past-commit = "!a() { git commit --date '\"'$1' days ago\"' -m \"$2\" ; }; a"
 	shod = show --word-diff
 	shodp = show --word-diff -p
+	ae = "!e() { path_to_ignore=\"\"; for arg in $@; do path_to_ignore+=\":!$arg \"; done; git add -- . $path_to_ignore; }; e"
 
 [github]
 	user = Anarcroth
