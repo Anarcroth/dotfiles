@@ -72,7 +72,12 @@
 	editor = emacsclient --alternate-editor "emacs" --create-frame
 	filemode = false
 	hooksPath = ~/dotfiles/git/hooks
+
 [pull]
 	rebase = true
+
+[merge]
+	conflictstyle = diff3
+
 [init]
 	defaultBranch = master
