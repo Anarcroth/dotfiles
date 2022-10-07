@@ -57,7 +57,7 @@
 	temp-commit = "!t() { bash ~/dotfiles/git/temp_commit.sh \"$@\"; }; t"
 	clean-brchs = "!cbrchs() { bash ~/dotfiles/git/delete_merged_branches.sh ; }; cbrchs"
 	direct-commit = commit --no-verify -m
-	past-commit = "!a() { git commit --date '\"'$1' days ago\"' -m \"$2\" ; }; a"
+	past-commit = "!a() { git commit --date '\"'$1' days ago\"' -m \"$2\" \"$3\"; }; a"
 	shod = show --word-diff
 	shodp = show --word-diff -p
 	ae = "!e() { path_to_ignore=\"\"; for arg in $@; do path_to_ignore+=\":!$arg \"; done; git add -- . $path_to_ignore; }; e"
