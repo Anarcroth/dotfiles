@@ -103,13 +103,15 @@ alias pacinf="pacman -Qi" # Display information about a package in the local dat
 alias pacsur="pacman -Qs" # Search for packages in the local database
 alias pacorph="sudo pacman -Qdt" # List all orphaned packages
 alias pacrem="sudo pacman -Rns" # Remove packages, including its settings and dependencies
+alias pacrm="sudo pacman -Rs" # Remove packages, without its dependencies
 alias pacrinf="pacman -Si" # Display information about a package in the repositories
 alias pacrsur="pacman -Ss" # Search for packages in the repositories
 alias pacrmorphs="sudo pacman -Rs $(pacman -Qtdq)" # Delete all orphaned packages
 alias pacupg="sudo pacman -Syu" # Sync with repositories before upgrading packages
 alias pacfls="pacman -Ql" # List files in a package
 alias pacown="pacman -Qo" # Show which package owns a file
-
+alias dvorak="setxkbmap -model \"pc105\" -layout \"us(dvorak),bg(phonetic)\" -option \"grp:alt_shift_toggle\""
+alias qwerty="setxkbmap -model \"pc105\" -layout \"us,bg(phonetic)\" -option \"grp:alt_shift_toggle\""
 # Run antigen
 source $HOME/antigen/antigen.zsh
 
