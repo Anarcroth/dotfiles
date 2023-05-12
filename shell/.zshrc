@@ -112,6 +112,8 @@ alias pacfls="pacman -Ql" # List files in a package
 alias pacown="pacman -Qo" # Show which package owns a file
 alias dvorak="setxkbmap -model \"pc105\" -layout \"us(dvorak),bg(phonetic)\" -option \"grp:alt_shift_toggle\""
 alias qwerty="setxkbmap -model \"pc105\" -layout \"us,bg(phonetic)\" -option \"grp:alt_shift_toggle\""
+alias pyenv="python -m venv $1" # Create python virtual environment at path (argument)
+
 # Run antigen
 source $HOME/antigen/antigen.zsh
 
