@@ -1,0 +1,138 @@
+* {
+  /* Bar measurement icons: https://github.com/and3rson/graph-bars-font */
+  /* Icon set: https://fontawesome.com/v5.15/how-to-use/on-the-desktop/setup/getting-started */
+  font-family: 'Iosevka NFM';
+  font-size: 16px;
+  color: #ABB2BF;
+}
+
+.bar {
+  background: #282C34; /* rgba(29, 32, 33, 0.3);*/
+  border: 1px solid #61AFEF;
+  border-radius: 3px;
+  padding: 0 4px;
+}
+
+.container-right .widget {
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.container-right .widget * {
+  color: #242424;
+}
+.komorebi-workspaces {
+  margin-left: 0;
+}
+.ws-btn {
+  color: #D19A66;
+  padding: 5px;
+  background: #4B5363;
+  font-weight: bold;
+  border: 1px solid #528BFF;
+  margin: 2px 1px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.ws-btn:hover {
+  color: #ABB2BF;
+  font-weight: bold;
+}
+
+.ws-btn.populated {
+  border-color: #528BFF;
+  color: #ABB2BF;
+}
+
+.ws-btn.active {
+  background:  #528BFF;
+  color: #121417;
+}
+
+.custom-widget {
+    padding: 2px 6px;
+    font-size: 14px;
+    background: #4B5363;
+}
+.custom-widget .icon {
+  font-size: 13px;
+}
+.custom-widget:hover {
+  background: #fbf1c7;
+}
+.custom-widget .icon.icon-left {
+    margin-right: 5px;
+}
+.custom-widget .icon.icon-right {
+    margin-left: 5px;
+}
+.custom-widget.hostname-widget {
+    background: #4B5363;
+}
+
+.custom-widget.terminal-widget {
+    font-size: 14px;
+}
+
+.cpu-widget .label,
+.memory-widget .label,
+.battery-widget .label {
+  padding: 2px 5px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.cpu-widget .label {
+  background: #56B6C2;
+}
+
+.battery-widget .label.status-critical {
+  background: #98C379;
+}
+.battery-widget .label.status-low {
+  background: #98C379;
+}
+.battery-widget .label.status-medium {
+  background: #98C379;
+}
+.battery-widget .label.status-high {
+  background: #98C379;
+}
+.battery-widget .label.status-full {
+  background: #98C379;
+}
+.battery-widget .label.status-charging {
+  background: #98C379;
+}
+.battery-widget,
+.memory-widget {
+  margin: 0;
+}
+
+.memory-widget .label.status-low {
+  background: #C678DD;
+}
+.memory-widget .label.status-medium {
+  background: #C678DD;
+}
+.memory-widget .label.status-high {
+  background: #C678DD;
+}
+.active-window-widget {
+  margin-left: 5px;
+}
+.active-window-widget .label {
+  padding: -4px 7px 0 7px;
+  color: #ABB2BF;
+  background: #4B5363;
+  margin-bottom: -1px;
+  border-radius: 3px;
+  margin: 2px;
+}
+
+.komorebi-active-layout .label {
+  color: #E06C75;
+  margin: -4px 2px 2px 8px;
+  font-family: Hack;
+}
