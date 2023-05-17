@@ -19,8 +19,8 @@ XTerm.vt100.translations: #override \
     Ctrl <Key> plus: larger-vt-font()
 XTerm.vt100.saveLines: 4096
 XTerm.vt100.bellIsUrgent: true
-XTerm.vt100.faceName: Iosevka Nerd Font:size=11:antialias=true:style=Regular
-XTerm.vt100.faceNameDoublesize: PowerlineSymbols:pixelsize=11:style=Regular
+XTerm.vt100.faceName: Iosevka Nerd Font Mono:size=12:antialias=true:style=Regular
+! XTerm.vt100.faceNameDoublesize: PowerlineSymbols:pixelsize=11:style=Regular
 XTerm.vt100.font: 7x13
 XTerm.vt100.renderFont: true
 XTerm.vt100.faceSize: 12
