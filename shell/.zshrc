@@ -114,6 +114,8 @@ alias dvorak="setxkbmap -model \"pc105\" -layout \"us(dvorak),bg(phonetic)\" -op
 alias qwerty="setxkbmap -model \"pc105\" -layout \"us,bg(phonetic)\" -option \"grp:alt_shift_toggle\""
 alias pyenv="python -m venv $1" # Create python virtual environment at path (argument)
 alias envonpy="source bin/activate" # Activate python virtual environment
+alias rsagen="ssh-keygen -t rsa -b 4096 -C $1" # Generate ssh RSA 4096 bit key
+alias ed25gen="ssh-keygen -t ed25519 -C $1" # Generate ssh ed25519 key
 
 # Run antigen
 source $HOME/antigen/antigen.zsh

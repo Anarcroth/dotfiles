@@ -423,9 +423,13 @@ git log --diff-filter=A -- **foo.js
 ``` bash
 # Create ssh keys
 ssh-keygen -t rsa -b 4096 -C "youremail@email.com"
+# or
+ssh-keygen -t ed25519 -C "your_email@example.com"
 
 # Create a new ssh password
 ssh-keygen -p -f ~/.ssh/id_rsa
+# or
+ssh-keygen -p -f ~/.ssh/id_ed25519
 
 # Open a two-way SSH tunnel for backwards connection from destination.
 ssh -R $PORT_NUM:localhost:22 SERVER@IP
