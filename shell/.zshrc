@@ -102,6 +102,7 @@ alias pacin="sudo pacman -S" # Install packages from the repositories
 alias pacinf="pacman -Qi" # Display information about a package in the local database
 alias pacsur="pacman -Qs" # Search for packages in the local database
 alias pacorph="sudo pacman -Qdt" # List all orphaned packages
+alias pacregrem="sudo pacman -Rns $(pacman -Qsq \'$1\')" # Remove packages, including dependencies and settings, with a regex
 alias pacrem="sudo pacman -Rns" # Remove packages, including its settings and dependencies
 alias pacrm="sudo pacman -Rs" # Remove packages, without its dependencies
 alias pacrinf="pacman -Si" # Display information about a package in the repositories

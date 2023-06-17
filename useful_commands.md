@@ -195,6 +195,9 @@ grep -n -C 2 <<REGEX>>
 setxkbmap -model "pc105" -layout "us(dvorak),bg(phonetic)" -option "grp:alt_shift_toggle"
 # or
 loadkeys dvorak
+
+# Remove packages based on regex
+sudo pacman -Rns $(pacman -Qsq '<REGEX>')
 ```
 
 ---
