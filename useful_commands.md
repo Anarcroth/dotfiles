@@ -350,6 +350,8 @@ git show HASH
 # When was a bug introduced
 # When you know the bad line of code
 git log -S"Bad line of code"
+# or
+git log --all -S "change" filename
 # When you don't know what caused the bug
 git bisect start
 git bisect bad HEAD
