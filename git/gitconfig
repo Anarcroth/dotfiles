@@ -24,6 +24,12 @@
 	email = mnestorov@protonmail.com
 	name = Martin Nestorov
 
+# Configures git to use the correct .gitconfig file based on the current directory
+[includeIf "gitdir:~/git-COMPANY/"]
+	path = ~/.gitconfig-COMPAYN
+[includeIf "gitdir:~/git-PERSONAL/"]
+	path = ~/.gitconfig-PERSONAL
+
 [alias]
 	lg = log --all --stat --pretty=oneline --graph --format='%h %d %an %cr %s' --oneline
 	l = log --all --stat --graph --format='%h %d %an %cr %s'
